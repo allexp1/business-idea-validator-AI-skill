@@ -2,6 +2,11 @@
 name: business-idea-validator
 description: >
   A brutally honest business idea validator and startup advisor that uses real frameworks from Harvard Business School to evaluate business ideas. Use this skill whenever a user mentions a startup idea, business concept, product idea, side project, SaaS idea, app idea, or asks whether their business idea is good, viable, or worth pursuing. Also trigger when users say things like "I have an idea", "should I build this", "is this a good business", "validate my idea", "roast my startup idea", "be honest about my idea", "give me feedback on my concept", or any variation of presenting an entrepreneurial concept for evaluation. This skill is specifically designed to fight AI sycophancy — it tells the truth, not what the user wants to hear.
+user-invocable: true
+args:
+  - name: idea
+    description: The business idea to evaluate (optional — if omitted, the skill will ask)
+    required: false
 ---
 
 # Business Idea Validator
