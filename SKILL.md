@@ -90,6 +90,53 @@ Structure your response as follows:
 4. Study the top 3 competitors deeply
 5. Calculate basic unit economics
 
+### Phase 4: Deliver the PDF Brief (Automatic, Always)
+
+**Every evaluation MUST end with a styled PDF brief delivered to the user's Desktop.** Do not ask whether to produce one — produce it. The only exceptions:
+- The user explicitly says "no PDF" or "skip the PDF" or "just talk" in the current request
+- The evaluation was a trivial follow-up (e.g. user pushing back on one point) rather than a fresh idea
+
+The PDF is the permanent artifact the founder will re-read, forward, and actually use. The chat response is ephemeral.
+
+**How to produce it:**
+
+1. **Read the template.** `references/pdf-template.html` is the visual blueprint. It contains the full CSS and the section scaffolding. Never deviate from its styling.
+
+2. **Generate the filled HTML.** Write a new HTML file to `~/Desktop/` using the template as the starting point. Replace every `{{PLACEHOLDER}}` with real content from the evaluation. Remove optional sections (stat row, tarpit callout, extra risk cards) if they don't apply — do not leave empty placeholders.
+
+   - **Verdict color:** Set the `--accent` and `--accent-soft` CSS variables to match the verdict mood:
+     - Strong → `--accent: #1c7a44; --accent-soft: #e8f5ee;` (green)
+     - Promising → `--accent: #1f4fd6; --accent-soft: #eef2ff;` (blue, the default)
+     - Weak → `--accent: #7a2fd6; --accent-soft: #f4eefe;` (purple)
+     - Flawed → `--accent: #b23a1f; --accent-soft: #fbece8;` (red)
+   - **Section depth:** aim for 4 "What's Working" cards, 5–7 "Hard Truths" cards, 2–3 pivots, 5–7 steps in the 7-Day Plan.
+   - **Voice:** keep the same sharp, direct, evidence-cited tone used in the chat verdict. No corporate softening.
+
+3. **Filename.** Use: `~/Desktop/{Slug}-Validation.pdf` where `{Slug}` is a short PascalCase version of the subject (e.g. `Enso-Bot-Validation.pdf`, `FitBeat-Validation.pdf`). If a file with the same name exists, append `-2`, `-3`, etc.
+
+4. **Render to PDF via headless Chrome.** Run this command (macOS path; adjust if needed):
+
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+     --headless --disable-gpu --no-pdf-header-footer \
+     --print-to-pdf="/Users/<user>/Desktop/<Slug>-Validation.pdf" \
+     "file:///Users/<user>/Desktop/<slug>-validation.html"
+   ```
+
+   If Chrome is not found, try `/Applications/Chromium.app/Contents/MacOS/Chromium` or `chromium` on PATH. If neither is available, tell the user clearly that PDF generation requires Chrome/Chromium installed, then deliver the HTML file anyway so they can print it themselves.
+
+5. **Open the PDF automatically** so the user sees it immediately:
+
+   ```bash
+   open "/Users/<user>/Desktop/<Slug>-Validation.pdf"
+   ```
+
+6. **In chat, keep the closing message short.** One sentence confirming the PDF is on the Desktop and open, plus the filename. Do NOT re-summarize the PDF's content in chat — the full verdict should already have been delivered in Phase 3. The PDF is the takeaway artifact.
+
+**Required sections in the PDF, in order:** Cover → (optional stat row) → Verdict → What's Working → Hard Truths → (optional Tarpit callout) → What I'd Do Instead → What NOT to do → 7-Day Validation Plan → One Sentence Summary → Sources.
+
+**Sources are mandatory** if any web research was performed. Always include a Sources section with at least 3–5 hyperlinked entries from the research, in the same style as the template's `.sources` block.
+
 ## Critical Rules
 
 - **Never lie to be nice.** Sycophancy kills startups. A bad idea pursued is worse than a good idea abandoned.

@@ -1,0 +1,213 @@
+<!doctype html>
+<!--
+  BUSINESS IDEA VALIDATOR — PDF BRIEF TEMPLATE
+  ================================================================
+  Use this as the visual blueprint for every validation PDF.
+  Keep the CSS block untouched. Replace content between the
+  clearly marked <!-- CONTENT: ... --> boundaries.
+
+  REQUIRED sections:
+    1. Cover              (title, subtitle, meta row)
+    2. Verdict            (single tag + paragraph)
+    3. What's Working     (2x2 grid of green cards)
+    4. Hard Truths        (stacked red cards)
+    5. What You'd Do      (2-3 "bet" blocks)
+    6. 7-Day Plan         (numbered list)
+    7. One-Sentence Sum.  (kicker)
+    8. Sources            (hyperlinked list)
+
+  OPTIONAL sections:
+    - Stat row (4 KPI tiles) — use for numbered subjects w/ metrics
+    - Callout blocks (amber) — for warnings or side notes
+    - Tarpit callout — for ideas that hit known failure patterns
+
+  VERDICT TAGS (pick exactly one, match color):
+    --accent (blue/purple)  →  "Strong" or "Promising"
+    --warn (red)            →  "Weak" or "Flawed"
+
+  Change the --accent color in :root to match the verdict mood
+  (blue for Strong, purple for Promising, amber for Weak,
+  red for Flawed). Everything else stays consistent.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{{SUBJECT}} — Validation Brief</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  :root {
+    --ink: #111418;
+    --muted: #55606b;
+    --line: #e4e8ec;
+    --accent: #1f4fd6;           /* change per verdict mood */
+    --accent-soft: #eef2ff;      /* change per verdict mood */
+    --warn: #b23a1f;
+    --ok: #1c7a44;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cover { padding: 10mm 0 8mm; border-bottom: 1px solid var(--line); margin-bottom: 8mm; }
+  .eyebrow { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  h1 { font-size: 26pt; line-height: 1.15; margin: 4mm 0 2mm; letter-spacing: -0.01em; }
+  .subtitle { font-size: 11.5pt; color: var(--muted); max-width: 150mm; }
+  .meta { display: flex; gap: 8mm; flex-wrap: wrap; margin-top: 6mm; font-size: 9pt; color: var(--muted); }
+  .meta span strong { color: var(--ink); }
+  h2 { font-size: 14pt; margin: 9mm 0 3mm; padding-bottom: 2mm; border-bottom: 1px solid var(--line); letter-spacing: -0.005em; }
+  h3 { font-size: 11.2pt; margin: 5mm 0 1.5mm; color: var(--ink); }
+  p { margin: 0 0 2.5mm; }
+  ul, ol { margin: 0 0 3mm; padding-left: 5mm; }
+  li { margin-bottom: 1.5mm; }
+  strong { color: var(--ink); }
+  em { color: var(--muted); }
+
+  .verdict { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 5mm 6mm; border-radius: 2px; margin-bottom: 4mm; }
+  .verdict .tag { display: inline-block; background: var(--accent); color: #fff; font-size: 8pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1.5mm 3mm; border-radius: 3px; margin-bottom: 2.5mm; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 2mm 0 4mm; }
+  .card { border: 1px solid var(--line); border-radius: 3px; padding: 4mm 5mm; break-inside: avoid; }
+  .card h3 { margin-top: 0; }
+  .card.good { border-left: 3px solid var(--ok); }
+  .card.risk { border-left: 3px solid var(--warn); }
+
+  .bet { border: 1px solid var(--line); border-radius: 3px; padding: 4mm 5mm; margin-bottom: 3mm; break-inside: avoid; }
+  .bet .num { font-size: 8pt; letter-spacing: 0.1em; color: var(--accent); font-weight: 700; text-transform: uppercase; }
+  .bet h3 { margin: 1mm 0 2mm; }
+
+  .callout { background: #fdf6ec; border: 1px solid #f1d59b; border-radius: 3px; padding: 4mm 5mm; font-size: 10pt; margin: 3mm 0; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 2mm 0 5mm; }
+  .stat { border: 1px solid var(--line); border-radius: 3px; padding: 3mm 4mm; }
+  .stat .label { font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 13pt; font-weight: 700; margin-top: 1mm; letter-spacing: -0.005em; }
+
+  ol.plan { counter-reset: step; padding-left: 0; list-style: none; }
+  ol.plan li { counter-increment: step; padding: 2mm 0 2mm 10mm; position: relative; border-bottom: 1px dashed var(--line); }
+  ol.plan li:last-child { border-bottom: 0; }
+  ol.plan li::before { content: counter(step); position: absolute; left: 0; top: 2mm; width: 7mm; height: 7mm; background: var(--ink); color: #fff; border-radius: 50%; font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  .sources { font-size: 8.8pt; color: var(--muted); line-height: 1.45; }
+  .sources a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--muted); }
+
+  .kicker { font-size: 12pt; font-weight: 600; margin: 6mm 0 2mm; color: var(--ink); }
+  .pagebreak { page-break-before: always; }
+  footer { margin-top: 8mm; padding-top: 4mm; border-top: 1px solid var(--line); font-size: 8.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- CONTENT: COVER -->
+<div class="cover">
+  <div class="eyebrow">Business Idea Validator · Confidential</div>
+  <h1>{{SUBJECT}} — Honest Validation</h1>
+  <div class="subtitle">{{SUBTITLE_ONE_LINE_PITCH_OR_CONTEXT}}</div>
+  <div class="meta">
+    <span><strong>Subject:</strong> {{SUBJECT_URL_OR_NAME}}</span>
+    <span><strong>Stage:</strong> {{STAGE_OR_STATUS}}</span>
+    <span><strong>Founder:</strong> {{FOUNDER_NAME_OR_TEAM}}</span>
+    <span><strong>Prepared:</strong> {{TODAY_DATE_HUMAN}}</span>
+  </div>
+</div>
+
+<!-- CONTENT: STAT ROW (optional — remove if no meaningful numbers) -->
+<div class="stat-row">
+  <div class="stat"><div class="label">{{STAT1_LABEL}}</div><div class="value">{{STAT1_VALUE}}</div></div>
+  <div class="stat"><div class="label">{{STAT2_LABEL}}</div><div class="value">{{STAT2_VALUE}}</div></div>
+  <div class="stat"><div class="label">{{STAT3_LABEL}}</div><div class="value">{{STAT3_VALUE}}</div></div>
+  <div class="stat"><div class="label">{{STAT4_LABEL}}</div><div class="value">{{STAT4_VALUE}}</div></div>
+</div>
+
+<!-- CONTENT: VERDICT -->
+<div class="verdict">
+  <span class="tag">The Honest Take · {{VERDICT_LABEL}}</span>
+  <p style="margin:0;">{{VERDICT_PARAGRAPH_2_OR_3_SENTENCES}}</p>
+</div>
+
+<!-- CONTENT: WHAT'S WORKING (aim for 4 cards) -->
+<h2>What's Working — {{WORKING_HEADLINE_SUFFIX}}</h2>
+<div class="grid">
+  <div class="card good"><h3>{{GOOD1_TITLE}}</h3><p>{{GOOD1_BODY}}</p></div>
+  <div class="card good"><h3>{{GOOD2_TITLE}}</h3><p>{{GOOD2_BODY}}</p></div>
+  <div class="card good"><h3>{{GOOD3_TITLE}}</h3><p>{{GOOD3_BODY}}</p></div>
+  <div class="card good"><h3>{{GOOD4_TITLE}}</h3><p>{{GOOD4_BODY}}</p></div>
+</div>
+
+<!-- CONTENT: HARD TRUTHS (5-7 stacked cards) -->
+<h2>The Hard Truths — {{TRUTHS_HEADLINE_SUFFIX}}</h2>
+<div class="card risk"><h3>1. {{RISK1_TITLE}}</h3><p>{{RISK1_BODY}}</p></div>
+<div class="card risk"><h3>2. {{RISK2_TITLE}}</h3><p>{{RISK2_BODY}}</p></div>
+<div class="card risk"><h3>3. {{RISK3_TITLE}}</h3><p>{{RISK3_BODY}}</p></div>
+<div class="card risk"><h3>4. {{RISK4_TITLE}}</h3><p>{{RISK4_BODY}}</p></div>
+<div class="card risk"><h3>5. {{RISK5_TITLE}}</h3><p>{{RISK5_BODY}}</p></div>
+
+<!-- CONTENT: TARPIT CALLOUT (optional, use if idea hits known tarpit) -->
+<div class="callout">
+  <strong>Tarpit pattern:</strong> {{TARPIT_DESCRIPTION_OR_REMOVE_BLOCK}}
+</div>
+
+<div class="pagebreak"></div>
+
+<!-- CONTENT: WHAT YOU'D DO INSTEAD (2-3 bets) -->
+<h2>What I'd Do Instead — {{BETS_HEADLINE_SUFFIX}}</h2>
+
+<div class="bet">
+  <div class="num">Pivot 01 · {{PIVOT1_TAG}}</div>
+  <h3>{{PIVOT1_TITLE}}</h3>
+  <p>{{PIVOT1_BODY}}</p>
+</div>
+
+<div class="bet">
+  <div class="num">Pivot 02 · {{PIVOT2_TAG}}</div>
+  <h3>{{PIVOT2_TITLE}}</h3>
+  <p>{{PIVOT2_BODY}}</p>
+</div>
+
+<div class="bet">
+  <div class="num">Pivot 03 · {{PIVOT3_TAG}}</div>
+  <h3>{{PIVOT3_TITLE}}</h3>
+  <p>{{PIVOT3_BODY}}</p>
+</div>
+
+<div class="callout">
+  <strong>What NOT to do:</strong> {{ANTI_ADVICE}}
+</div>
+
+<!-- CONTENT: 7-DAY VALIDATION PLAN -->
+<h2>7-Day Validation Plan</h2>
+<ol class="plan">
+  <li>{{DAY_ACTION_1}}</li>
+  <li>{{DAY_ACTION_2}}</li>
+  <li>{{DAY_ACTION_3}}</li>
+  <li>{{DAY_ACTION_4}}</li>
+  <li>{{DAY_ACTION_5}}</li>
+  <li>{{DAY_ACTION_6}}</li>
+  <li>{{DAY_ACTION_7}}</li>
+</ol>
+
+<!-- CONTENT: ONE-SENTENCE SUMMARY -->
+<h2>One Sentence Summary</h2>
+<p class="kicker">{{ONE_SENTENCE_VERDICT}}</p>
+
+<!-- CONTENT: SOURCES -->
+<h2>Sources</h2>
+<div class="sources">
+  <ul>
+    <li><a href="{{SRC1_URL}}">{{SRC1_TITLE}}</a></li>
+    <li><a href="{{SRC2_URL}}">{{SRC2_TITLE}}</a></li>
+    <li><a href="{{SRC3_URL}}">{{SRC3_TITLE}}</a></li>
+  </ul>
+</div>
+
+<footer>
+  Independent validation brief. No affiliation with {{SUBJECT}}. Market references reflect publicly reported information as of {{TODAY_DATE_HUMAN}}.
+</footer>
+
+</body>
+</html>
