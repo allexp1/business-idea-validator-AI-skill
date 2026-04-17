@@ -24,21 +24,15 @@ Triggers whenever a user mentions a startup idea, business concept, product idea
 
 ### Recommended — run `install.sh`
 
-The install script sets up this skill **and** its companion GEO/SEO audit skill (`/geo`) from [geo-seo-audit-AI-skill](https://github.com/allexp1/geo-seo-audit-AI-skill):
-
 ```bash
 git clone https://github.com/allexp1/business-idea-validator-AI-skill.git
 cd business-idea-validator-AI-skill
 ./install.sh
 ```
 
-This installs:
-- `~/.claude/skills/business-idea-validator/` — this skill
-- `~/.claude/skills/geo/` — companion SEO + GEO audit skill (invoked as `/geo`)
+Installs `SKILL.md` + `references/` into `~/.claude/skills/business-idea-validator/`. Restart Claude Code, then invoke with `/business-idea-validator`.
 
-Restart Claude Code after install so both skills are picked up.
-
-### Manual — this skill only
+### Manual
 
 ```bash
 mkdir -p ~/.claude/skills
