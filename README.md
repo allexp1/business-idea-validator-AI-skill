@@ -22,17 +22,28 @@ Triggers whenever a user mentions a startup idea, business concept, product idea
 
 ## Installation
 
-### Claude Code
+### Recommended — run `install.sh`
 
-Copy the `business-idea-validator` directory into your Claude skills folder:
+The install script sets up this skill **and** its companion GEO/SEO audit skill (`/geo`) from [geo-seo-audit-AI-skill](https://github.com/allexp1/geo-seo-audit-AI-skill):
 
 ```bash
-# macOS / Linux
+git clone https://github.com/allexp1/business-idea-validator-AI-skill.git
+cd business-idea-validator-AI-skill
+./install.sh
+```
+
+This installs:
+- `~/.claude/skills/business-idea-validator/` — this skill
+- `~/.claude/skills/geo/` — companion SEO + GEO audit skill (invoked as `/geo`)
+
+Restart Claude Code after install so both skills are picked up.
+
+### Manual — this skill only
+
+```bash
 mkdir -p ~/.claude/skills
 cp -r . ~/.claude/skills/business-idea-validator
 ```
-
-Restart Claude Code — the skill will be auto-discovered.
 
 ### Packaging as a `.skill` file
 
