@@ -1,38 +1,46 @@
 <!doctype html>
 <!--
-  BUSINESS IDEA VALIDATOR — PDF BRIEF TEMPLATE
+  BUSINESS IDEA VALIDATOR — PDF BRIEF TEMPLATE v2
   ================================================================
-  Use this as the visual blueprint for every validation PDF.
+  Full visual blueprint for every validation / strategic PDF.
   Keep the CSS block untouched. Replace content between the
   clearly marked <!-- CONTENT: ... --> boundaries.
 
-  REQUIRED sections:
-    1. Cover              (title, subtitle, meta row)
-    2. Verdict            (single tag + paragraph)
-    3. What's Working     (2x2 grid of green cards)
-    4. Hard Truths        (stacked red cards)
-    5. What You'd Do      (2-3 "bet" blocks)
-    6. 7-Day Plan         (numbered list)
-    7. One-Sentence Sum.  (kicker)
-    8. Sources            (hyperlinked list)
+  REQUIRED sections (in order):
+    1.  Cover              (title, subtitle, meta row)
+    2.  Stat row           (4 tiles; required for OPERATING mode, optional for NASCENT)
+    3.  Verdict            (single tag + paragraph)
+    4.  What's Working     (2x2 grid of green cards) — rename "Current Moats" for OPERATING
+    5.  Hard Truths        (stacked red cards) — rename "What's Eroding" for OPERATING
+    6.  AI-Era Deep Check  (8-row checklist with PASS/RISKY/FAIL)
+    7.  Competitor Teardown (3-5 row table)
+    8.  Unit Economics     (4 tiles + verdict paragraph)
+    9.  Precedent Cases    (2-3 mini cards)
+   10.  Tarpit callout     (OPTIONAL, only if 2+ tarpits hit)
+   11.  Pre-Mortem         (dark callout — the 2028 obituary)
+   12.  What You'd Do      (2-3 pivot/bet blocks + "What NOT to do" callout)
+   13.  7-Day / 90-Day Plan (numbered list, embed interview questions for NASCENT)
+   14.  One-Sentence Sum.  (kicker)
+   15.  Sources            (hyperlinked list)
 
-  OPTIONAL sections:
-    - Stat row (4 KPI tiles) — use for numbered subjects w/ metrics
-    - Callout blocks (amber) — for warnings or side notes
-    - Tarpit callout — for ideas that hit known failure patterns
+  VERDICT COLORS (change --accent and --accent-soft in :root):
+    Strong    → #1c7a44 / #e8f5ee (green)
+    Promising → #1f4fd6 / #eef2ff (blue, default)
+    Weak      → #7a2fd6 / #f4eefe (purple)
+    Flawed    → #b23a1f / #fbece8 (red)
 
-  VERDICT TAGS (pick exactly one, match color):
-    --accent (blue/purple)  →  "Strong" or "Promising"
-    --warn (red)            →  "Weak" or "Flawed"
-
-  Change the --accent color in :root to match the verdict mood
-  (blue for Strong, purple for Promising, amber for Weak,
-  red for Flawed). Everything else stays consistent.
+  MODE LABELS (swap in section headings):
+    NASCENT                      OPERATING
+    "What's Working"         →   "Current Moats"
+    "Hard Truths"            →   "What's Eroding"
+    "What I'd Do Instead"    →   "Strategic Options"
+    "7-Day Validation Plan"  →   "90-Day Strategic Plan"
+    filename suffix "-Validation" → "-Strategy"
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>{{SUBJECT}} — Validation Brief</title>
+<title>{{SUBJECT}} — {{MODE_LABEL}} Brief</title>
 <style>
   @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
   :root {
@@ -43,6 +51,7 @@
     --accent-soft: #eef2ff;      /* change per verdict mood */
     --warn: #b23a1f;
     --ok: #1c7a44;
+    --caution: #b88208;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -68,31 +77,96 @@
   strong { color: var(--ink); }
   em { color: var(--muted); }
 
+  /* Verdict banner */
   .verdict { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 5mm 6mm; border-radius: 2px; margin-bottom: 4mm; }
   .verdict .tag { display: inline-block; background: var(--accent); color: #fff; font-size: 8pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1.5mm 3mm; border-radius: 3px; margin-bottom: 2.5mm; }
 
+  /* Card grids */
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin: 2mm 0 4mm; }
   .card { border: 1px solid var(--line); border-radius: 3px; padding: 4mm 5mm; break-inside: avoid; }
   .card h3 { margin-top: 0; }
   .card.good { border-left: 3px solid var(--ok); }
   .card.risk { border-left: 3px solid var(--warn); }
 
+  /* Strategic bet / pivot block */
   .bet { border: 1px solid var(--line); border-radius: 3px; padding: 4mm 5mm; margin-bottom: 3mm; break-inside: avoid; }
   .bet .num { font-size: 8pt; letter-spacing: 0.1em; color: var(--accent); font-weight: 700; text-transform: uppercase; }
   .bet h3 { margin: 1mm 0 2mm; }
 
+  /* Amber callouts */
   .callout { background: #fdf6ec; border: 1px solid #f1d59b; border-radius: 3px; padding: 4mm 5mm; font-size: 10pt; margin: 3mm 0; }
 
+  /* 4-tile stat / KPI row */
   .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 2mm 0 5mm; }
   .stat { border: 1px solid var(--line); border-radius: 3px; padding: 3mm 4mm; }
   .stat .label { font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
   .stat .value { font-size: 13pt; font-weight: 700; margin-top: 1mm; letter-spacing: -0.005em; }
+  .stat .note { font-size: 8pt; color: var(--muted); margin-top: 1mm; font-style: italic; }
 
+  /* Competitor teardown table */
+  table.teardown { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 9.5pt; }
+  table.teardown thead th {
+    font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    text-align: left; padding: 2mm 3mm; background: #fafbfc; border-bottom: 1px solid var(--line);
+  }
+  table.teardown td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.teardown td:first-child { font-weight: 600; }
+  .threat-pill { display: inline-block; padding: 0.7mm 2.5mm; border-radius: 10px; font-size: 8pt; font-weight: 700; color: #fff; min-width: 12mm; text-align: center; }
+  .threat-1, .threat-2 { background: var(--ok); }
+  .threat-3 { background: var(--caution); }
+  .threat-4, .threat-5 { background: var(--warn); }
+
+  /* AI-era deep check list */
+  .checklist { border: 1px solid var(--line); border-radius: 3px; padding: 0; margin: 2mm 0 4mm; overflow: hidden; }
+  .check-item { display: grid; grid-template-columns: 7mm 1fr 18mm; gap: 3mm; align-items: start; padding: 3mm 4mm; border-bottom: 1px solid var(--line); }
+  .check-item:last-child { border-bottom: 0; }
+  .check-num { font-size: 9pt; color: var(--muted); font-weight: 700; }
+  .check-body strong { display: block; margin-bottom: 1mm; font-size: 10pt; }
+  .check-body span { font-size: 9.5pt; color: var(--muted); }
+  .check-status { font-size: 7.5pt; font-weight: 700; letter-spacing: 0.06em; padding: 1mm 0; border-radius: 3px; color: #fff; text-transform: uppercase; text-align: center; height: fit-content; }
+  .status-pass { background: var(--ok); }
+  .status-risky { background: var(--caution); }
+  .status-fail { background: var(--warn); }
+
+  /* Precedent cases */
+  .precedent { border: 1px solid var(--line); border-left: 3px solid var(--muted); border-radius: 3px; padding: 3.5mm 5mm; margin-bottom: 2.5mm; break-inside: avoid; }
+  .precedent .head { display: flex; align-items: baseline; gap: 3mm; flex-wrap: wrap; margin-bottom: 1.5mm; }
+  .precedent .name { font-weight: 700; font-size: 10.5pt; }
+  .precedent .year { font-size: 8.5pt; color: var(--muted); }
+  .precedent .outcome { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: 0.7mm 2.5mm; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .outcome-acquired { background: var(--accent-soft); color: var(--accent); }
+  .outcome-dead { background: #fbece8; color: var(--warn); }
+  .outcome-pivoted { background: #fff3dc; color: var(--caution); }
+  .outcome-thriving { background: #e8f5ee; color: var(--ok); }
+  .precedent p { margin: 0 0 1.5mm; font-size: 9.5pt; }
+  .precedent .lesson { font-style: italic; color: var(--muted); font-size: 9.5pt; }
+
+  /* Pre-mortem — distinctive dark callout */
+  .premortem { background: #1a1e24; color: #e4e8ec; border-radius: 3px; padding: 6mm 7mm; margin: 4mm 0; break-inside: avoid; }
+  .premortem .tag { display: inline-block; background: #f4c94a; color: #1a1e24; font-size: 8pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 1.5mm 3mm; border-radius: 3px; margin-bottom: 3mm; }
+  .premortem h3 { color: #fff; margin: 0 0 2.5mm; font-size: 13pt; }
+  .premortem p { margin: 0 0 2.5mm; color: #d0d6dd; }
+  .premortem p:last-child { margin-bottom: 0; }
+  .premortem strong { color: #fff; }
+
+  /* Unit economics verdict */
+  .econ-verdict { font-size: 10pt; background: #fafbfc; border: 1px solid var(--line); border-radius: 3px; padding: 3.5mm 5mm; margin: 0 0 4mm; }
+  .econ-verdict strong { color: var(--ink); }
+
+  /* Interview questions inside 7-day plan */
+  .interview-qs { margin: 2mm 0 3mm; padding: 3mm 5mm; border: 1px solid var(--line); border-radius: 3px; background: #fafbfc; }
+  .interview-qs h4 { margin: 2mm 0 1mm; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .interview-qs h4:first-child { margin-top: 0; }
+  .interview-qs ol { margin: 0 0 2mm; padding-left: 5mm; font-size: 9.5pt; }
+  .interview-qs li { margin-bottom: 1mm; }
+
+  /* Numbered plan */
   ol.plan { counter-reset: step; padding-left: 0; list-style: none; }
-  ol.plan li { counter-increment: step; padding: 2mm 0 2mm 10mm; position: relative; border-bottom: 1px dashed var(--line); }
-  ol.plan li:last-child { border-bottom: 0; }
-  ol.plan li::before { content: counter(step); position: absolute; left: 0; top: 2mm; width: 7mm; height: 7mm; background: var(--ink); color: #fff; border-radius: 50%; font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  ol.plan > li { counter-increment: step; padding: 2.5mm 0 2.5mm 10mm; position: relative; border-bottom: 1px dashed var(--line); }
+  ol.plan > li:last-child { border-bottom: 0; }
+  ol.plan > li::before { content: counter(step); position: absolute; left: 0; top: 2.5mm; width: 7mm; height: 7mm; background: var(--ink); color: #fff; border-radius: 50%; font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 
+  /* Sources */
   .sources { font-size: 8.8pt; color: var(--muted); line-height: 1.45; }
   .sources a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted var(--muted); }
 
@@ -105,18 +179,18 @@
 
 <!-- CONTENT: COVER -->
 <div class="cover">
-  <div class="eyebrow">Business Idea Validator · Confidential</div>
-  <h1>{{SUBJECT}} — Honest Validation</h1>
-  <div class="subtitle">{{SUBTITLE_ONE_LINE_PITCH_OR_CONTEXT}}</div>
+  <div class="eyebrow">Business Idea Validator · {{MODE_LABEL_EYEBROW}}</div>
+  <h1>{{SUBJECT}} — {{TITLE_SUFFIX}}</h1>
+  <div class="subtitle">{{SUBTITLE_ONE_LINE_CONTEXT}}</div>
   <div class="meta">
     <span><strong>Subject:</strong> {{SUBJECT_URL_OR_NAME}}</span>
     <span><strong>Stage:</strong> {{STAGE_OR_STATUS}}</span>
-    <span><strong>Founder:</strong> {{FOUNDER_NAME_OR_TEAM}}</span>
+    <span><strong>Founder / Team:</strong> {{FOUNDER_NAME_OR_TEAM}}</span>
     <span><strong>Prepared:</strong> {{TODAY_DATE_HUMAN}}</span>
   </div>
 </div>
 
-<!-- CONTENT: STAT ROW (optional — remove if no meaningful numbers) -->
+<!-- CONTENT: STAT ROW (required for OPERATING, optional for NASCENT) -->
 <div class="stat-row">
   <div class="stat"><div class="label">{{STAT1_LABEL}}</div><div class="value">{{STAT1_VALUE}}</div></div>
   <div class="stat"><div class="label">{{STAT2_LABEL}}</div><div class="value">{{STAT2_VALUE}}</div></div>
@@ -126,12 +200,12 @@
 
 <!-- CONTENT: VERDICT -->
 <div class="verdict">
-  <span class="tag">The Honest Take · {{VERDICT_LABEL}}</span>
+  <span class="tag">{{VERDICT_HEADING}} · {{VERDICT_LABEL}}</span>
   <p style="margin:0;">{{VERDICT_PARAGRAPH_2_OR_3_SENTENCES}}</p>
 </div>
 
-<!-- CONTENT: WHAT'S WORKING (aim for 4 cards) -->
-<h2>What's Working — {{WORKING_HEADLINE_SUFFIX}}</h2>
+<!-- CONTENT: WHAT'S WORKING / CURRENT MOATS (4 cards) -->
+<h2>{{WHATS_WORKING_HEADING}} — {{WHATS_WORKING_SUFFIX}}</h2>
 <div class="grid">
   <div class="card good"><h3>{{GOOD1_TITLE}}</h3><p>{{GOOD1_BODY}}</p></div>
   <div class="card good"><h3>{{GOOD2_TITLE}}</h3><p>{{GOOD2_BODY}}</p></div>
@@ -139,38 +213,204 @@
   <div class="card good"><h3>{{GOOD4_TITLE}}</h3><p>{{GOOD4_BODY}}</p></div>
 </div>
 
-<!-- CONTENT: HARD TRUTHS (5-7 stacked cards) -->
-<h2>The Hard Truths — {{TRUTHS_HEADLINE_SUFFIX}}</h2>
+<!-- CONTENT: HARD TRUTHS / WHAT'S ERODING (5-7 cards) -->
+<h2>{{TRUTHS_HEADING}} — {{TRUTHS_SUFFIX}}</h2>
 <div class="card risk"><h3>1. {{RISK1_TITLE}}</h3><p>{{RISK1_BODY}}</p></div>
 <div class="card risk"><h3>2. {{RISK2_TITLE}}</h3><p>{{RISK2_BODY}}</p></div>
 <div class="card risk"><h3>3. {{RISK3_TITLE}}</h3><p>{{RISK3_BODY}}</p></div>
 <div class="card risk"><h3>4. {{RISK4_TITLE}}</h3><p>{{RISK4_BODY}}</p></div>
 <div class="card risk"><h3>5. {{RISK5_TITLE}}</h3><p>{{RISK5_BODY}}</p></div>
 
-<!-- CONTENT: TARPIT CALLOUT (optional, use if idea hits known tarpit) -->
-<div class="callout">
-  <strong>Tarpit pattern:</strong> {{TARPIT_DESCRIPTION_OR_REMOVE_BLOCK}}
+<!-- CONTENT: AI-ERA DEEP CHECK (all 8 checks, always) -->
+<h2>AI-Era Deep Check — 8 Questions</h2>
+<div class="checklist">
+  <div class="check-item">
+    <div class="check-num">1</div>
+    <div class="check-body"><strong>Wrapper risk</strong><span>{{CHECK1_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK1_STATUS_LOWER}}">{{CHECK1_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">2</div>
+    <div class="check-body"><strong>12-month commoditization horizon</strong><span>{{CHECK2_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK2_STATUS_LOWER}}">{{CHECK2_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">3</div>
+    <div class="check-body"><strong>Cost-curve alignment</strong><span>{{CHECK3_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK3_STATUS_LOWER}}">{{CHECK3_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">4</div>
+    <div class="check-body"><strong>Data moat compounding</strong><span>{{CHECK4_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK4_STATUS_LOWER}}">{{CHECK4_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">5</div>
+    <div class="check-body"><strong>Agent-native buying</strong><span>{{CHECK5_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK5_STATUS_LOWER}}">{{CHECK5_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">6</div>
+    <div class="check-body"><strong>Non-software moat</strong><span>{{CHECK6_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK6_STATUS_LOWER}}">{{CHECK6_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">7</div>
+    <div class="check-body"><strong>Distribution sovereignty</strong><span>{{CHECK7_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK7_STATUS_LOWER}}">{{CHECK7_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">8</div>
+    <div class="check-body"><strong>Category permanence</strong><span>{{CHECK8_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK8_STATUS_LOWER}}">{{CHECK8_STATUS}}</div>
+  </div>
+</div>
+<p><em>Score: {{PASS_COUNT}} PASS / {{RISKY_COUNT}} RISKY / {{FAIL_COUNT}} FAIL. {{SCORE_INTERPRETATION_ONE_LINE}}</em></p>
+
+<!-- CONTENT: COMPETITOR TEARDOWN (3-5 rows) -->
+<h2>Competitor Teardown</h2>
+<table class="teardown">
+  <thead>
+    <tr>
+      <th style="width: 22%;">Competitor</th>
+      <th style="width: 22%;">Traction Signal</th>
+      <th style="width: 16%;">Pricing</th>
+      <th style="width: 28%;">Key Weakness</th>
+      <th style="width: 12%;">Threat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{COMP1_NAME}}</td>
+      <td>{{COMP1_TRACTION}}</td>
+      <td>{{COMP1_PRICING}}</td>
+      <td>{{COMP1_WEAKNESS}}</td>
+      <td><span class="threat-pill threat-{{COMP1_THREAT}}">{{COMP1_THREAT}}/5</span></td>
+    </tr>
+    <tr>
+      <td>{{COMP2_NAME}}</td>
+      <td>{{COMP2_TRACTION}}</td>
+      <td>{{COMP2_PRICING}}</td>
+      <td>{{COMP2_WEAKNESS}}</td>
+      <td><span class="threat-pill threat-{{COMP2_THREAT}}">{{COMP2_THREAT}}/5</span></td>
+    </tr>
+    <tr>
+      <td>{{COMP3_NAME}}</td>
+      <td>{{COMP3_TRACTION}}</td>
+      <td>{{COMP3_PRICING}}</td>
+      <td>{{COMP3_WEAKNESS}}</td>
+      <td><span class="threat-pill threat-{{COMP3_THREAT}}">{{COMP3_THREAT}}/5</span></td>
+    </tr>
+    <tr>
+      <td>{{COMP4_NAME}}</td>
+      <td>{{COMP4_TRACTION}}</td>
+      <td>{{COMP4_PRICING}}</td>
+      <td>{{COMP4_WEAKNESS}}</td>
+      <td><span class="threat-pill threat-{{COMP4_THREAT}}">{{COMP4_THREAT}}/5</span></td>
+    </tr>
+    <tr>
+      <td>{{COMP5_NAME}}</td>
+      <td>{{COMP5_TRACTION}}</td>
+      <td>{{COMP5_PRICING}}</td>
+      <td>{{COMP5_WEAKNESS}}</td>
+      <td><span class="threat-pill threat-{{COMP5_THREAT}}">{{COMP5_THREAT}}/5</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- CONTENT: UNIT ECONOMICS NAPKIN -->
+<h2>Unit Economics Napkin</h2>
+<div class="stat-row">
+  <div class="stat">
+    <div class="label">CAC estimate</div>
+    <div class="value">{{CAC_VALUE}}</div>
+    <div class="note">{{CAC_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">LTV estimate</div>
+    <div class="value">{{LTV_VALUE}}</div>
+    <div class="note">{{LTV_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Payback period</div>
+    <div class="value">{{PAYBACK_VALUE}}</div>
+    <div class="note">{{PAYBACK_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">LTV : CAC ratio</div>
+    <div class="value">{{LTVCAC_VALUE}}</div>
+    <div class="note">{{LTVCAC_TARGET_NOTE}}</div>
+  </div>
+</div>
+<div class="econ-verdict">
+  <strong>Napkin verdict:</strong> {{ECON_VERDICT_PARAGRAPH}}
 </div>
 
 <div class="pagebreak"></div>
 
-<!-- CONTENT: WHAT YOU'D DO INSTEAD (2-3 bets) -->
-<h2>What I'd Do Instead — {{BETS_HEADLINE_SUFFIX}}</h2>
+<!-- CONTENT: PRECEDENT CASES (2-3) -->
+<h2>Precedent Cases — Who Already Ran This Play</h2>
+
+<div class="precedent">
+  <div class="head">
+    <span class="name">{{PREC1_NAME}}</span>
+    <span class="year">{{PREC1_YEAR}}</span>
+    <span class="outcome outcome-{{PREC1_OUTCOME_CLASS}}">{{PREC1_OUTCOME_LABEL}}</span>
+  </div>
+  <p>{{PREC1_STORY}}</p>
+  <p class="lesson">Lesson: {{PREC1_LESSON}}</p>
+</div>
+
+<div class="precedent">
+  <div class="head">
+    <span class="name">{{PREC2_NAME}}</span>
+    <span class="year">{{PREC2_YEAR}}</span>
+    <span class="outcome outcome-{{PREC2_OUTCOME_CLASS}}">{{PREC2_OUTCOME_LABEL}}</span>
+  </div>
+  <p>{{PREC2_STORY}}</p>
+  <p class="lesson">Lesson: {{PREC2_LESSON}}</p>
+</div>
+
+<div class="precedent">
+  <div class="head">
+    <span class="name">{{PREC3_NAME}}</span>
+    <span class="year">{{PREC3_YEAR}}</span>
+    <span class="outcome outcome-{{PREC3_OUTCOME_CLASS}}">{{PREC3_OUTCOME_LABEL}}</span>
+  </div>
+  <p>{{PREC3_STORY}}</p>
+  <p class="lesson">Lesson: {{PREC3_LESSON}}</p>
+</div>
+
+<!-- CONTENT: TARPIT CALLOUT (optional — remove if no tarpit intersection) -->
+<div class="callout">
+  <strong>Tarpit pattern:</strong> {{TARPIT_DESCRIPTION}}
+</div>
+
+<!-- CONTENT: PRE-MORTEM — the 2-year obituary, distinctive dark callout -->
+<div class="premortem">
+  <span class="tag">Pre-Mortem · {{PREMORTEM_YEAR}} Obituary</span>
+  <h3>If this business is dead in {{PREMORTEM_YEAR}}, what killed it?</h3>
+  <p>{{PREMORTEM_PARAGRAPH}}</p>
+  <p><strong>Primary cause of death:</strong> {{PREMORTEM_ROOT_CAUSE}}</p>
+</div>
+
+<!-- CONTENT: WHAT YOU'D DO INSTEAD / STRATEGIC OPTIONS -->
+<h2>{{PIVOTS_HEADING}} — {{PIVOTS_SUFFIX}}</h2>
 
 <div class="bet">
-  <div class="num">Pivot 01 · {{PIVOT1_TAG}}</div>
+  <div class="num">{{PIVOT_LABEL_1}} · {{PIVOT1_TAG}}</div>
   <h3>{{PIVOT1_TITLE}}</h3>
   <p>{{PIVOT1_BODY}}</p>
 </div>
 
 <div class="bet">
-  <div class="num">Pivot 02 · {{PIVOT2_TAG}}</div>
+  <div class="num">{{PIVOT_LABEL_2}} · {{PIVOT2_TAG}}</div>
   <h3>{{PIVOT2_TITLE}}</h3>
   <p>{{PIVOT2_BODY}}</p>
 </div>
 
 <div class="bet">
-  <div class="num">Pivot 03 · {{PIVOT3_TAG}}</div>
+  <div class="num">{{PIVOT_LABEL_3}} · {{PIVOT3_TAG}}</div>
   <h3>{{PIVOT3_TITLE}}</h3>
   <p>{{PIVOT3_BODY}}</p>
 </div>
@@ -179,11 +419,37 @@
   <strong>What NOT to do:</strong> {{ANTI_ADVICE}}
 </div>
 
-<!-- CONTENT: 7-DAY VALIDATION PLAN -->
-<h2>7-Day Validation Plan</h2>
+<!-- CONTENT: 7-DAY / 90-DAY PLAN -->
+<h2>{{PLAN_HEADING}}</h2>
 <ol class="plan">
   <li>{{DAY_ACTION_1}}</li>
-  <li>{{DAY_ACTION_2}}</li>
+  <li>
+    {{DAY_ACTION_2}}
+
+    <!-- For NASCENT plans that include customer interviews,
+         embed the interview question bank inline here.
+         Omit this block for OPERATING plans or if the step
+         is not about customer interviews. -->
+    <div class="interview-qs">
+      <h4>Pain — what's the real problem?</h4>
+      <ol>
+        <li>"{{INTERVIEW_Q_PAIN_1}}"</li>
+        <li>"{{INTERVIEW_Q_PAIN_2}}"</li>
+        <li>"{{INTERVIEW_Q_PAIN_3}}"</li>
+      </ol>
+      <h4>Willingness to pay — vitamin or painkiller?</h4>
+      <ol>
+        <li>"{{INTERVIEW_Q_WTP_1}}"</li>
+        <li>"{{INTERVIEW_Q_WTP_2}}"</li>
+      </ol>
+      <h4>Alternatives — the real competition</h4>
+      <ol>
+        <li>"{{INTERVIEW_Q_ALT_1}}"</li>
+        <li>"{{INTERVIEW_Q_ALT_2}}"</li>
+        <li>"{{INTERVIEW_Q_ALT_3}}"</li>
+      </ol>
+    </div>
+  </li>
   <li>{{DAY_ACTION_3}}</li>
   <li>{{DAY_ACTION_4}}</li>
   <li>{{DAY_ACTION_5}}</li>
@@ -202,11 +468,13 @@
     <li><a href="{{SRC1_URL}}">{{SRC1_TITLE}}</a></li>
     <li><a href="{{SRC2_URL}}">{{SRC2_TITLE}}</a></li>
     <li><a href="{{SRC3_URL}}">{{SRC3_TITLE}}</a></li>
+    <li><a href="{{SRC4_URL}}">{{SRC4_TITLE}}</a></li>
+    <li><a href="{{SRC5_URL}}">{{SRC5_TITLE}}</a></li>
   </ul>
 </div>
 
 <footer>
-  Independent validation brief. No affiliation with {{SUBJECT}}. Market references reflect publicly reported information as of {{TODAY_DATE_HUMAN}}.
+  Independent {{MODE_LABEL_LOWER}} brief. No affiliation with {{SUBJECT}}. Market references reflect publicly reported information as of {{TODAY_DATE_HUMAN}}.
 </footer>
 
 </body>
