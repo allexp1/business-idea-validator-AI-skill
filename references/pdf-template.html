@@ -173,6 +173,19 @@
   .kicker { font-size: 12pt; font-weight: 600; margin: 6mm 0 2mm; color: var(--ink); }
   .pagebreak { page-break-before: always; }
   footer { margin-top: 8mm; padding-top: 4mm; border-top: 1px solid var(--line); font-size: 8.5pt; color: var(--muted); }
+
+  /* Verified facts footer — shows zero-trust audit of user-provided claims */
+  .verified-facts {
+    background: #fafbfc; border: 1px solid var(--line); border-left: 3px solid var(--ok);
+    border-radius: 3px; padding: 4mm 5mm; margin: 4mm 0; font-size: 9pt; break-inside: avoid;
+  }
+  .verified-facts h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+  .verified-facts ul { margin: 0; padding-left: 4mm; list-style: none; }
+  .verified-facts li { margin-bottom: 1.5mm; padding-left: 4mm; position: relative; }
+  .verified-facts li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+  .verified-facts li.discrepancy::before { content: "⚠"; color: var(--warn); }
+  .verified-facts li.unverified::before { content: "?"; color: var(--caution); }
+  .verified-facts .src { color: var(--muted); font-size: 8.5pt; }
 </style>
 </head>
 <body>
@@ -456,6 +469,18 @@
   <li>{{DAY_ACTION_6}}</li>
   <li>{{DAY_ACTION_7}}</li>
 </ol>
+
+<!-- CONTENT: VERIFIED FACTS — mandatory zero-trust audit of user claims -->
+<!-- For each user-provided load-bearing fact: either confirm with source (✓),
+     flag a discrepancy with both versions (⚠), or mark unverified (?). -->
+<div class="verified-facts">
+  <h3>Verified Facts — Zero-Trust Audit</h3>
+  <ul>
+    <li>{{FACT1_STATEMENT}} <span class="src">({{FACT1_SOURCE}})</span></li>
+    <li class="discrepancy">User stated: "{{FACT2_USER_CLAIM}}" · Verified: {{FACT2_ACTUAL}} <span class="src">({{FACT2_SOURCE}})</span></li>
+    <li class="unverified">{{FACT3_STATEMENT}} <span class="src">(self-reported; not independently verified)</span></li>
+  </ul>
+</div>
 
 <!-- CONTENT: ONE-SENTENCE SUMMARY -->
 <h2>One Sentence Summary</h2>

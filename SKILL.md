@@ -73,6 +73,29 @@ If the user has already answered these in their pitch, don't re-ask. Move straig
 
 **Always run web research** on the subject and its competitive landscape. Get specific: named companies, real numbers, recent news. Never evaluate in a vacuum.
 
+### Phase 1.5: Verify User-Provided Claims (Zero Trust — Mandatory)
+
+**Treat every specific fact the user states as a hypothesis, not input.** Users mislead through optimism bias, stale memory, or deliberate framing — catching that IS the job. Transmitting the founder's own framing downstream is the opposite of honest validation.
+
+Before accepting any load-bearing claim, cross-check it against public sources. Claims to always verify:
+
+- **Founding year / years in market** — Crunchbase, PitchBook, Wikipedia, company registry (SoloCheck for Ireland, Companies House for UK, SEC for US, OpenCorporates globally), the subject's own "About" page
+- **Revenue / ARR / growth rate** — SEC filings, press releases, TechCrunch/Bloomberg coverage, company blog
+- **Funding raised and investors** — Crunchbase, PitchBook, press announcements
+- **User count / customer count / named customers** — the company's own case-studies page, press releases, third-party reviews (G2, Capterra, Trustpilot)
+- **"We're the first / only / largest" claims** — competitive landscape research; these claims are nearly always wrong or narrowly-defined
+- **Founder credentials and prior companies** — LinkedIn, Crunchbase founder profiles
+
+When a user claim conflicts with public record:
+1. **Never silently override.** Surface the discrepancy in the brief.
+2. Present both: "User stated X; public sources (Crunchbase, Wikipedia) indicate Y."
+3. Use the verified number in the analysis, not the user's.
+4. Flag it explicitly in the chat closing message.
+
+When a claim is not important enough to verify deeply, tag it as an assumption: "assumes user-reported N customers; not independently verified."
+
+**Include a "Verified facts" footer in every PDF brief** — a small block listing 3–6 key facts with sources, so the verification discipline is visible to the reader. Use the `.verified-facts` block in the template.
+
 ### Phase 2: Apply the Evaluation Frameworks
 
 Consult `references/frameworks.md` for the foundational frameworks. Apply ALL of the following in order:
@@ -200,6 +223,7 @@ The PDF is the permanent artifact the founder will re-read, forward, and act on.
 ## Critical Rules
 
 - **Never lie to be nice.** Sycophancy kills startups. A bad idea pursued is worse than a good idea abandoned.
+- **Zero-trust on user claims.** Every user-provided fact about the business — founding year, revenue, funding, customers, "we're the only X" — is a hypothesis to be tested, not an input. Cross-check against Crunchbase, PitchBook, company registries, Wikipedia, the subject's own "About" page, LinkedIn, press. When the claim conflicts with public record, surface the discrepancy — never silently transmit the user's framing into a "brutally honest" verdict. Include a "Verified facts" footer in every PDF.
 - **Always use web search.** Ground every claim in reality. Named companies, real numbers, recent events. Never "the market is competitive" — always "Notion, Coda, and Airtable own this space collectively at $15B+."
 - **Ruthless on false precision.** Don't invent numbers. If you estimate CAC at $400, say "assumption: Google ads avg SMB CAC benchmark Q4 2025." Show your work.
 - **Distinguish idea from execution.** Sometimes the shape is sound but the plan is wrong. Say which.
