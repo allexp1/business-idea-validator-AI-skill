@@ -1,27 +1,39 @@
 <!doctype html>
 <!--
-  BUSINESS IDEA VALIDATOR — PDF BRIEF TEMPLATE v2
+  BUSINESS IDEA VALIDATOR — PDF BRIEF TEMPLATE v3 (skill v2.0.0)
   ================================================================
   Full visual blueprint for every validation / strategic PDF.
-  Keep the CSS block untouched. Replace content between the
-  clearly marked <!-- CONTENT: ... --> boundaries.
+  Keep the CSS block untouched. Replace content under the clearly marked
+  "CONTENT:" boundary comments.
+
+  NOTE: never write the character sequence for a closing HTML comment inside
+  this block. Doing so terminates it early and the rest of these instructions
+  render as visible text on page 1 of the brief. (That bug shipped in v1.)
 
   REQUIRED sections (in order):
     1.  Cover              (title, subtitle, meta row)
     2.  Stat row           (4 tiles; required for OPERATING mode, optional for NASCENT)
-    3.  Verdict            (single tag + paragraph)
-    4.  What's Working     (2x2 grid of green cards) — rename "Current Moats" for OPERATING
-    5.  Hard Truths        (stacked red cards) — rename "What's Eroding" for OPERATING
-    6.  AI-Era Deep Check  (8-row checklist with PASS/RISKY/FAIL)
-    7.  Competitor Teardown (3-5 row table)
-    8.  Unit Economics     (4 tiles + verdict paragraph)
-    9.  Precedent Cases    (2-3 mini cards)
-   10.  Tarpit callout     (OPTIONAL, only if 2+ tarpits hit)
-   11.  Pre-Mortem         (dark callout — the 2028 obituary)
-   12.  What You'd Do      (2-3 pivot/bet blocks + "What NOT to do" callout)
-   13.  7-Day / 90-Day Plan (numbered list, embed interview questions for NASCENT)
-   14.  One-Sentence Sum.  (kicker)
-   15.  Sources            (hyperlinked list)
+    3.  Score table        (6 rubric components + total + computed label)
+    3b. Override           (OPTIONAL — only when printed label != computed label)
+    4.  Verdict            (single tag + paragraph)
+    5.  Steelman           (strongest honest case FOR, before the criticism)
+    6.  What's Working     (2x2 grid of green cards) — rename "Current Moats" for OPERATING
+    7.  Hard Truths        (stacked red cards) — rename "What's Eroding" for OPERATING
+    8.  AI-Era Deep Check  (12-row checklist with PASS/RISKY/FAIL)
+    9.  Competitor Teardown (3-5 row table)
+   10.  Unit Economics     (4 tiles + verdict paragraph; include inference cost)
+   11.  Precedent Cases    (2-3 mini cards)
+   12.  Tarpit callout     (OPTIONAL, only if 2+ tarpits hit)
+   13.  Pre-Mortem         (dark callout — the two-year obituary)
+   14.  Pre-Parade         (accent callout — what must be true for the 10x)
+   15.  What You'd Do      (2-3 pivot/bet blocks + "What NOT to do" callout)
+   16.  Kill Criteria      (2-4 falsifiable, dated, numeric stop conditions)
+   17.  What Would Change My Mind (2 up / 1 down)
+   18.  7-Day / 90-Day Plan (numbered list, embed interview questions for NASCENT)
+   19.  Since Last Time    (OPTIONAL — only when prior history exists for the slug)
+   20.  One-Sentence Sum.  (kicker)
+   21.  Verified Facts     (zero-trust audit footer)
+   22.  Sources            (hyperlinked list)
 
   VERDICT COLORS (change --accent and --accent-soft in :root):
     Strong    → #1c7a44 / #e8f5ee (green)
@@ -174,6 +186,66 @@
   .pagebreak { page-break-before: always; }
   footer { margin-top: 8mm; padding-top: 4mm; border-top: 1px solid var(--line); font-size: 8.5pt; color: var(--muted); }
 
+  /* Score table — the computed verdict, shown so the reader can recompute it */
+  table.score { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; font-size: 9.5pt; }
+  table.score thead th {
+    font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    text-align: left; padding: 2mm 3mm; background: #fafbfc; border-bottom: 1px solid var(--line);
+  }
+  table.score th.num, table.score td.num { text-align: right; }
+  table.score td { padding: 2mm 3mm; border-bottom: 1px solid var(--line); }
+  table.score tr.total td { font-weight: 700; border-top: 1.5px solid var(--ink); border-bottom: 0; font-size: 10.5pt; }
+  table.score td.penalty { color: var(--warn); }
+  .band-note { font-size: 8.8pt; color: var(--muted); margin: 0 0 3mm; }
+  .override {
+    background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 3px;
+    padding: 3mm 4mm; margin: 0 0 4mm; font-size: 9.5pt; break-inside: avoid;
+  }
+  .override strong { color: var(--accent); }
+
+  /* Steelman — the strongest honest case FOR, placed before the criticism */
+  .steelman {
+    background: #fafbfc; border: 1px solid var(--line); border-left: 3px solid var(--ok);
+    border-radius: 3px; padding: 4mm 5mm; margin: 3mm 0 4mm; break-inside: avoid;
+  }
+  .steelman h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ok); }
+  .steelman p { margin: 0; }
+
+  /* Pre-parade — counterweight to the pre-mortem */
+  .preparade {
+    background: var(--accent-soft); border-radius: 3px; padding: 5mm 6mm; margin: 3mm 0 4mm; break-inside: avoid;
+  }
+  .preparade .tag {
+    display: inline-block; background: var(--accent); color: #fff; font-size: 8pt; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 1.5mm 3mm; border-radius: 3px; margin-bottom: 3mm;
+  }
+  .preparade h3 { margin: 0 0 2mm; font-size: 12pt; }
+  .preparade p { margin: 0; }
+
+  /* Kill criteria — falsifiable, dated, numeric stop conditions */
+  .kill-criteria { border: 1px solid var(--warn); border-radius: 3px; padding: 4mm 5mm; margin: 2mm 0 4mm; break-inside: avoid; }
+  .kill-criteria h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); }
+  .kill-criteria ul { margin: 0; padding-left: 4mm; list-style: none; }
+  .kill-criteria li { margin-bottom: 2mm; padding-left: 5mm; position: relative; font-size: 9.5pt; }
+  .kill-criteria li::before { content: "■"; position: absolute; left: 0; color: var(--warn); font-size: 7pt; top: 0.8mm; }
+
+  /* What would change my mind */
+  .change-mind { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 2mm 0 4mm; break-inside: avoid; }
+  .change-mind > div { border: 1px solid var(--line); border-radius: 3px; padding: 3.5mm 4mm; font-size: 9.5pt; }
+  .change-mind h4 { margin: 0 0 2mm; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.08em; }
+  .change-mind .up { border-top: 2px solid var(--ok); }
+  .change-mind .up h4 { color: var(--ok); }
+  .change-mind .down { border-top: 2px solid var(--warn); }
+  .change-mind .down h4 { color: var(--warn); }
+  .change-mind ul { margin: 0; padding-left: 4mm; }
+  .change-mind li { margin-bottom: 1.5mm; }
+
+  /* Since last time — only when prior history exists */
+  .since-last { border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 3px; padding: 4mm 5mm; margin: 3mm 0 4mm; font-size: 9.5pt; break-inside: avoid; }
+  .since-last h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+  .since-last .delta-up { color: var(--ok); font-weight: 700; }
+  .since-last .delta-down { color: var(--warn); font-weight: 700; }
+
   /* Verified facts footer — shows zero-trust audit of user-provided claims */
   .verified-facts {
     background: #fafbfc; border: 1px solid var(--line); border-left: 3px solid var(--ok);
@@ -211,10 +283,44 @@
   <div class="stat"><div class="label">{{STAT4_LABEL}}</div><div class="value">{{STAT4_VALUE}}</div></div>
 </div>
 
+<!-- CONTENT: SCORE TABLE — the computed verdict. Never omit; the reader must be
+     able to recompute the label and disagree with a number, not a vibe. -->
+<h2>Score</h2>
+<table class="score">
+  <thead>
+    <tr><th>Component</th><th>Basis</th><th class="num">Max</th><th class="num">Score</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>AI-era check</td><td>{{AI_ERA_BASIS}}</td><td class="num">30</td><td class="num">{{SCORE_AI_ERA}}</td></tr>
+    <tr><td>Demand evidence</td><td>{{DEMAND_BASIS}}</td><td class="num">20</td><td class="num">{{SCORE_DEMAND}}</td></tr>
+    <tr><td>Moat</td><td>{{MOAT_BASIS}}</td><td class="num">15</td><td class="num">{{SCORE_MOAT}}</td></tr>
+    <tr><td>Unit economics vs {{CAPITAL_PATH}} targets</td><td>{{ECON_BASIS}}</td><td class="num">15</td><td class="num">{{SCORE_ECON}}</td></tr>
+    <tr><td>Founder / team fit</td><td>{{FIT_BASIS}}</td><td class="num">10</td><td class="num">{{SCORE_FIT}}</td></tr>
+    <tr><td>Base-rate &amp; tarpit penalty</td><td>{{PENALTY_BASIS}}</td><td class="num">−10</td><td class="num penalty">{{SCORE_PENALTY}}</td></tr>
+    <tr class="total"><td colspan="3">Total → <strong>{{COMPUTED_LABEL}}</strong></td><td class="num">{{TOTAL_SCORE}}</td></tr>
+  </tbody>
+</table>
+<p class="band-note">Bands: ≥75 Strong · 55–74 Promising · 35–54 Weak · &lt;35 Flawed. Mode: {{MODE_LABEL}} · Capital path: {{CAPITAL_PATH}}.</p>
+
+<!-- CONTENT: OVERRIDE — include ONLY when the printed label differs from the
+     computed one. One band maximum, and the reason must cite something
+     structural the rubric cannot see. Remove this block entirely otherwise. -->
+<div class="override">
+  <strong>Override: {{COMPUTED_LABEL}} → {{FINAL_LABEL}}</strong> — {{OVERRIDE_REASON}}
+</div>
+
 <!-- CONTENT: VERDICT -->
 <div class="verdict">
   <span class="tag">{{VERDICT_HEADING}} · {{VERDICT_LABEL}}</span>
   <p style="margin:0;">{{VERDICT_PARAGRAPH_2_OR_3_SENTENCES}}</p>
+</div>
+
+<!-- CONTENT: STEELMAN — the strongest HONEST case for the idea, before any
+     criticism. Not a compliment sandwich: the argument a smart supporter would
+     actually make. A brief that cannot argue the other side is worth less. -->
+<div class="steelman">
+  <h3>Steelman — the best case for this</h3>
+  <p>{{STEELMAN_PARAGRAPH}}</p>
 </div>
 
 <!-- CONTENT: WHAT'S WORKING / CURRENT MOATS (4 cards) -->
@@ -234,51 +340,73 @@
 <div class="card risk"><h3>4. {{RISK4_TITLE}}</h3><p>{{RISK4_BODY}}</p></div>
 <div class="card risk"><h3>5. {{RISK5_TITLE}}</h3><p>{{RISK5_BODY}}</p></div>
 
-<!-- CONTENT: AI-ERA DEEP CHECK (all 8 checks, always) -->
-<h2>AI-Era Deep Check — 8 Questions</h2>
+<!-- CONTENT: AI-ERA DEEP CHECK (all 12 checks, always) -->
+<h2>AI-Era Deep Check — 12 Questions</h2>
 <div class="checklist">
   <div class="check-item">
-    <div class="check-num">1</div>
-    <div class="check-body"><strong>Wrapper risk</strong><span>{{CHECK1_RATIONALE}}</span></div>
+    <div class="check-num">01</div>
+    <div class="check-body"><strong>Complement asymmetry</strong><span>{{CHECK1_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK1_STATUS_LOWER}}">{{CHECK1_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">2</div>
-    <div class="check-body"><strong>12-month commoditization horizon</strong><span>{{CHECK2_RATIONALE}}</span></div>
+    <div class="check-num">02</div>
+    <div class="check-body"><strong>Model dependency &amp; native-ship horizon</strong><span>{{CHECK2_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK2_STATUS_LOWER}}">{{CHECK2_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">3</div>
-    <div class="check-body"><strong>Cost-curve alignment</strong><span>{{CHECK3_RATIONALE}}</span></div>
+    <div class="check-num">03</div>
+    <div class="check-body"><strong>Cost-per-outcome trajectory</strong><span>{{CHECK3_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK3_STATUS_LOWER}}">{{CHECK3_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">4</div>
-    <div class="check-body"><strong>Data moat compounding</strong><span>{{CHECK4_RATIONALE}}</span></div>
+    <div class="check-num">04</div>
+    <div class="check-body"><strong>Pricing-model fit</strong><span>{{CHECK4_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK4_STATUS_LOWER}}">{{CHECK4_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">5</div>
-    <div class="check-body"><strong>Agent-native buying</strong><span>{{CHECK5_RATIONALE}}</span></div>
+    <div class="check-num">05</div>
+    <div class="check-body"><strong>Data moat compounding</strong><span>{{CHECK5_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK5_STATUS_LOWER}}">{{CHECK5_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">6</div>
-    <div class="check-body"><strong>Non-software moat</strong><span>{{CHECK6_RATIONALE}}</span></div>
+    <div class="check-num">06</div>
+    <div class="check-body"><strong>Workflow ownership / system of record</strong><span>{{CHECK6_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK6_STATUS_LOWER}}">{{CHECK6_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">7</div>
-    <div class="check-body"><strong>Distribution sovereignty</strong><span>{{CHECK7_RATIONALE}}</span></div>
+    <div class="check-num">07</div>
+    <div class="check-body"><strong>Reliability &amp; eval debt</strong><span>{{CHECK7_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK7_STATUS_LOWER}}">{{CHECK7_STATUS}}</div>
   </div>
   <div class="check-item">
-    <div class="check-num">8</div>
-    <div class="check-body"><strong>Category permanence</strong><span>{{CHECK8_RATIONALE}}</span></div>
+    <div class="check-num">08</div>
+    <div class="check-body"><strong>Agent-native addressability</strong><span>{{CHECK8_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK8_STATUS_LOWER}}">{{CHECK8_STATUS}}</div>
   </div>
+  <div class="check-item">
+    <div class="check-num">09</div>
+    <div class="check-body"><strong>Non-software moat</strong><span>{{CHECK9_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK9_STATUS_LOWER}}">{{CHECK9_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">10</div>
+    <div class="check-body"><strong>Distribution sovereignty &amp; answer engines</strong><span>{{CHECK10_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK10_STATUS_LOWER}}">{{CHECK10_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">11</div>
+    <div class="check-body"><strong>Regulatory &amp; liability clock <em>(hard gate)</em></strong><span>{{CHECK11_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK11_STATUS_LOWER}}">{{CHECK11_STATUS}}</div>
+  </div>
+  <div class="check-item">
+    <div class="check-num">12</div>
+    <div class="check-body"><strong>Category permanence</strong><span>{{CHECK12_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK12_STATUS_LOWER}}">{{CHECK12_STATUS}}</div>
+  </div>
 </div>
-<p><em>Score: {{PASS_COUNT}} PASS / {{RISKY_COUNT}} RISKY / {{FAIL_COUNT}} FAIL. {{SCORE_INTERPRETATION_ONE_LINE}}</em></p>
+  </div>
+</div>
+<p><em>Score: {{PASS_COUNT}} PASS / {{RISKY_COUNT}} RISKY / {{FAIL_COUNT}} FAIL = {{AI_ERA_RAW}}/24. {{SCORE_INTERPRETATION_ONE_LINE}}</em></p>
 
 <!-- CONTENT: COMPETITOR TEARDOWN (3-5 rows) -->
 <h2>Competitor Teardown</h2>
@@ -355,6 +483,31 @@
     <div class="note">{{LTVCAC_TARGET_NOTE}}</div>
   </div>
 </div>
+<!-- AI-cost row. Required whenever the product calls a model — this is where AI
+     businesses discover late that they are unprofitable. Use "not computed" as a
+     real value where the founder has never measured it; that IS the finding. -->
+<div class="stat-row">
+  <div class="stat">
+    <div class="label">Gross margin after inference</div>
+    <div class="value">{{GM_AFTER_INFERENCE}}</div>
+    <div class="note">{{GM_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Cost per successful outcome</div>
+    <div class="value">{{COST_PER_OUTCOME}}</div>
+    <div class="note">{{COST_PER_OUTCOME_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Inference % of revenue</div>
+    <div class="value">{{INFERENCE_PCT_REVENUE}}</div>
+    <div class="note">{{INFERENCE_PCT_ASSUMPTION}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Cost trajectory</div>
+    <div class="value">{{COST_TRAJECTORY}}</div>
+    <div class="note">{{COST_TRAJECTORY_NOTE}}</div>
+  </div>
+</div>
 <div class="econ-verdict">
   <strong>Napkin verdict:</strong> {{ECON_VERDICT_PARAGRAPH}}
 </div>
@@ -407,6 +560,14 @@
   <p><strong>Primary cause of death:</strong> {{PREMORTEM_ROOT_CAUSE}}</p>
 </div>
 
+<!-- CONTENT: PRE-PARADE — the counterweight to the pre-mortem. What would have
+     to be true for the 10x outcome. One paragraph, same discipline: specific. -->
+<div class="preparade">
+  <span class="tag">Pre-Parade · {{PREPARADE_YEAR}}</span>
+  <h3>{{PREPARADE_HEADLINE}}</h3>
+  <p>{{PREPARADE_PARAGRAPH}}</p>
+</div>
+
 <!-- CONTENT: WHAT YOU'D DO INSTEAD / STRATEGIC OPTIONS -->
 <h2>{{PIVOTS_HEADING}} — {{PIVOTS_SUFFIX}}</h2>
 
@@ -430,6 +591,34 @@
 
 <div class="callout">
   <strong>What NOT to do:</strong> {{ANTI_ADVICE}}
+</div>
+
+<!-- CONTENT: KILL CRITERIA — falsifiable, dated, numeric. Each must be
+     checkable by the founder alone inside 90 days. Never "if it doesn't get
+     traction". 2-4 of them. -->
+<h2>Kill Criteria — what would end this</h2>
+<div class="kill-criteria">
+  <h3>Stop if any of these is true</h3>
+  <ul>
+    <li>{{KILL1}}</li>
+    <li>{{KILL2}}</li>
+    <li>{{KILL3}}</li>
+  </ul>
+</div>
+
+<!-- CONTENT: WHAT WOULD CHANGE MY MIND — 2-3 pieces of evidence that move the
+     verdict up a band, 1 that moves it down. This is what makes the brief
+     useful three months from now. -->
+<h2>What Would Change My Mind</h2>
+<div class="change-mind">
+  <div class="up">
+    <h4>Would raise the verdict</h4>
+    <ul><li>{{CHANGE_UP1}}</li><li>{{CHANGE_UP2}}</li></ul>
+  </div>
+  <div class="down">
+    <h4>Would lower it</h4>
+    <ul><li>{{CHANGE_DOWN1}}</li></ul>
+  </div>
 </div>
 
 <!-- CONTENT: 7-DAY / 90-DAY PLAN -->
@@ -470,6 +659,22 @@
   <li>{{DAY_ACTION_7}}</li>
 </ol>
 
+<!-- CONTENT: SINCE LAST TIME — include ONLY when a prior evaluation exists in
+     history for this slug. Remove the whole block otherwise. Distinguish "the
+     business moved" from "the market data moved" — they are different stories. -->
+<h2>Since Last Time — {{PRIOR_DATE}}</h2>
+<div class="since-last">
+  <h3>{{PRIOR_LABEL}} ({{PRIOR_SCORE}}) → {{FINAL_LABEL}} ({{TOTAL_SCORE}})</h3>
+  <p>{{DELTA_SUMMARY}}</p>
+  <p><strong>Checks that flipped:</strong> {{FLIPPED_CHECKS}}</p>
+  <p><strong>Kill criteria from last time:</strong> {{KILL_STATUS}}</p>
+  <p><strong>Market data vintage:</strong> {{PRIOR_KNOWLEDGE_VERSION}} → {{KNOWLEDGE_VERSION}}. {{MARKET_VS_BUSINESS_NOTE}}</p>
+</div>
+
+<!-- CONTENT: ONE-SENTENCE SUMMARY -->
+<h2>One Sentence Summary</h2>
+<p class="kicker">{{ONE_SENTENCE_VERDICT}}</p>
+
 <!-- CONTENT: VERIFIED FACTS — mandatory zero-trust audit of user claims -->
 <!-- For each user-provided load-bearing fact: either confirm with source (✓),
      flag a discrepancy with both versions (⚠), or mark unverified (?). -->
@@ -481,10 +686,6 @@
     <li class="unverified">{{FACT3_STATEMENT}} <span class="src">(self-reported; not independently verified)</span></li>
   </ul>
 </div>
-
-<!-- CONTENT: ONE-SENTENCE SUMMARY -->
-<h2>One Sentence Summary</h2>
-<p class="kicker">{{ONE_SENTENCE_VERDICT}}</p>
 
 <!-- CONTENT: SOURCES -->
 <h2>Sources</h2>
