@@ -139,6 +139,7 @@
   .status-pass { background: var(--ok); }
   .status-risky { background: var(--caution); }
   .status-fail { background: var(--warn); }
+  .status-na { background: #9aa4ae; }   /* N/A — check cannot meaningfully apply */
 
   /* Precedent cases */
   .precedent { border: 1px solid var(--line); border-left: 3px solid var(--muted); border-radius: 3px; padding: 3.5mm 5mm; margin-bottom: 2.5mm; break-inside: avoid; }
@@ -288,19 +289,19 @@
 <h2>Score</h2>
 <table class="score">
   <thead>
-    <tr><th>Component</th><th>Basis</th><th class="num">Max</th><th class="num">Score</th></tr>
+    <tr><th>Component</th><th>Basis</th><th class="num">Raw</th><th class="num">Of</th><th class="num">Weight</th><th class="num">Score</th></tr>
   </thead>
   <tbody>
-    <tr><td>AI-era check</td><td>{{AI_ERA_BASIS}}</td><td class="num">30</td><td class="num">{{SCORE_AI_ERA}}</td></tr>
-    <tr><td>Demand evidence</td><td>{{DEMAND_BASIS}}</td><td class="num">20</td><td class="num">{{SCORE_DEMAND}}</td></tr>
-    <tr><td>Moat</td><td>{{MOAT_BASIS}}</td><td class="num">15</td><td class="num">{{SCORE_MOAT}}</td></tr>
-    <tr><td>Unit economics vs {{CAPITAL_PATH}} targets</td><td>{{ECON_BASIS}}</td><td class="num">15</td><td class="num">{{SCORE_ECON}}</td></tr>
-    <tr><td>Founder / team fit</td><td>{{FIT_BASIS}}</td><td class="num">10</td><td class="num">{{SCORE_FIT}}</td></tr>
-    <tr><td>Base-rate &amp; tarpit penalty</td><td>{{PENALTY_BASIS}}</td><td class="num">−10</td><td class="num penalty">{{SCORE_PENALTY}}</td></tr>
-    <tr class="total"><td colspan="3">Total → <strong>{{COMPUTED_LABEL}}</strong></td><td class="num">{{TOTAL_SCORE}}</td></tr>
+    <tr><td>AI-era check</td><td>{{AI_ERA_BASIS}}</td><td class="num">{{AI_ERA_RAW}}</td><td class="num">{{AI_ERA_MAX}}</td><td class="num">{{W_AI_ERA}}</td><td class="num">{{SCORE_AI_ERA}}</td></tr>
+    <tr><td>Demand evidence</td><td>{{DEMAND_BASIS}}</td><td class="num">{{DEMAND_RAW}}</td><td class="num">20</td><td class="num">{{W_DEMAND}}</td><td class="num">{{SCORE_DEMAND}}</td></tr>
+    <tr><td>Moat</td><td>{{MOAT_BASIS}}</td><td class="num">{{MOAT_RAW}}</td><td class="num">21</td><td class="num">{{W_MOAT}}</td><td class="num">{{SCORE_MOAT}}</td></tr>
+    <tr><td>Unit economics vs {{CAPITAL_PATH}} targets</td><td>{{ECON_BASIS}}</td><td class="num">{{ECON_RAW}}</td><td class="num">15</td><td class="num">{{W_ECON}}</td><td class="num">{{SCORE_ECON}}</td></tr>
+    <tr><td>Founder / team fit</td><td>{{FIT_BASIS}}</td><td class="num">{{FIT_RAW}}</td><td class="num">10</td><td class="num">{{W_FIT}}</td><td class="num">{{SCORE_FIT}}</td></tr>
+    <tr><td>Base-rate &amp; tarpit penalty</td><td>{{PENALTY_BASIS}}</td><td class="num">—</td><td class="num">—</td><td class="num">−10</td><td class="num penalty">{{SCORE_PENALTY}}</td></tr>
+    <tr class="total"><td colspan="5">Total → <strong>{{COMPUTED_LABEL}}</strong></td><td class="num">{{TOTAL_SCORE}}</td></tr>
   </tbody>
 </table>
-<p class="band-note">Bands: ≥75 Strong · 55–74 Promising · 35–54 Weak · &lt;35 Flawed. Mode: {{MODE_LABEL}} · Capital path: {{CAPITAL_PATH}}.</p>
+<p class="band-note">Bands: ≥75 Strong · 55–74 Promising · 35–54 Weak · &lt;35 Flawed. Weights are set by the capital path. Mode: {{MODE_LABEL}} · Capital path: {{CAPITAL_PATH}}.</p>
 
 <!-- CONTENT: OVERRIDE — include ONLY when the printed label differs from the
      computed one. One band maximum, and the reason must cite something
@@ -340,7 +341,11 @@
 <div class="card risk"><h3>4. {{RISK4_TITLE}}</h3><p>{{RISK4_BODY}}</p></div>
 <div class="card risk"><h3>5. {{RISK5_TITLE}}</h3><p>{{RISK5_BODY}}</p></div>
 
-<!-- CONTENT: AI-ERA DEEP CHECK (all 12 checks, always) -->
+<!-- CONTENT: AI-ERA DEEP CHECK (all 12 checks, always)
+     STATUS is PASS | RISKY | FAIL | N/A. The _LOWER form used in the CSS class
+     must be pass | risky | fail | na — write "na", not "n/a", or the pill
+     renders blank. N/A checks are excluded from BOTH sides of the AI-era
+     denominator; see scoring-rubric.md §1. -->
 <h2>AI-Era Deep Check — 12 Questions</h2>
 <div class="checklist">
   <div class="check-item">
@@ -406,7 +411,7 @@
 </div>
   </div>
 </div>
-<p><em>Score: {{PASS_COUNT}} PASS / {{RISKY_COUNT}} RISKY / {{FAIL_COUNT}} FAIL = {{AI_ERA_RAW}}/24. {{SCORE_INTERPRETATION_ONE_LINE}}</em></p>
+<p><em>Score: {{PASS_COUNT}} PASS / {{RISKY_COUNT}} RISKY / {{FAIL_COUNT}} FAIL = {{AI_ERA_RAW}}/{{AI_ERA_MAX}} applicable. {{SCORE_INTERPRETATION_ONE_LINE}}</em></p>
 
 <!-- CONTENT: COMPETITOR TEARDOWN (3-5 rows) -->
 <h2>Competitor Teardown</h2>

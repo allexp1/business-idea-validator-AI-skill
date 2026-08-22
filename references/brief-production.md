@@ -16,7 +16,7 @@ SKILL.md).
 
 1. Cover — subject, mode, capital path, date
 2. Stat row — 4 tiles (required for OPERATING, optional for NASCENT)
-3. **Score table** — the six rubric components, the total, the computed label, and any override line
+3. **Score table** — the six rubric components with raw / max / weight / weighted score, the total, the computed label, and any override line
 4. Verdict — 2–3 sentences
 5. **Steelman** — the strongest honest case *for*
 6. What's Working / Current Moats — 4 cards

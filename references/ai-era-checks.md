@@ -21,10 +21,25 @@ Score each check **PASS (2) / RISKY (1) / FAIL (0)** with a one-sentence
 rationale naming specific evidence. Total is 0–24 and feeds the AI-era
 component of `scoring-rubric.md`.
 
-- **21–24** — genuinely AI-era-durable. Rare. Interrogate whether you were too generous.
-- **16–20** — defensible, likely to compound. Press hard on every RISKY.
-- **10–15** — survives near-term, structurally exposed. Must be elevated into the verdict.
-- **0–9** — mis-shaped or mis-timed. Caps the verdict at Weak absent an explicit, argued override.
+**N/A is a fourth status**, for checks that cannot meaningfully apply — most
+often 3, 4 and 7 for a product that never calls a model. An N/A check is
+excluded from *both* the numerator and the denominator; see the renormalization
+rule in `scoring-rubric.md §1`. Use it honestly and sparingly: "we don't really
+do AI" is not a reason to skip check 2, which asks whether AI is about to eat
+the category, and applies to every business in 2026.
+
+**If more than four checks come back N/A**, say so in the brief. The subject is
+probably not an AI business, the AI-era component is thinner evidence than
+usual, and the other components should carry correspondingly more weight in
+your reading of the total.
+
+Bands below assume all 12 apply. With N/A checks, compare the *percentage* of
+the available maximum rather than the raw total.
+
+- **21–24** (≥88%) — genuinely AI-era-durable. Rare. Interrogate whether you were too generous.
+- **16–20** (67–87%) — defensible, likely to compound. Press hard on every RISKY.
+- **10–15** (42–66%) — survives near-term, structurally exposed. Must be elevated into the verdict.
+- **0–9** (<42%) — mis-shaped or mis-timed. Caps the verdict at Weak absent an explicit, argued override.
 
 **Any FAIL on check 11 (regulatory) is a hard gate**, not a scoring input — see
 that check.

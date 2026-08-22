@@ -53,19 +53,37 @@ Assertions:
 > "I'm a solo founder. I want to build a scheduling and invoicing tool for
 > independent music teachers. There are maybe 200,000 of them in the English-
 > speaking world; realistically I could reach a few thousand. £15/month. I teach
-> piano myself and I'm active in two teacher forums."
+> piano myself and I'm active in two teacher forums. I've interviewed 22
+> teachers, six said they'd pay today, and two are already paying me £15 to use
+> a spreadsheet version I run by hand."
 
 **Expect:** **Promising** on the bootstrap path. **Weak** on the venture path.
+Run it twice, forcing the path each time.
 
-Assertions — this case must produce *different verdicts on different paths*:
-- Bootstrap run: no TAM/SAM/SOM computed; reachability assessed instead; ≥55
-- Venture run (force it): market-size red flag fires; ≤54
-- The brief names the capital path explicitly on the cover and in the score table
-- Bootstrap run recommends founder-led/community distribution, not paid acquisition
-- Kill criterion is time-based, not funding-based
+This is the worked example in `scoring-rubric.md`, so the numbers are checkable:
 
-**If both runs return the same band, the capital-path branch is broken.** This
-is the single highest-value assertion in the suite.
+| Component | Raw / Of | Bootstrap | Venture |
+| --- | --- | --- | --- |
+| AI-era (3 checks N/A — no model in the product) | 12 / 20 | 15.0 | 18.0 |
+| Demand evidence (two paying, six verbal) | 16 / 20 | 24.0 | 20.0 |
+| Moat | 4 / 21 | 1.0 | 3.8 |
+| Unit economics vs path targets | 10 or 2 / 15 | 13.3 | 2.0 |
+| Founder fit | 9 / 10 | 18.0 | 9.0 |
+| Penalty | — | −2.0 | −2.0 |
+| **Total** | | **69.3 → Promising** | **50.8 → Weak** |
+
+Assertions:
+- **The two runs return different bands.** If they agree, the capital-path
+  branch is broken. This is the highest-value assertion in the suite.
+- The AI-era denominator is **less than 24** — the inference-specific checks are
+  marked N/A and renormalized, not scored 0. A non-AI product must not lose a
+  third of the available points for not being an AI product.
+- Component **weights differ between the two runs** and are shown in the table.
+- Bootstrap run: no TAM/SAM/SOM computed; reachability assessed instead.
+- Venture run: the unit-economics component collapses — roughly 19,000 paying
+  customers needed at £15/month against a reachable few thousand.
+- Bootstrap run recommends founder-led and community distribution, not paid acquisition.
+- The bootstrap kill criterion is time-based, not funding-based.
 
 ## Case 4 — Consumer AI subscription
 

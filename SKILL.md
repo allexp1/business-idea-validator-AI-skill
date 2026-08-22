@@ -188,7 +188,14 @@ In order. Do not skip; do not soften.
 
 ## Phase 3 — Compute the verdict
 
-Read `references/scoring-rubric.md` and score all six components. Show the table.
+Read `references/scoring-rubric.md` and score all six components. Show the
+table, including each component's raw score, its maximum, and its weight — the
+reader must be able to recompute the total and disagree with a number.
+
+**Component weights are set by the capital path.** Moat is the whole thesis for
+a venture play and nearly irrelevant for a niche tool whose defence is that the
+niche is too small to be worth attacking. Using one set of weights for both is
+the same error as using one set of targets.
 
 Bands: **≥75 Strong · 55–74 Promising · 35–54 Weak · <35 Flawed.**
 

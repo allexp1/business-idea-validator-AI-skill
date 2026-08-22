@@ -5,6 +5,9 @@ set -euo pipefail
 
 SRC="$(cd "$(dirname "$0")" && pwd)"
 DEST="${HOME}/.claude/skills/business-idea-validator"
+# Backups must NOT live under ~/.claude/skills/ — anything with a SKILL.md in
+# there is discovered as a skill, so a backup would register as a duplicate.
+BACKUP_ROOT="${HOME}/.claude/skill-backups"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 
 echo "Installing business-idea-validator"
@@ -12,8 +15,9 @@ echo "  source: ${SRC}"
 echo "  dest:   ${DEST}"
 
 if [[ -d "$DEST" ]]; then
-  BACKUP="${DEST}.bak-${STAMP}"
+  BACKUP="${BACKUP_ROOT}/business-idea-validator-${STAMP}"
   echo "  backing up existing install → ${BACKUP}"
+  mkdir -p "$BACKUP_ROOT"
   mv "$DEST" "$BACKUP"
 fi
 

@@ -13,21 +13,59 @@ recompute the verdict and disagree with a specific number rather than a vibe.
 
 ## Components
 
-Total 100 points. Demand and unit economics are scored **against the selected
-capital path's targets** from `capital-paths.md` — this is what stops a healthy
-niche business from being punished on a venture yardstick.
+Each component is scored on its own natural scale, converted to a **percentage
+of its own maximum**, then multiplied by its weight. Weights are
+**path-dependent** — they must be, because the components do not carry equal
+information across paths. Moat is the whole thesis for a venture play and nearly
+irrelevant for a niche tool whose defence is that the niche is too small to
+attract anyone. Founder fit is decisive for a solo founder and least decisive
+where a team will be hired.
 
-| # | Component | Max | Source |
-| --- | --- | --- | --- |
-| 1 | AI-era score | 30 | `ai-era-checks.md`, 12 checks × 0–2 = 0–24, normalized ×1.25 |
-| 2 | Demand evidence | 20 | See below |
-| 3 | Moat score | 15 | `frameworks.md §4` moat assessment, 0–21, normalized ×0.714 |
-| 4 | Unit economics vs path | 15 | See below |
-| 5 | Founder / team fit | 10 | `frameworks.md §6` |
-| 6 | Base-rate & tarpit penalty | −10 | See below |
+The positive components sum to **100** on every path. The penalty is separate
+and subtractive, so the range is −10 to 100.
+
+| Component | Bootstrap | Venture | Services | Own scale | Source |
+| --- | --- | --- | --- | --- | --- |
+| AI-era score | 25 | **30** | 15 | 0–24 (fewer if N/A) | `ai-era-checks.md` |
+| Demand evidence | **30** | 25 | 20 | 0–20 | table below |
+| Moat score | 5 | 20 | 20 | 0–21 | `frameworks.md §4` |
+| Unit economics vs path | 20 | 15 | **30** | 0–15 | table below |
+| Founder / team fit | 20 | 10 | 15 | 0–10 | `frameworks.md §6` |
+| Base-rate & tarpit penalty | −10 | −10 | −10 | 0 to −10 | table below |
+
+**The arithmetic:** `component = (raw / raw_max) × weight`.
+
+Show the raw score, the maximum and the weighted result in the brief, so the
+reader can recompute every line.
+
+**Why the weights move.** On the bootstrap path, evidence that someone will pay
+and evidence that this founder can reach them are almost the whole question —
+so demand and fit carry half the total, and moat carries five points. On the
+venture path, defensibility *is* the investment thesis, so AI-era and moat carry
+half. On the services path, the deal economics decide everything, so unit
+economics carries thirty.
 
 ### 1. AI-era score (30)
-Sum the 12 checks (PASS 2 / RISKY 1 / FAIL 0) → 0–24 → × 1.25 → 0–30.
+Sum the checks (PASS 2 / RISKY 1 / FAIL 0) → 0–24 → × 1.25 → 0–30.
+
+**Renormalize when checks are N/A.** A check that cannot meaningfully apply —
+typically the inference-specific ones for a product that never calls a model —
+is excluded from both sides:
+
+```
+score = (raw / (2 × applicable_checks)) × 30
+```
+
+So a non-AI SaaS scoring 14 across 9 applicable checks gets
+`(14 / 18) × 30 = 23.3`, not `14 × 1.25 = 17.5`. Without this, a perfectly good
+business loses a third of the available points for the crime of not being an AI
+product — which is the same category of error as judging a bootstrap idea on a
+venture yardstick, and this rubric exists partly to stop that.
+
+State the denominator in the brief: *"AI-era: 14/18 applicable (3 N/A) → 23.3"*.
+
+**The gate scales too.** The "AI-era total ≤9 caps at Weak" gate becomes
+"below 42% of the applicable maximum".
 
 ### 2. Demand evidence (20)
 Score the *evidence*, not the story. What the founder believes is worth zero.
@@ -92,7 +130,7 @@ go/no-go.
 ## Hard gates — these override the score
 
 1. **Check 11 (regulatory) = FAIL** → caps at **Weak**. State why in the verdict paragraph.
-2. **AI-era total ≤9** → caps at **Weak** absent an explicit argued override.
+2. **AI-era below 42% of the applicable maximum** (≤9/24 when all apply) → caps at **Weak** absent an explicit argued override.
 3. **Demand evidence = 0 and nascent** → caps at **Promising**. Nothing unvalidated is Strong, however elegant.
 
 Gates cap; they never promote.
@@ -147,23 +185,43 @@ months later, and it is what a founder should go and collect.
 
 ## Worked example
 
-Bootstrap-path AI tool for a niche profession. Founder is a practitioner. No
-paying users yet; 24 interviews done.
+Bootstrap-path scheduling and invoicing tool for independent music teachers.
+Solo founder who teaches piano and is active in two teacher forums. 22 problem
+interviews; two teachers already paying a small fee for a manual version.
 
-| Component | Score | Note |
-| --- | --- | --- |
-| AI-era (12 checks: 4 PASS, 6 RISKY, 2 FAIL = 14/24) | 17.5 | Workflow ownership RISKY; agent-addressability FAIL |
-| Demand evidence | 12 | 24 interviews, consistent pain, nobody asked to pay → capped at 8… but two verbal pre-commitments at a named price lift it to 12 |
-| Moat (9/21) | 6.4 | Domain data compounding; no network effect |
-| Unit economics vs bootstrap targets | 10 | Plausible, assumptions stated, inference cost estimated |
-| Founder fit | 8 | Is the customer; can ship; distribution untested |
-| Penalty | −2 | Horizontal-SMB adjacency |
-| **Total** | **51.9** | → **Weak** |
+Three AI-era checks are N/A — the product never calls a model — so the AI-era
+denominator is 18, not 24.
 
-Computed: **Weak**. Override applied: **Weak → Promising** — the founder has
-direct access to 400 practitioners through an association they already chair,
-which the moat and demand components cannot see. Printed in the brief as such.
+| Component | Raw | Of | % | × Weight | Score |
+| --- | --- | --- | --- | --- | --- |
+| AI-era | 12 | 20 | 60% | 25 | 15.0 |
+| Demand evidence | 16 | 20 | 80% | 30 | 24.0 |
+| Moat | 4 | 21 | 19% | 5 | 1.0 |
+| Unit economics vs bootstrap targets | 10 | 15 | 67% | 20 | 13.3 |
+| Founder fit | 9 | 10 | 90% | 20 | 18.0 |
+| Penalty — micro-SaaS base rate unaddressed | | | | −10 | −2.0 |
+| **Total** | | | | | **69.3** |
 
-Note what the rubric did: it forced the finding "you have no demand evidence
-anyone will pay" to the surface *and* let the genuinely unusual distribution
-advantage count — once, visibly, and with a stated reason.
+Computed: **Promising**. No override needed.
+
+**Now run the same idea on the venture path**, changing nothing about the
+business — only the yardstick:
+
+| Component | Raw | Of | % | × Weight | Score |
+| --- | --- | --- | --- | --- | --- |
+| AI-era | 12 | 20 | 60% | 30 | 18.0 |
+| Demand evidence | 16 | 20 | 80% | 25 | 20.0 |
+| Moat | 4 | 21 | 19% | 20 | 3.8 |
+| Unit economics vs venture targets | 2 | 15 | 13% | 15 | 2.0 |
+| Founder fit | 9 | 10 | 90% | 10 | 9.0 |
+| Penalty | | | | −10 | −2.0 |
+| **Total** | | | | | **50.8** |
+
+Computed: **Weak**.
+
+Same business, same evidence, two honest verdicts — because they answer
+different questions. At £15/month, venture scale needs roughly 19,000 paying
+customers against a reachable market of a few thousand; the unit-economics
+component collapses accordingly. This is the whole reason capital paths exist.
+A validator that returned one number here would be wrong for one of the two
+founders asking.

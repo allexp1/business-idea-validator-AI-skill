@@ -23,21 +23,24 @@ businesses write better marketing emails. $29/month per seat.
 Every evaluation produces a brief — as a shareable page, a PDF, or HTML —
 alongside a machine-readable `verdict.json`.
 
-**Abridged example output** (bootstrap-path, nascent):
+**Abridged example output** (bootstrap-path, nascent). Component weights are set
+by the capital path — moat is the whole thesis for a venture play and nearly
+irrelevant for a niche tool whose defence is that the niche is too small to be
+worth attacking:
 
 ```
-Score
-  AI-era check          5 PASS / 4 RISKY / 3 FAIL = 14/24     30    17.5
-  Demand evidence       24 interviews, 2 verbal pre-commits    20    12.0
-  Moat                  9/21 — domain data, no network effect  15     6.4
-  Unit economics        vs bootstrap targets; inference est.   15    10.0
-  Founder / team fit    is the customer; distribution untested 10     8.0
-  Base-rate penalty     horizontal-SMB adjacency              −10    −2.0
+Score                                          raw    of  weight   score
+  AI-era check      3 N/A (no model in product) 12    20      25    15.0
+  Demand evidence   2 paying, 6 verbal commits  16    20      30    24.0
+  Moat              domain data, no network      4    21       5     1.0
+  Unit economics    vs bootstrap targets        10    15      20    13.3
+  Founder fit       is the customer              9    10      20    18.0
+  Base-rate penalty micro-SaaS prior unaddressed −            −10    −2.0
   ──────────────────────────────────────────────────────────────────────
-  Total → Weak                                                      51.9
+  Total → Promising                                                  69.3
 
-Override: Weak → Promising — founder chairs the 400-member practitioner
-association; a distribution advantage the moat and demand components cannot see.
+Same business scored on the venture path: 50.8 → Weak. At £15/month, venture
+scale needs ~19,000 customers against a reachable few thousand.
 ```
 
 ...followed by a steelman, hard truths, the 12 AI-era checks, a competitor
