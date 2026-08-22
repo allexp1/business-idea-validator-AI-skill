@@ -1,28 +1,117 @@
-# Business Idea Validator — Claude Skill
+# Business Idea Validator — a Claude Skill
 
-A brutally honest business idea validator and startup advisor skill for Claude. It uses real frameworks from Harvard Business School (and related sources) to evaluate business ideas through three lenses: **desirability**, **feasibility**, and **viability**.
+A brutally honest business idea validator and startup advisor. It uses
+frameworks from Harvard Business School, a 12-point AI-era deep check, and a
+**computed scoring rubric** to evaluate a startup idea or an operating business —
+then produces a styled brief you can keep.
 
-Designed specifically to fight AI sycophancy — it tells the truth, not what the user wants to hear.
+It exists to fight AI sycophancy. Left to its own judgment, a language model
+drifts toward "Promising" — the label that offends nobody. Instructions about
+tone don't fix that. **A rubric does.** The verdict here is a function of six
+scored components, and the model gets exactly one band of override, which it has
+to print and justify.
 
-## What it does
+```
+/business-idea-validator I want to build an AI assistant that helps small
+businesses write better marketing emails. $29/month per seat.
+```
 
-Triggers whenever a user mentions a startup idea, business concept, product idea, side project, SaaS idea, app idea, or asks whether an idea is good, viable, or worth pursuing. Also triggers on phrases like:
+---
 
-- "I have an idea..."
-- "Should I build this?"
-- "Is this a good business?"
-- "Validate my idea"
-- "Roast my startup idea"
-- "Be honest about my idea"
+## What you get
 
-## Contents
+Every evaluation produces a brief — as a shareable page, a PDF, or HTML —
+alongside a machine-readable `verdict.json`.
 
-- `SKILL.md` — main skill definition and evaluation methodology
-- `references/frameworks.md` — supporting frameworks (Jobs-to-be-Done, Porter's Five Forces, Lean Canvas, etc.)
+**Abridged example output** (bootstrap-path, nascent):
 
-## Installation
+```
+Score
+  AI-era check          5 PASS / 4 RISKY / 3 FAIL = 14/24     30    17.5
+  Demand evidence       24 interviews, 2 verbal pre-commits    20    12.0
+  Moat                  9/21 — domain data, no network effect  15     6.4
+  Unit economics        vs bootstrap targets; inference est.   15    10.0
+  Founder / team fit    is the customer; distribution untested 10     8.0
+  Base-rate penalty     horizontal-SMB adjacency              −10    −2.0
+  ──────────────────────────────────────────────────────────────────────
+  Total → Weak                                                      51.9
 
-### Recommended — run `install.sh`
+Override: Weak → Promising — founder chairs the 400-member practitioner
+association; a distribution advantage the moat and demand components cannot see.
+```
+
+...followed by a steelman, hard truths, the 12 AI-era checks, a competitor
+teardown, a unit-economics napkin including cost-per-outcome, named precedents,
+a two-year pre-mortem, a pre-parade, concrete pivots, **falsifiable kill
+criteria**, what would change the verdict, and a dated plan.
+
+## The 12 AI-era checks
+
+Each scores PASS / RISKY / FAIL. Check 11 is a hard gate on the verdict.
+
+| # | Check | Asks |
+| --- | --- | --- |
+| 1 | Complement asymmetry | Do you own something the labs need to stay scarce, or are you what they're commoditizing? |
+| 2 | Model dependency & native-ship horizon | Will a lab ship this? What happens when your provider changes price or policy? |
+| 3 | Cost-per-outcome trajectory | Token prices fall, tokens-per-task rise. Which wins, for you? |
+| 4 | Pricing-model fit | Can the price absorb variable inference cost, and survive a competitor pricing per outcome? |
+| 5 | Data moat compounding | Does proprietary data accumulate and actually improve the product? |
+| 6 | Workflow ownership | Are you the system of record, or a tab someone closes? |
+| 7 | Reliability & eval debt | What accuracy does production need, who eats an error, what does the review loop cost? |
+| 8 | Agent-native addressability | MCP, ACP, UCP, AP2, x402 — which layer can an agent reach you on? |
+| 9 | Non-software moat | Anything AI can't clone in a week? |
+| 10 | Distribution sovereignty & answer engines | Who can switch you off, and do you exist inside ChatGPT's answer? |
+| 11 | **Regulatory & liability clock** | What applies, when does it bite, who owns compliance? **Hard gate.** |
+| 12 | Category permanence | A durable category in 2030, or a bridge? |
+
+## Three capital paths
+
+The most common way a validator gets a verdict wrong is measuring against the
+wrong definition of success. A good $8k-MRR niche business scored on venture
+criteria reads as a failure. So the path is chosen first, and it changes the
+market floor, the success bar, the unit-economics targets and the channel advice.
+
+| | Bootstrap / indie | Venture | Service-as-software |
+| --- | --- | --- | --- |
+| Question | "Can I own a profitable business?" | "Can this be a $100M company?" | "Can AI re-margin existing work?" |
+| Market floor | Reachable niche | $1B+ TAM | Fragmented, many small operators |
+| 24-month success | $10k MRR, profitable | ~$3.5M ARR, 120%+ NRR | Acquired EBITDA + margin lift |
+| CAC payback | <6 months | <20 months | Deal-multiple math |
+| Fatal failure | Never clears $1k MRR | Can't raise the next round | The acquired book churns |
+
+## Verdict bands
+
+`≥75 Strong · 55–74 Promising · 35–54 Weak · <35 Flawed`
+
+Hard gates cap but never promote: a regulatory FAIL caps at Weak; an AI-era
+total ≤9 caps at Weak; zero demand evidence on a nascent idea caps at Promising.
+
+## It keeps itself current
+
+Market facts perish. A validator quoting 2024 inference economics in 2026 gives
+confidently wrong advice.
+
+- **No market figure lives in `SKILL.md`.** Every number comes from
+  `references/market-data.md`, with a source and a `verified:` date, and is
+  quoted with that date.
+- A **`.living/` sidecar** ([living-skills](https://github.com/allexp1/living-skills)
+  spec 1.1) refreshes the perishable figures on a 21-day interval, logging every
+  change with its source. Delete `.living/` and the skill still works from the
+  dated baseline — it will just say so.
+- **Regulatory dates are re-verified on every run**, never quoted from memory.
+
+## Zero trust, in both directions
+
+The skill treats every fact the user states — founding year, revenue, funding,
+"we're the only one who…" — as a hypothesis to be checked against public record,
+and surfaces discrepancies rather than absorbing them. Every brief carries a
+**Verified Facts** footer showing what was confirmed, contradicted, or left
+unverified.
+
+It applies the same rule to itself. A skill that demands citations from you and
+quotes undated numbers back has not earned the word "honest".
+
+## Install
 
 ```bash
 git clone https://github.com/allexp1/business-idea-validator-AI-skill.git
@@ -30,28 +119,58 @@ cd business-idea-validator-AI-skill
 ./install.sh
 ```
 
-Installs `SKILL.md` + `references/` into `~/.claude/skills/business-idea-validator/`. Restart Claude Code, then invoke with `/business-idea-validator`.
+Installs into `~/.claude/skills/business-idea-validator/`, backing up any
+existing copy. Restart Claude Code, then use `/business-idea-validator`, or just
+describe an idea and it triggers on its own.
 
-### Manual
-
+**Manual:**
 ```bash
-mkdir -p ~/.claude/skills
 cp -r . ~/.claude/skills/business-idea-validator
 ```
 
-### Packaging as a `.skill` file
-
+**As a `.skill` bundle:**
 ```bash
-zip -r business-idea-validator.skill SKILL.md references/
+zip -r business-idea-validator.skill SKILL.md references/ scripts/ evals/ .living/
 ```
+
+PDF rendering needs a Chromium-family browser (Chrome, Chromium, Edge or Brave).
+Without one you still get the HTML brief.
 
 ## Usage
 
-Once installed, present any business idea to Claude and the skill activates automatically. Example prompts:
+- `/business-idea-validator <idea>` — evaluate
+- `/business-idea-validator <url>` — strategic review of an operating business
+- `/business-idea-validator compare <slug>` — re-evaluate and diff against last time
 
-- "I want to build a SaaS for dentists to manage appointments — is this a good idea?"
-- "Roast my startup idea: Uber for dog walkers."
-- "Validate this: a subscription box for left-handed people."
+Evaluation history lives in `~/.claude/business-idea-validator/history/`, so a
+second run shows verdict movement, which checks flipped, and whether the change
+came from the business or from the market.
+
+## Repo layout
+
+```
+SKILL.md                      the skill — process and rubric
+references/
+  market-data.md              every figure, sourced and dated
+  ai-era-checks.md            the 12 checks
+  scoring-rubric.md           how the verdict is computed
+  capital-paths.md            bootstrap / venture / service-as-software
+  archetypes-2026.md          winning shapes, losing shapes, precedent library
+  frameworks.md               JTBD, market validation, moats, tarpits
+  interview-bank.md           the questions to actually ask
+  brief-production.md         deliverables, verdict.json, compare mode
+  pdf-template.html           the visual blueprint
+scripts/render-brief.sh       HTML → PDF, cross-platform
+evals/cases.md                6 regression cases
+.living/                      self-refreshing knowledge sidecar
+```
+
+## Development
+
+Change anything in `SKILL.md`, `ai-era-checks.md`, `scoring-rubric.md` or
+`capital-paths.md`, then run the suite in `evals/cases.md`. Case 3 is the one
+that matters most: it must return **different verdicts on the bootstrap and
+venture paths**. If it doesn't, the capital-path branch is broken.
 
 ## License
 
