@@ -2,6 +2,16 @@
 
 This reference contains the detailed evaluation frameworks used by the Business Idea Validator skill. Read this file when conducting an evaluation to ensure thoroughness.
 
+**Two rules govern everything below.**
+
+1. **Targets are path-dependent.** Any threshold here (market size, margin,
+   payback, churn) is the *venture* default unless stated. Read
+   `capital-paths.md` first and use that path's targets. A bootstrap business
+   measured against venture thresholds will read as a failure while being a
+   success.
+2. **Figures come from `market-data.md`,** with their verified dates. Nothing in
+   this file should be quoted as a current market number.
+
 ## Table of Contents
 1. Jobs to Be Done (JTBD) Framework
 2. Market Validation (HBS 5-Step Method)
@@ -67,10 +77,21 @@ Use the TAM/SAM/SOM framework:
 - **SAM** (Serviceable Available Market): The portion you could realistically reach
 - **SOM** (Serviceable Obtainable Market): What you can realistically capture in 1-3 years
 
-Red flags on market size:
-- TAM under $1B for a venture-scale business
+**Only run TAM/SAM/SOM on the venture path.** For bootstrap, the question is not
+market size but *reachability*: how many buyers exist, can one person reach them
+without a paid-acquisition budget, and at what price. For a rollup, it is deal
+flow and fragmentation. Computing a TAM for a niche tool is theatre — it either
+flatters a bad idea or condemns a good one.
+
+Red flags on market size (venture path):
+- TAM under $1B
 - SAM requires geographic or demographic assumptions that are hard to verify
 - SOM assumptions require >5% market share in year one (unrealistic for most startups)
+
+Red flags on reachability (bootstrap path):
+- The founder cannot name the specific place these buyers already gather
+- Reaching them requires paid acquisition from the first customer
+- The audience is large but has no shared identity, publication, or venue
 
 Use the Casper mattress example: they assessed their market by comparing their differentiating factors against the broader mattress market, then estimating what percentage of buyers would prefer their specific approach.
 
@@ -174,12 +195,34 @@ A score under 5/21 means the moat is dangerously shallow.
 ## 5. Business Model Stress Test
 
 ### Unit Economics Check
-- **Customer Acquisition Cost (CAC)**: How much does it cost to get one customer?
-- **Lifetime Value (LTV)**: How much revenue does one customer generate over their lifetime?
-- **LTV:CAC Ratio**: Should be at least 3:1 for a healthy business. Below 2:1 is a red flag.
-- **Payback Period**: How many months to recoup CAC? Under 12 months is good.
-- **Gross Margin**: Revenue minus cost of goods sold. Under 50% for software is a concern.
-- **Churn Rate**: What percentage of customers leave per month? Over 5% monthly is alarming.
+
+Classic rows:
+- **Customer Acquisition Cost (CAC)** — cost to get one customer. Always name the basis.
+- **Lifetime Value (LTV)** — revenue from one customer over their life. Build it on a *measured* retention curve, not a hoped-for one.
+- **LTV:CAC** — 3:1 is the floor, not the target. Below 2:1 is a red flag.
+- **Payback period** — path-dependent. Bootstrap has no runway to amortize; venture can wait.
+- **Gross margin** — under 50% for software is a concern. See the AI rows below before believing any margin figure.
+- **Churn** — over 5% monthly is alarming. Start from the category's retention prior in `market-data.md §2`; consumer AI retention is materially worse than classic SaaS.
+
+**AI-era rows — required whenever the product calls a model.** These are where
+AI businesses discover, late, that they are unprofitable:
+
+- **Cost per successful outcome** — not cost per call. Count retries, reasoning
+  tokens, agentic loops, failed attempts and the human review that catches them.
+  This is the number that decides whether the business works.
+- **Inference as a percentage of revenue** — per customer, at current usage and
+  at heavy usage. A power user must not be a loss.
+- **Gross margin after inference** — the only margin figure worth quoting.
+  Classic SaaS margin assumptions do not transfer; see `market-data.md §3`.
+- **Eval and human-review cost per unit** — the price of the accuracy bar the
+  buyer actually requires (check 7 in `ai-era-checks.md`).
+- **Cost trajectory** — does cost per outcome fall faster than price will? Token
+  prices are collapsing while consumption per task climbs; the two do not cancel
+  out in your favour by default.
+
+**"Not computed" is a legitimate finding and should be reported as one.** An AI
+business that has never measured its cost per outcome does not have unit
+economics; it has a hypothesis.
 
 ### Revenue Model Viability
 Evaluate which revenue model fits:
@@ -190,6 +233,20 @@ Evaluate which revenue model fits:
 - Marketplace (requires both sides, chicken-and-egg problem)
 - Enterprise sales (high LTV, but long sales cycles and expensive salespeople)
 - One-time purchase (simple, but no recurring revenue)
+
+### Pricing Model Fit (AI-era)
+
+The *shape* of the price now matters as much as the level. See
+`market-data.md §4` for the current mix and `ai-era-checks.md` check 4.
+
+- **Per-seat** — under structural pressure. Fatal tell: if the product's job is
+  to reduce headcount, per-seat pricing means success shrinks revenue.
+- **Usage** — aligns cost with revenue, but makes spend unpredictable for the
+  buyer and can punish the power users you most want.
+- **Outcome** — the strongest signal of an AI-native product. Requires a
+  measurable outcome and a real accuracy bar. Do not bill escalations as successes.
+- **Hybrid (base + usage/outcome)** — now the dominant model, and usually the
+  right recommendation: a floor that covers COGS, upside tied to value.
 
 ### Pricing Sanity Check
 - Is the price proportional to the pain being solved?
@@ -239,6 +296,27 @@ These are ideas that look attractive but have killed many startups before. They'
 
 8. **Hardware startups without hardware experience** — Hardware is 10x harder than software. Manufacturing, supply chain, inventory, returns, repairs — each one can kill you.
 
+### Current-era additions
+
+9. **"We'll be the layer that…"** — a bridge across a model limitation. The
+   limitation is the business, and its expiry date is set by someone else.
+
+10. **Horizontal AI tool for SMBs at $20–50/mo** — the densest failure cluster in
+    the current cohort: no wedge, no lock-in, per-seat pricing, and a lab
+    shipping the same feature free.
+
+11. **Enterprise pilot-ware** — sells pilots convincingly, never crosses into
+    production. Cheap to start, impossible to compound. See the pilot-failure
+    base rate in `market-data.md §1`.
+
+12. **Agent marketplaces and AI tool directories** — two-sided chicken-and-egg
+    layered on top of a commoditizing supply side.
+
+13. **Regulated-category products without a compliance owner** — hiring, credit,
+    health, minors, synthetic media. Product-market fit does not protect against
+    a compliance obligation; see the Character.AI precedent in
+    `archetypes-2026.md`.
+
 ---
 
 ## 8. The 7-Day Validation Sprint
@@ -246,12 +324,14 @@ These are ideas that look attractive but have killed many startups before. They'
 Recommend this to founders whose ideas survive initial scrutiny:
 
 **Day 1-2: Customer Discovery**
-- Identify 10 potential customers (NOT friends/family)
-- Conduct 5-minute problem interviews focusing on their current pain
-- Document exact words they use to describe the problem
+- Identify 20 potential customers (NOT friends/family) — patterns appear between 12 and 20
+- Run problem interviews using the actual questions in `interview-bank.md`
+- Document the exact words they use; those phrases are the landing-page copy
+- Count budget holders, not conversations
 
 **Day 3: Competitive Research**
-- Map all direct and indirect competitors
+- Map all direct and indirect competitors — including "they just use ChatGPT"
+
 - Sign up for and use the top 3 competitors
 - Identify specific gaps in existing solutions
 - Check for failed startups in this space and understand why they failed
