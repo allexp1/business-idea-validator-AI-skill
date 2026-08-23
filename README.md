@@ -260,24 +260,43 @@ anyone else's.
 ## Install
 
 ```bash
-git clone https://github.com/allexp1/business-idea-validator-AI-skill.git
-cd business-idea-validator-AI-skill
-./install.sh
+npx github:allexp1/business-idea-validator-AI-skill
 ```
 
-Installs into `~/.claude/skills/business-idea-validator/`, backing up any
-existing copy. Restart Claude Code, then use `/business-idea-validator`, or just
-describe an idea and it triggers on its own.
+Works today, needs no npm account. Restart Claude Code, then use
+`/business-idea-validator`, or just describe an idea and it triggers on its own.
 
-**Manual:**
+Add `--dry-run` to see exactly what it would write before it writes anything.
+
+<details>
+<summary>Other ways</summary>
+
+**From a clone**
+
+```bash
+git clone https://github.com/allexp1/business-idea-validator-AI-skill.git
+cd business-idea-validator-AI-skill
+./install.sh          # or: node bin/install.js
+```
+
+**Manual**
+
 ```bash
 cp -r . ~/.claude/skills/business-idea-validator
 ```
 
-**As a `.skill` bundle:**
+**As a `.skill` bundle**
+
 ```bash
 zip -r business-idea-validator.skill SKILL.md references/ scripts/ evals/ .living/
 ```
+
+</details>
+
+The installer copies files and nothing else. An existing install is moved to
+`~/.claude/skill-backups/` rather than overwritten — and deliberately not left
+inside `skills/`, where anything with a `SKILL.md` is discovered and a backup
+would register as a second skill.
 
 PDF rendering needs a Chromium-family browser (Chrome, Chromium, Edge or Brave).
 Without one you still get the HTML brief.

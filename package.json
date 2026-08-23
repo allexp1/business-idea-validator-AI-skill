@@ -1,0 +1,42 @@
+{
+  "name": "business-idea-validator",
+  "version": "3.2.0",
+  "description": "A brutally honest business idea validator for Claude Code. Scores ideas against a computed rubric instead of a gut feel, using Harvard Business School frameworks plus a 13-point AI-era check, then says what would make the idea work.",
+  "bin": {
+    "business-idea-validator": "bin/install.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16.7.0"
+  },
+  "files": [
+    "bin/",
+    "SKILL.md",
+    "references/",
+    "scripts/",
+    "evals/",
+    ".living/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "agent-skill",
+    "skill",
+    "startup",
+    "business-validation",
+    "product-market-fit",
+    "ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allexp1/business-idea-validator-AI-skill.git"
+  },
+  "homepage": "https://github.com/allexp1/business-idea-validator-AI-skill#readme",
+  "bugs": {
+    "url": "https://github.com/allexp1/business-idea-validator-AI-skill/issues"
+  },
+  "license": "MIT"
+}
