@@ -26,7 +26,7 @@ and subtractive, so the range is −10 to 100.
 
 | Component | Bootstrap | Venture | Services | Own scale | Source |
 | --- | --- | --- | --- | --- | --- |
-| AI-era score | 25 | **30** | 15 | 0–24 (fewer if N/A) | `ai-era-checks.md` |
+| AI-era score | 25 | **30** | 15 | 0–26 (fewer if N/A) | `ai-era-checks.md` |
 | Demand evidence | **30** | 25 | 20 | 0–20 | table below |
 | Moat score | 5 | 20 | 20 | 0–21 | `frameworks.md §4` |
 | Unit economics vs path | 20 | 15 | **30** | 0–15 | table below |
@@ -45,8 +45,9 @@ venture path, defensibility *is* the investment thesis, so AI-era and moat carry
 half. On the services path, the deal economics decide everything, so unit
 economics carries thirty.
 
-### 1. AI-era score (30)
-Sum the checks (PASS 2 / RISKY 1 / FAIL 0) → 0–24 → × 1.25 → 0–30.
+### 1. AI-era score
+Sum the 13 checks (PASS 2 / RISKY 1 / FAIL 0) → 0–26, then scale to the path's
+weight: `(raw / 26) × weight`.
 
 **Renormalize when checks are N/A.** A check that cannot meaningfully apply —
 typically the inference-specific ones for a product that never calls a model —
@@ -57,15 +58,15 @@ score = (raw / (2 × applicable_checks)) × 30
 ```
 
 So a non-AI SaaS scoring 14 across 9 applicable checks gets
-`(14 / 18) × 30 = 23.3`, not `14 × 1.25 = 17.5`. Without this, a perfectly good
+`(14 / 18) × 30 = 23.3`, not `(14 / 26) × 30 = 16.2`. Without this, a perfectly good
 business loses a third of the available points for the crime of not being an AI
 product — which is the same category of error as judging a bootstrap idea on a
 venture yardstick, and this rubric exists partly to stop that.
 
 State the denominator in the brief: *"AI-era: 14/18 applicable (3 N/A) → 23.3"*.
 
-**The gate scales too.** The "AI-era total ≤9 caps at Weak" gate becomes
-"below 42% of the applicable maximum".
+**The gate scales too.** The AI-era gate is "below 42% of the applicable
+maximum", which is ≤10/26 when all thirteen apply.
 
 ### 2. Demand evidence (20)
 Score the *evidence*, not the story. What the founder believes is worth zero.
@@ -107,11 +108,29 @@ experience is pulling the founder toward a familiar shape that does not fit this
 problem.
 
 ### 6. Base-rate & tarpit penalty (0 to −10)
+
+**Establish the outside view first.** Before scoring this component — and before
+discussing the founder's own projection — define the reference class, state its
+base rate, and place this case in the distribution. The procedure and why the
+order matters are in `frameworks.md §14`. One line goes in the brief next to the
+score:
+
+> *Reference class: vertical AI tools sold to regulated SMBs under $200/mo.
+> Base rate to $1M ARR: roughly 1 in 12. Founder projects $4M by year two.*
+
+Then:
+
 - −2 per tarpit hit from `frameworks.md §7` (max −6)
-- −2 if the category's base rate in `market-data.md §1` is materially worse than
-  the startup average and the plan does not address why they escape it
+- −2 if the class base rate is materially worse than the startup average and the
+  plan does not address why this case escapes it
+- −2 if the founder's projection exceeds the class base rate and the stated
+  difference is one that is **already true of everyone in the class** — better
+  product, harder work, more focus. That is not a differentiator; it is the
+  inside view.
 - −2 if the plan depends on a figure the founder asserted that public record
   contradicts (see the zero-trust step)
+
+Cap the total penalty at −10.
 
 ---
 
@@ -130,7 +149,7 @@ go/no-go.
 ## Hard gates — these override the score
 
 1. **Check 11 (regulatory) = FAIL** → caps at **Weak**. State why in the verdict paragraph.
-2. **AI-era below 42% of the applicable maximum** (≤9/24 when all apply) → caps at **Weak** absent an explicit argued override.
+2. **AI-era below 42% of the applicable maximum** (≤10/26 when all apply) → caps at **Weak** absent an explicit argued override.
 3. **Demand evidence = 0 and nascent** → caps at **Promising**. Nothing unvalidated is Strong, however elegant.
 
 Gates cap; they never promote.

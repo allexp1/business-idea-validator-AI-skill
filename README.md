@@ -48,9 +48,9 @@ teardown, a unit-economics napkin including cost-per-outcome, named precedents,
 a two-year pre-mortem, a pre-parade, concrete pivots, **falsifiable kill
 criteria**, what would change the verdict, and a dated plan.
 
-## The 12 AI-era checks
+## The 13 AI-era checks
 
-Each scores PASS / RISKY / FAIL. Check 11 is a hard gate on the verdict.
+Each scores PASS / RISKY / FAIL / N-A. Check 11 is a hard gate on the verdict.
 
 | # | Check | Asks |
 | --- | --- | --- |
@@ -66,6 +66,7 @@ Each scores PASS / RISKY / FAIL. Check 11 is a hard gate on the verdict.
 | 10 | Distribution sovereignty & answer engines | Who can switch you off, and do you exist inside ChatGPT's answer? |
 | 11 | **Regulatory & liability clock** | What applies, when does it bite, who owns compliance? **Hard gate.** |
 | 12 | Category permanence | A durable category in 2030, or a bridge? |
+| 13 | Rights & data provenance | Do you own what the business depends on, and can you prove where the data came from? |
 
 ## Three capital paths
 
@@ -114,6 +115,33 @@ unverified.
 It applies the same rule to itself. A skill that demands citations from you and
 quotes undated numbers back has not earned the word "honest".
 
+## The brief opens with one page
+
+It does a lot, so it stays readable by having a fixed spine and a conditional
+body. Page one is the whole decision:
+
+```
+Decision
+  VERDICT           Weak · 42.0/100
+  WHY NOW           Long-context inference crossed viability in 2025;
+                    the same product in 2022 cost 40x more per document.
+  REFERENCE CLASS   Vertical AI tools sold to regulated SMBs under $200/mo.
+                    Roughly 1 in 12 reach $1M ARR. Founder projects $4M by year two.
+  BIGGEST RISK      No one has been asked to pay; all 24 interviews ended
+                    in encouragement.
+  NEXT ACTION       Run 20 choice-based WTP interviews within two weeks.
+  STOP IF           Fewer than 8 of 30 name this a top-3 problem by 22 Sep.
+```
+
+Everything after it is for the reader who wants the reasoning. Sections appear
+only when they have something to say — no manipulation flag means the triggers
+did not fire, which is itself information — and every section has a length
+budget. When one wants more room, it belongs in the playbook or the spec.
+
+The reference class line is deliberately placed *before* any founder projection.
+Lovallo and Kahneman's finding is that an inside-view number anchors everything
+after it, so the outside view has to come first or it does not work.
+
 ## It also says how to make it work
 
 The verdict is only half of it. Because the score decomposes into six
@@ -134,6 +162,15 @@ Moat               3/21     Counter-positioning (only power           8    1–2
 Ceilings are contingent and labelled as such, immovable components are named
 rather than filled in, and if the uplifted total is still below Promising the
 brief says so.
+
+`/business-idea-validator spec SLUG` goes one step further: a **change spec** a
+coding agent can act on, where every item traces to the component score it moves
+and carries a falsification condition. Most of an early spec is instrumentation
+rather than features, because without it nobody can tell whether the uplift
+landed. The skill writes the spec; it does not run it.
+
+`/business-idea-validator portfolio` reports across every saved evaluation —
+shared failure modes, stale briefs, kill criteria nobody ever checked.
 
 `references/playbook/` holds the interventions themselves — demand, pricing,
 distribution, moats, execution — and `/business-idea-validator playbook SLUG`
@@ -173,6 +210,8 @@ along with an explicit list of what is **not** academic.
 | Intelligent failure | Edmondson, *Right Kind of Wrong* (2023) |
 | Diffusion | Rogers (1962); Bass, *Management Science* (1969) |
 | Habit and retention | Wood (2019) |
+| Inside vs outside view | Lovallo & Kahneman, *HBR* 2003 — reference-class forecasting |
+| Added value, complementors | Brandenburger & Nalebuff, *Co-opetition* (1996) |
 
 The playbook also leans on practitioner sources — Ellis's 40% test, Helmer's
 7 Powers, Balfour's four fits, Moore, Roberge — each labelled as practitioner in
@@ -231,6 +270,8 @@ references/
     distribution.md           four fits, growth loops, diffusion
     moats.md                  7 Powers, and which are reachable at this stage
     execution.md              experimentation, intelligent failure, prioritization
+  change-spec.md              the spec command: what to change, and how it is measured
+  portfolio.md                the portfolio command: patterns across evaluations
   ai-era-checks.md            the 12 checks
   scoring-rubric.md           how the verdict is computed
   capital-paths.md            bootstrap / venture / service-as-software

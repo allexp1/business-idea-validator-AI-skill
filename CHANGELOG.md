@@ -1,5 +1,55 @@
 # Changelog
 
+## v3.1.0 — 2026-08-23
+
+Seven additions, and the work to keep the brief readable while absorbing them.
+
+### Readability first, because the brief was going to get too long
+
+- **A Decision Page**, one page and hard-capped: verdict, why now, reference
+  class, biggest risk, next action, the kill criterion that matters. A reader
+  who stops there can still decide. It is the page that gets forwarded.
+- **A conditional body.** Sections appear only when they have something to say
+  and are **omitted entirely** otherwise — no placeholders, no "N/A" headings.
+  Omission is information: no manipulation flag means the triggers did not fire.
+- **Length budgets** per section, and a rule for when one overflows: it belongs
+  in the playbook or the spec, not the brief.
+- `SKILL.md` had reached 449 lines. The output-structure detail moved into
+  `brief-production.md §9` and it is back to 385 — done deliberately rather than
+  discovered at the limit.
+
+### Added
+
+- **The outside view** (Lovallo & Kahneman, *HBR* 2003). Define the reference
+  class, state its base rate, place the case in the distribution — **before** the
+  founder's projection is discussed, because an inside-view number anchors
+  everything after it. The line prints next to the score. This gives base-rate
+  discipline a procedure instead of a decoration.
+- **Why now?** A question the skill never asked. What changed that makes this
+  possible now and not three years ago. "No good answer" is itself a finding.
+- **Added value and complementors** (Brandenburger & Nalebuff, 1996). *What
+  disappears if you disappear?* is the sharpest moat question available
+  pre-traction. Complementors are the player Porter omits, which matters because
+  the model labs are simultaneously the largest complementor and the likeliest
+  predator of most AI businesses.
+- **Runway** in the napkin, and the uplift plan now compares its total effort
+  against remaining runway.
+- **Check 13 — rights, data provenance and ownership.** Regulation asks whether
+  you may operate; this asks whether what you operate is yours. The AI-era total
+  is now out of 26.
+- **A manipulation flag**, conditional rather than scored. Fires on consumer
+  attention products, anything reaching minors, engagement-based revenue, or
+  margin from an unenforced rule. Not moralizing — Character.AI is in the
+  precedent library because that risk materialized as regulation.
+- **`spec SLUG`** — a change specification a coding agent can act on. Every item
+  names the component score it moves and carries a falsification condition, and
+  most of an early spec is instrumentation, because otherwise nobody can tell
+  whether the uplift landed. Gated like the playbook. **The skill writes it and
+  does not run it.**
+- **`portfolio`** — patterns across every saved evaluation: shared failure modes,
+  stale briefs, untested kill criteria, concentration by path. Refuses to infer
+  a trend from fewer than four evaluations.
+
 ## v3.0.0 — 2026-08-23
 
 The prescriptive turn. v2 answered *should this be built?* and left the founder

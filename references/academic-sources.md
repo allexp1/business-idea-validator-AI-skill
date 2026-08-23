@@ -318,6 +318,47 @@ by copying a competitor's tier table.
 
 ---
 
+## Inside View vs Outside View — Lovallo & Kahneman
+
+> Lovallo, Dan, and Daniel Kahneman. "Delusions of Success: How Optimism
+> Undermines Executives' Decisions." *Harvard Business Review* 81, no. 7
+> (July 2003).
+
+The inside view reasons from a project's specifics and is systematically
+optimistic; the outside view asks what happened to the class of comparable
+projects and is more accurate. People abandon the outside view as soon as they
+have detail about the specific case. The paper also names **competitor
+neglect** — forecasts that assume the market holds still while you execute.
+
+**Drives:** `frameworks.md §14`, a Phase 2 step, and the base-rate penalty in
+`scoring-rubric.md §6`. It is why the reference class and its base rate are
+stated **before** the founder's own projection, and why the line appears next to
+the score rather than in a footnote. This is the theoretical spine for base-rate
+discipline the skill previously applied as decoration.
+
+---
+
+## Added Value and Complementors — Brandenburger & Nalebuff
+
+> Brandenburger, Adam M., and Barry J. Nalebuff. *Co-opetition.* Currency
+> Doubleday, 1996. Nalebuff is at Yale; Brandenburger was then at Harvard
+> Business School.
+
+Two contributions this skill uses. **Added value** — the value of the game with
+you in it minus the value without you — is the ceiling on what any player can
+capture, and it is answerable before a company has traction, which most moat
+frameworks are not. **Complementors** are the player Porter's five forces omits:
+anyone whose presence makes your product more valuable.
+
+**Drives:** the Added Value step in Phase 2, the Complementors block in the
+Competitor Teardown, and the moat discussion in `playbook/moats.md`.
+
+**Why it matters now:** the model labs are simultaneously the largest
+complementor and the likeliest predator of most AI businesses. Porter has no
+slot for that relationship; this framework does.
+
+---
+
 # What is NOT academic
 
 Stated plainly so nobody mistakes the provenance. These parts of the skill are
@@ -340,6 +381,9 @@ practitioner synthesis, and they are the parts most likely to be wrong.
   from accelerator writing. Useful as a prior, not as evidence.
 - **The archetypes and precedents** (`archetypes-2026.md`) are journalism and
   company disclosures, re-verified on a schedule.
+- **The Change Spec's effort estimates and the portfolio view's pattern claims**
+  are judgment. The spec's *falsification conditions* are the part with rigour;
+  its day estimates are not.
 - **The uplift plan's point ceilings** (`scoring-rubric.md`) are estimates of how
   far an intervention could move a component score. They are judgment applied to
   a rubric that is itself judgment. Useful for prioritizing; not a forecast, and

@@ -161,6 +161,28 @@ Assertions:
   fails check 11 to exercise this.
 - Every intervention names the `playbook/` file that explains it
 
+## v3 assertions — every case
+
+- **Decision Page is first and fits one page.** Verdict, why-now, reference
+  class, biggest risk, next action, kill criterion.
+- **Why now** is answered, or explicitly recorded as having no good answer
+- **The reference class is specific** — not "startups" — and its base rate is
+  stated *before* any founder projection appears in the brief
+- **All 13 AI-era checks** scored, denominator adjusted for any N/A
+- **Conditional sections are omitted, not stubbed.** Grep the output for "N/A",
+  "None", or an empty heading; any hit is a regression.
+- Runway appears in the napkin, and the uplift plan's total effort is compared
+  against it
+- Complementors named where any exist; for an AI product this usually means
+  naming the lab that is both complementor and likeliest competitor
+- **Manipulation flag fires only on trigger.** Case 4 (consumer AI) should fire
+  it; case 2 (clinical vertical) should not, and its absence is the signal.
+- `spec SLUG` is refused for Weak and Flawed, and for Strong/Promising the spec
+  it produces is **majority instrumentation** and every item carries a
+  falsification condition
+- `portfolio` with fewer than four saved evaluations prints the table and
+  **skips the pattern analysis** rather than inventing a trend
+
 ## Scope assertions — every case
 
 The skill advises; it never implements. In any session:

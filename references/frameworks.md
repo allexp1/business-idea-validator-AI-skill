@@ -26,6 +26,8 @@ This reference contains the detailed evaluation frameworks used by the Business 
 11. Marketing Myopia — Levitt
 12. Does This Discipline Work? — Camuffo et al.
 13. Failure Patterns — Eisenmann
+14. Inside View vs Outside View — Kahneman & Lovallo
+15. Added Value and Complementors — Brandenburger & Nalebuff
 
 ---
 
@@ -235,6 +237,16 @@ AI businesses discover, late, that they are unprofitable:
 - **Cost trajectory** — does cost per outcome fall faster than price will? Token
   prices are collapsing while consumption per task climbs; the two do not cancel
   out in your favour by default.
+
+**Runway — the row that decides whether any of this is actionable.**
+
+- **Months of runway** at current burn, and whether that is personal savings, revenue, or raised capital.
+- **What the uplift work costs against it.** A nine-week intervention plan means
+  something very different at four months of runway than at eighteen. If the
+  recommended work consumes more than a third of remaining runway, say so in the
+  uplift plan and re-order to put the cheapest falsifying test first.
+- Bootstrap path: runway is usually *time*, not money — how many months the
+  founder can work on this before needing income from it. Ask in those terms.
 
 **"Not computed" is a legitimate finding and should be reported as one.** An AI
 business that has never measured its cost per outcome does not have unit
@@ -514,3 +526,85 @@ Two patterns deserve extra attention in this era. **False Positive** is the
 default failure of AI products, which demo brilliantly to enthusiasts and
 disappoint everyone else. **Cascading Miracles** is the tell for any plan whose
 pitch contains several sequential "and then" steps.
+
+---
+
+## 14. Inside View vs Outside View (Kahneman & Lovallo)
+
+> Lovallo, Dan, and Daniel Kahneman. "Delusions of Success: How Optimism
+> Undermines Executives' Decisions." *Harvard Business Review* 81, no. 7 (July
+> 2003).
+
+The theoretical spine for something this skill already does badly: quoting base
+rates as decoration rather than using them.
+
+**The inside view** reasons from the specifics of this project — our team, our
+insight, our plan. It is the natural way to think and it is systematically
+optimistic. **The outside view** ignores the specifics and asks what happened to
+the *class* of things like this. Lovallo and Kahneman's finding is that the
+outside view is more accurate, and that people abandon it the moment they have
+detail about the specific case.
+
+They also name **competitor neglect**: forecasts assume the market stands still
+while you execute. It does not.
+
+### The procedure — order matters
+
+1. **Define the reference class.** Not "startups". Specific: *vertical AI tools
+   sold to regulated SMBs at under $200/month*.
+2. **Get the class's distribution** from `market-data.md` or by search. What
+   share reach $1M ARR? What is the median outcome, not the memorable one?
+3. **Place this case in the distribution** and state the number *before*
+   discussing the founder's own projection.
+4. **Only then** hear the inside view, and treat the gap between the two as the
+   thing requiring explanation.
+
+**Step 3 before step 4 is the whole method.** Once an inside-view forecast is on
+the table it anchors everything after it, including yours. This is why the brief
+prints the reference class next to the score rather than in a footnote.
+
+When the founder's projection sits far above the class base rate, the question
+is not "are you sure?" but **"what specifically about you is different, and is
+that difference in the reference class already?"** Most claimed differences —
+better product, harder work, more focus — are true of everyone in the class.
+
+## 15. Added Value and Complementors (Brandenburger & Nalebuff)
+
+> Brandenburger, Adam M., and Barry J. Nalebuff. *Co-opetition.* Currency
+> Doubleday, 1996. Both authors are professors of business strategy — Nalebuff
+> at Yale, Brandenburger then at Harvard Business School.
+
+Two things Porter does not give you.
+
+### Added value — the sharpest pre-traction moat question
+
+**What disappears if you disappear?** Formally: the value of the game with you
+in it, minus the value of the game without you. That difference is the most you
+can ever capture, regardless of strategy.
+
+This is more useful than most of Helmer's powers at pre-traction, because it is
+answerable *before* you have volume. Ask it plainly: if this company vanished
+tomorrow, what would its customers be unable to do? If the honest answer is
+"use a slightly worse alternative", added value is thin, and no amount of
+execution changes that — the ceiling is structural.
+
+### Complementors — the player Porter's five forces omits
+
+A **complementor** is anyone whose presence makes your product more valuable to
+a customer. The five forces model has customers, suppliers, rivals, entrants and
+substitutes; it has no slot for this, which is a real gap.
+
+**This matters acutely now.** The model labs are simultaneously your largest
+complementor and your most likely predator. Their capability makes your product
+possible and their roadmap may end it. That relationship has no name in Porter
+and it is the central strategic fact for most AI businesses.
+
+Questions worth putting to any subject:
+
+- Who becomes more valuable when you succeed? Are they aware of you?
+- Which complementor could become a competitor, and what would trigger it?
+- Is there a partnership that grows the market rather than splitting it?
+- If your main complementor raised its prices or changed its terms, what happens?
+
+The last question is check 2 arriving from a different direction, and founders
+answer it more honestly in this framing than when asked about platform risk.

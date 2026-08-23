@@ -11,6 +11,7 @@
   render as visible text on page 1 of the brief. (That bug shipped in v1.)
 
   REQUIRED sections (in order):
+    0.  Decision Page     (one page, hard — the spine; see brief-production.md §9)
     1.  Cover              (title, subtitle, meta row)
     2.  Stat row           (4 tiles; required for OPERATING mode, optional for NASCENT)
     3.  Score table        (6 rubric components + total + computed label)
@@ -19,7 +20,9 @@
     5.  Steelman           (strongest honest case FOR, before the criticism)
     6.  What's Working     (2x2 grid of green cards) — rename "Current Moats" for OPERATING
     7.  Hard Truths        (stacked red cards) — rename "What's Eroding" for OPERATING
-    8.  AI-Era Deep Check  (12-row checklist with PASS/RISKY/FAIL)
+    8.  AI-Era Deep Check  (13-row checklist; PASS/RISKY/FAIL/N-A)
+    8b. Rights detail      (OPTIONAL — only when check 13 is RISKY or FAIL)
+    9b. Complementors      (OPTIONAL) · Manipulation flag (OPTIONAL)
     9.  Competitor Teardown (3-5 row table)
    10.  Unit Economics     (4 tiles + verdict paragraph; include inference cost)
    11.  Precedent Cases    (2-3 mini cards)
@@ -249,6 +252,29 @@
   .since-last .delta-up { color: var(--ok); font-weight: 700; }
   .since-last .delta-down { color: var(--warn); font-weight: 700; }
 
+  /* Decision page — one page, the only thing many readers will read */
+  .decision {
+    border: 1.5px solid var(--ink); border-radius: 4px;
+    padding: 6mm 7mm; margin: 0 0 6mm; break-after: page; break-inside: avoid;
+  }
+  .decision h2 { margin: 0 0 4mm; border: 0; padding: 0; font-size: 15pt; }
+  .decision dl { margin: 0; display: grid; grid-template-columns: 38mm 1fr; gap: 2.5mm 4mm; }
+  .decision dt {
+    font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; padding-top: .6mm;
+  }
+  .decision dd { margin: 0; font-size: 10.5pt; }
+  .decision .headline { font-size: 13pt; font-weight: 700; color: var(--accent); }
+  .refclass { font-size: 9pt; color: var(--muted); margin: -1mm 0 4mm; }
+
+  /* Conditional flag — manipulation, rights */
+  .flag {
+    border: 1px solid var(--warn); border-left: 4px solid var(--warn);
+    border-radius: 3px; padding: 4mm 5mm; margin: 3mm 0 4mm; break-inside: avoid;
+  }
+  .flag h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: var(--warn); }
+  .flag p { margin: 0; font-size: 9.5pt; }
+
   /* Uplift plan — what would move the score */
   table.uplift { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; font-size: 9pt; }
   table.uplift thead th {
@@ -305,6 +331,20 @@
   </div>
 </div>
 
+<!-- CONTENT: DECISION PAGE — one page, hard limit. If it runs to two, cut it.
+     A reader who stops here must still be able to decide. -->
+<div class="decision">
+  <h2>Decision</h2>
+  <dl>
+    <dt>Verdict</dt><dd class="headline">{{FINAL_LABEL}} · {{TOTAL_SCORE}}/100{{OVERRIDE_SHORT}}</dd>
+    <dt>Why now</dt><dd>{{WHY_NOW}}</dd>
+    <dt>Reference class</dt><dd>{{REFERENCE_CLASS_LINE}}</dd>
+    <dt>Biggest risk</dt><dd>{{BIGGEST_RISK_ONE_LINE}}</dd>
+    <dt>Next action</dt><dd>{{NEXT_ACTION_ONE_LINE}}</dd>
+    <dt>Stop if</dt><dd>{{PRIMARY_KILL_CRITERION}}</dd>
+  </dl>
+</div>
+
 <!-- CONTENT: STAT ROW (required for OPERATING, optional for NASCENT) -->
 <div class="stat-row">
   <div class="stat"><div class="label">{{STAT1_LABEL}}</div><div class="value">{{STAT1_VALUE}}</div></div>
@@ -330,6 +370,7 @@
     <tr class="total"><td colspan="5">Total → <strong>{{COMPUTED_LABEL}}</strong></td><td class="num">{{TOTAL_SCORE}}</td></tr>
   </tbody>
 </table>
+<p class="refclass">{{REFERENCE_CLASS_LINE}}</p>
 <p class="band-note">Bands: ≥75 Strong · 55–74 Promising · 35–54 Weak · &lt;35 Flawed. Weights are set by the capital path. Mode: {{MODE_LABEL}} · Capital path: {{CAPITAL_PATH}}.</p>
 
 <!-- CONTENT: OVERRIDE — include ONLY when the printed label differs from the
@@ -370,12 +411,12 @@
 <div class="card risk"><h3>4. {{RISK4_TITLE}}</h3><p>{{RISK4_BODY}}</p></div>
 <div class="card risk"><h3>5. {{RISK5_TITLE}}</h3><p>{{RISK5_BODY}}</p></div>
 
-<!-- CONTENT: AI-ERA DEEP CHECK (all 12 checks, always)
+<!-- CONTENT: AI-ERA DEEP CHECK (all 13 checks, always)
      STATUS is PASS | RISKY | FAIL | N/A. The _LOWER form used in the CSS class
      must be pass | risky | fail | na — write "na", not "n/a", or the pill
      renders blank. N/A checks are excluded from BOTH sides of the AI-era
      denominator; see scoring-rubric.md §1. -->
-<h2>AI-Era Deep Check — 12 Questions</h2>
+<h2>AI-Era Deep Check — 13 Questions</h2>
 <div class="checklist">
   <div class="check-item">
     <div class="check-num">01</div>
@@ -437,6 +478,11 @@
     <div class="check-body"><strong>Category permanence</strong><span>{{CHECK12_RATIONALE}}</span></div>
     <div class="check-status status-{{CHECK12_STATUS_LOWER}}">{{CHECK12_STATUS}}</div>
   </div>
+  <div class="check-item">
+    <div class="check-num">13</div>
+    <div class="check-body"><strong>Rights, data provenance &amp; ownership</strong><span>{{CHECK13_RATIONALE}}</span></div>
+    <div class="check-status status-{{CHECK13_STATUS_LOWER}}">{{CHECK13_STATUS}}</div>
+  </div>
 </div>
   </div>
 </div>
@@ -493,6 +539,20 @@
   </tbody>
 </table>
 
+<!-- CONTENT: COMPLEMENTORS — OPTIONAL. Who becomes more valuable when this
+     succeeds, and which of them could turn competitor. For most AI businesses
+     the largest complementor and the likeliest predator are the same party.
+     Remove the block if none matter. -->
+<p><strong>Complementors:</strong> {{COMPLEMENTORS_LINE}}</p>
+
+<!-- CONTENT: MANIPULATION FLAG — OPTIONAL. Include ONLY when a trigger fires
+     (consumer attention product, reaches minors, engagement-based revenue,
+     margin from an unenforced rule). Remove the whole block otherwise. -->
+<div class="flag">
+  <h3>Model depends on {{MANIPULATION_KIND}}</h3>
+  <p>{{MANIPULATION_BODY}}</p>
+</div>
+
 <!-- CONTENT: UNIT ECONOMICS NAPKIN -->
 <h2>Unit Economics Napkin</h2>
 <div class="stat-row">
@@ -540,6 +600,11 @@
     <div class="label">Cost trajectory</div>
     <div class="value">{{COST_TRAJECTORY}}</div>
     <div class="note">{{COST_TRAJECTORY_NOTE}}</div>
+  </div>
+  <div class="stat">
+    <div class="label">Runway</div>
+    <div class="value">{{RUNWAY_MONTHS}}</div>
+    <div class="note">{{RUNWAY_NOTE}}</div>
   </div>
 </div>
 <div class="econ-verdict">
