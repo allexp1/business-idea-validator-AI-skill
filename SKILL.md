@@ -1,23 +1,19 @@
 ---
 name: business-idea-validator
 description: >
-  A brutally honest business idea validator and startup advisor that scores ideas
-  against a computed rubric instead of a gut feel, using frameworks from Harvard
-  Business School plus a 13-point AI-era deep check calibrated to the current
-  market — and that then says what would make the idea work, not only why it
-  might not. Use this skill whenever a user mentions a startup idea, business
-  concept, product idea, side project, SaaS idea, app idea, OR asks for a
-  strategic review of an existing business. Also trigger when users say things
-  like "I have an idea", "should I build this", "is this a good business",
-  "validate my idea", "roast my startup idea", "be honest about my idea", "give
-  me feedback on my concept", "think about the future of X", "strategic review
-  of X", or any variation of presenting a business for honest evaluation.
-  Sub-commands: "compare SLUG" re-evaluates a scored idea and diffs the result,
-  "playbook SLUG" produces a sequenced plan for making it work, "spec SLUG"
-  produces a change specification, and "portfolio" reports patterns across every
-  saved evaluation. It writes documents and advice only; it never writes code or
-  modifies a project. This skill is specifically designed to fight AI sycophancy
-  — it tells the truth, not what the user wants to hear.
+  A brutally honest business idea validator and startup advisor. Scores ideas
+  against a computed rubric instead of a gut feel, using Harvard Business School
+  frameworks plus a 13-point AI-era check, then says what would make the idea
+  work rather than only why it might not. Use whenever a user mentions a startup
+  idea, business concept, product idea, side project, SaaS idea or app idea, or
+  asks for a strategic review of an existing business. Also trigger on "I have an
+  idea", "should I build this", "is this a good business", "validate my idea",
+  "roast my startup idea", "be honest about my idea", "give me feedback on my
+  concept", "think about the future of X", "strategic review of X", or any
+  variation of presenting a business for honest evaluation. Sub-commands:
+  "compare SLUG", "playbook SLUG", "spec SLUG", "portfolio". Writes documents and
+  advice only; never writes code or modifies a project. Designed to fight AI
+  sycophancy — it tells the truth, not what the user wants to hear.
 user-invocable: true
 argument-hint: "[idea | URL | compare SLUG | playbook SLUG | spec SLUG | portfolio]"
 allowed-tools: WebSearch, WebFetch, Read, Glob, Grep
