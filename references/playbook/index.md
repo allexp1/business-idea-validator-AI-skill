@@ -61,6 +61,16 @@ conversions. Five candidate causes, each with a test that distinguishes it:
 | **Wrong channel** | Find where these buyers already gather. Go there instead. | [`distribution.md`](distribution.md) |
 | **No demand** | Everything above tried, all null. | **Terminate.** See `frameworks.md §12`. |
 
+### Precondition — did it arrive?
+
+**All five causes assume the message was received.** Before running any of them,
+confirm delivery: sender authentication, domain reputation, bounce rate, spam
+placement. For an outbound channel this takes about two hours.
+
+If delivery was poor, the null result means nothing and every test below is
+invalid. This is not a sixth cause; it is the gate on whether the diagnostic can
+run at all, and it is the cheapest thing on this page.
+
 ### Start with the twenty
 
 **Hand-pick twenty perfect-fit buyers and contact them personally.** This is the

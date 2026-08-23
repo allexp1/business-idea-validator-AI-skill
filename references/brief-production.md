@@ -148,6 +148,15 @@ comparable to its own past.
 It records which vintage of market facts produced the verdict — without it, a
 later comparison cannot tell a changed business from changed data.
 
+### The record is complete, never a diff
+
+**A re-evaluation writes the full schema, not only what changed.** It is
+tempting to record just the deltas on a re-run; do not. `portfolio` reads the
+latest record per subject, and a trimmed one silently loses the competitor
+teardown, the unit economics, the verified facts and the AI-era checks for that
+subject. Carry forward every field that did not change, update the ones that
+did, and add the compare fields on top.
+
 ## 6. Compare mode
 
 Triggered by `/business-idea-validator compare <slug>`, or automatically when
