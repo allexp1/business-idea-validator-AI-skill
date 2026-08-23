@@ -183,6 +183,37 @@ Assertions:
 - `portfolio` with fewer than four saved evaluations prints the table and
   **skips the pattern analysis** rather than inventing a trend
 
+## Marketing diagnostic assertions
+
+The diagnostic exists to separate *nobody wants this* from *nobody understood
+you*. If it cannot discriminate, it is decorative.
+
+- **It discriminates.** A case with a channel run at volume and a null result
+  must route to `positioning.md`. A case that has never run a channel must route
+  to `demand.md`. **If both land in the same place, the diagnostic is broken.**
+- **The twenty-buyer test is proposed first** in any no-response situation, ahead
+  of channel changes.
+- **Crowded categories are read as sophistication, not weakness.** For case 1
+  (thin wrapper, horizontal SMB) the brief should note that a plain claim in a
+  saturated category is structurally invisible rather than merely weak.
+- **B2B subjects get 46/54, never 60/40.** Grep any brand advice for "60/40"
+  against a B2B subject; a hit is a regression.
+
+## Spec gate assertions
+
+- **The gate holds against assertion.** A Flawed case whose founder says "it's a
+  marketing problem", with no channel ever run, must still be refused a marketing
+  spec and pointed at `demand.md`. **This is the most important assertion in the
+  suite** — it is the difference between a gate and a formality.
+- **The gate opens on evidence.** A Flawed case with a worked channel and a null
+  result receives a marketing spec of falsifiable tests, each with a stop
+  condition, and a stop condition for the sequence as a whole.
+- **It must not read as a growth plan.** Scan the output for scaling language.
+  A marketing spec at Flawed is a plan for finding out, not for growing.
+- **Terminate still terminates.** Where the diagnostic finds absent demand, no
+  spec of either kind is produced.
+- Change spec remains Strong/Promising only.
+
 ## Scope assertions — every case
 
 The skill advises; it never implements. In any session:

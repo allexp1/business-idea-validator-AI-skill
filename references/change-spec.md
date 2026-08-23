@@ -17,11 +17,42 @@ Every spec opens with a header saying so:
 > ({score}). This is a specification, not a change. Review it before running it,
 > and re-run the evaluation afterwards to see whether the scores moved.
 
+## Two branches — pick by the binding constraint
+
+`spec` produces whichever specification the diagnosis calls for. Same discipline
+either way: every item names the component score it moves and carries a
+falsification condition.
+
+| Binding constraint | Output | Gate |
+| --- | --- | --- |
+| Engineering or instrumentation | **Change spec** | Strong / Promising only |
+| Message, positioning or targeting | **Marketing spec** | Strong / Promising, **or** Weak / Flawed when the diagnostic has evidence |
+| Absent demand | Neither | — |
+
 ## Gate
 
-Same as the playbook: **Strong or Promising only.** For Weak or Flawed, decline
-and say why — the uplift interventions come first, and specifying code changes
-for an idea that has not earned them is expensive motion.
+**Change spec: Strong or Promising only.** For Weak or Flawed, decline and say
+why — the uplift interventions come first, and specifying code changes for an
+idea that has not earned them is expensive motion.
+
+**Marketing spec: also unlocks at Weak and Flawed, but only on evidence.**
+
+> The no-response diagnostic in `playbook/index.md` must find that a channel was
+> **actually run at volume and produced a null result**. That is the evidence.
+> Where no channel has ever been worked, there is no diagnostic to run: the
+> answer is `playbook/demand.md`, not a marketing spec.
+
+**The founder cannot open this gate by asserting it.** "It's a marketing
+problem" is what the founder of every failing idea says, and saying it is not
+evidence. Only a worked channel with a null result is. If the diagnostic lands on
+*absent demand*, no spec of either kind is produced — that is the terminate case
+and it stays terminal.
+
+**A marketing spec at Weak or Flawed is a set of falsifiable tests with stop
+conditions, never a growth plan.** That distinction is the entire reason this
+gate can be opened at all. If the output reads like a plan for scaling something,
+it is wrong; it should read like a plan for finding out whether the thing is
+worth scaling, with a defined point at which the answer is no.
 
 ## What makes this different from "write me a prompt"
 
@@ -94,3 +125,35 @@ The spec's review point should say: *re-run `/business-idea-validator compare
 SLUG` after the work lands.* That is the whole design — the uplift plan predicts
 which component moves, the spec instruments it, and compare mode checks whether
 the prediction held. A prediction nobody checks is an opinion.
+
+---
+
+## The marketing spec
+
+Same shape as the change spec, but the items are message tests, list tests and
+offer tests. Each still names the component it moves and how it could fail.
+
+```
+### Test the claim against category sophistication
+
+Rewrite the outbound opener to lead with the mechanism rather than the
+capability. Send to the same 200-contact list, changing nothing else.
+Control: the current opener, same week, 100 contacts.
+
+Moves:      Demand evidence 7/20 → 12 if reply rate clears 3%
+Done when:  200 sent on the new opener, 100 on the control
+Falsifies:  If both arms return under 1%, the message is not the constraint.
+            Stop rewriting copy and move to the offer test.
+Source:     playbook/positioning.md §3 (market sophistication)
+Effort:     ~4 hours to write, 2 weeks to read
+```
+
+**Ordering, from `playbook/index.md`:** the twenty hand-picked buyers first,
+because it is the highest-information single test; then message; then offer;
+then channel. Never channel first.
+
+**Every marketing spec must carry a stop condition for the whole sequence**, not
+only per item — the point at which the founder concludes the constraint was
+demand after all. Without it the spec becomes an infinite copy-testing loop,
+which is the failure mode of every marketing plan given to someone who does not
+want to hear no.

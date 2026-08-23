@@ -6,6 +6,13 @@ found it.
 
 Building stopped being the constraint some time ago. Reaching people did not.
 
+**Before you change channel, check the message.** If a channel has been run at
+volume and produced silence, run the no-response diagnostic in
+[`index.md`](index.md) first. Switching channels is the expensive way to
+discover that the claim was invisible in all of them. For an institutional
+buyer — a venue, a clinic, a council — the channel is a person, and the craft is
+in [`selling.md`](selling.md).
+
 ---
 
 ## 1. One fit is not enough — Balfour's four fits

@@ -186,6 +186,37 @@ files in your repositories. It will plan a rebuild in detail; performing one is
 a separate request you make explicitly. `allowed-tools` is research-only for
 exactly this reason.
 
+## It can tell a message problem from a demand problem
+
+The most common misreading in early-stage work is treating *nobody replied* as
+*nobody wants it*. Identical symptoms, opposite interventions — one says stop,
+the other says change six words and try again.
+
+When a channel has been run at volume and produced silence, the **no-response
+diagnostic** separates five causes, each with a test that isolates it:
+
+```
+Wrong list     → hand-pick 20 perfect-fit buyers, contact personally → demand.md
+Wrong message  → same list, change only the subject and first line   → positioning.md
+Wrong offer    → same list and message, different shape              → pricing.md
+Wrong channel  → find where they already gather                      → distribution.md
+No demand      → all of the above tried, all null                    → terminate
+```
+
+The twenty-buyer test comes first because it is the highest-information single
+test available: if twenty ideal buyers approached by a human still say nothing,
+five causes have become two for a week's work.
+
+`positioning.md`, `selling.md` and `brand.md` cover what you say, how you close a
+human being in a room, and why nobody can find you. Between them they carry
+Dunford's positioning components, Schwartz's awareness and market-sophistication
+models, Rackham's SPIN, the Challenger research, Sharp's availability laws and
+Binet & Field.
+
+**A crowded category is a sophistication problem, not a copy problem.** When a
+dozen companies make the same claim, a plain claim is structurally invisible, and
+no amount of subject-line testing fixes it.
+
 ## Where the frameworks come from
 
 Full citations live in [`references/academic-sources.md`](references/academic-sources.md),
@@ -210,6 +241,11 @@ along with an explicit list of what is **not** academic.
 | Intelligent failure | Edmondson, *Right Kind of Wrong* (2023) |
 | Diffusion | Rogers (1962); Bass, *Management Science* (1969) |
 | Habit and retention | Wood (2019) |
+| Sales effectiveness | Rackham, *SPIN Selling* — 35,000 calls, 10,000 reps, 12 years |
+| Complex B2B selling | Dixon & Adamson — CEB research, 6,000 reps, 90 companies |
+| Marketing science | Sharp / Ehrenberg-Bass, *How Brands Grow* |
+| Brand vs activation | Binet & Field, IPA Databank — 996 campaigns, and the B2B cut |
+| Word of mouth | Berger, *Contagious* (Wharton) |
 | Inside vs outside view | Lovallo & Kahneman, *HBR* 2003 — reference-class forecasting |
 | Added value, complementors | Brandenburger & Nalebuff, *Co-opetition* (1996) |
 
@@ -270,6 +306,9 @@ references/
     distribution.md           four fits, growth loops, diffusion
     moats.md                  7 Powers, and which are reachable at this stage
     execution.md              experimentation, intelligent failure, prioritization
+    positioning.md            what you say and who to; market sophistication
+    selling.md                the face-to-face institutional sale
+    brand.md                  mental availability, and why nobody can find you
   change-spec.md              the spec command: what to change, and how it is measured
   portfolio.md                the portfolio command: patterns across evaluations
   ai-era-checks.md            the 13 checks

@@ -1,5 +1,67 @@
 # Changelog
 
+## v3.2.0 — 2026-08-23
+
+The marketing dimension. v3 could say distribution was broken; it could not say
+why, and the gap had a name: **the skill could not distinguish "nobody wants
+this" from "nobody understood what you said".** Identical symptoms, opposite
+interventions.
+
+### Added — the no-response diagnostic
+
+Lives in `playbook/index.md` because it is a routing decision. Given a channel
+worked at volume with no conversions, it separates five causes — wrong list,
+wrong message, wrong offer, wrong channel, no demand — each with the test that
+isolates it. The twenty hand-picked buyers come first, because if twenty ideal
+buyers approached personally still say nothing, five causes become two for a
+week's work.
+
+Order is enforced deliberately: message before offer before channel. Founders
+reach for the channel first because switching channels feels decisive while
+rewriting a subject line feels like fiddling, and it costs them a quarter.
+
+### Added — three playbook files
+
+- **`positioning.md`** — Dunford's five components, and Schwartz's two models.
+  The second is the one that earns its place: **market sophistication**. When a
+  dozen companies make the same claim, a plain claim is not weak, it is
+  structurally invisible, and no subject-line testing fixes it. This explains
+  outbound silence and answer-engine absence with one mechanism.
+- **`selling.md`** — the institutional sale as its own craft. Rackham's SPIN
+  (35,000 calls) and the finding that in large sales closing technique does not
+  predict outcome but implication questions do; Challenger (6,000 reps) and the
+  inversion that ~40% of high performers are Challengers against ~7%
+  Relationship Builders; plus objections, pilot design that ends in a decision,
+  and the champion / budget-holder / blocker split.
+- **`brand.md`** — Sharp on penetration over loyalty, double jeopardy, and
+  mental availability, which is the best available explanation for answer-engine
+  absence: an availability problem, not a ranking one. Binet & Field's 60/40 —
+  **and their own B2B cut at 46/54**, which is the figure the skill must use for
+  a B2B subject. Quoting the B2C number at a B2B company is exactly the
+  borrowed-number error this skill exists to catch.
+
+### Changed — `spec` branches, and one gate opens on evidence
+
+`spec` now produces a **change spec** or a **marketing spec** depending on the
+binding constraint. The change spec stays gated to Strong and Promising.
+
+The marketing spec **also unlocks at Weak and Flawed — but only when the
+diagnostic has evidence**: a channel actually run at volume with a null result.
+Asserting "it's a marketing problem" does not open it, because that is what the
+founder of every failing idea says. Where no channel has been worked, the answer
+is `demand.md`. Where the diagnostic finds absent demand, no spec is produced at
+all.
+
+A marketing spec at Weak or Flawed is falsifiable tests with stop conditions,
+including a stop condition for the sequence as a whole. If it reads like a growth
+plan the framing has failed, and the eval suite checks for scaling language.
+
+### Note on transfer limits
+
+Sharp and Binet & Field study organisations with media budgets. The mechanisms
+transfer to a pre-revenue company; the spend ratios do not, and `brand.md §4`
+says so where a reader hits it before spending anything.
+
 ## v3.1.0 — 2026-08-23
 
 Seven additions, and the work to keep the brief readable while absorbing them.

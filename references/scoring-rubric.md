@@ -225,6 +225,14 @@ is a router, not a substitute for the playbook.
 
 ### Three rules, without which this becomes a fantasy generator
 
+**0. Run the no-response diagnostic before writing a demand row.** If a channel
+was worked at volume and produced silence, `playbook/index.md` distinguishes
+*wrong list*, *wrong message*, *wrong offer*, *wrong channel* and *no demand* —
+and they route to different files with very different costs. Print the result as
+one line in the uplift plan: *"Demand evidence is low, but the diagnostic finds
+message rather than absent demand — see positioning.md."* Where no channel has
+been run there is nothing to diagnose; the row points at `demand.md`.
+
 **1. The ceiling is contingent, and must be labelled so.** It is what the
 component scores *if the intervention succeeds*. It is not a forecast, and the
 brief must not present the uplifted total as a projection. Write "if all three

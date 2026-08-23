@@ -359,6 +359,87 @@ slot for that relationship; this framework does.
 
 ---
 
+## Sales Effectiveness — Rackham
+
+> Rackham, Neil. *SPIN Selling.* McGraw-Hill, 1988. Empirical: 35,000 sales
+> calls, 10,000 salespeople, 23 countries, 12 years, 40 researchers — the
+> largest study of sales effectiveness conducted.
+
+Situation, Problem, Implication, Need-payoff. The central finding is that
+closing technique predicts outcomes in small sales and **not** in large ones;
+what predicts large-sale outcomes is question sequence, and top performers ask
+markedly more **implication** questions — the ones that make the buyer articulate
+what the problem costs.
+
+**Drives:** `playbook/selling.md §1`.
+
+---
+
+## Complex B2B Selling — Dixon & Adamson
+
+> Dixon, Matthew, and Brent Adamson. *The Challenger Sale: Taking Control of the
+> Customer Conversation.* Portfolio, 2011. CEB research across 6,000 sales
+> representatives at 90 companies.
+
+Five rep profiles. Roughly 40% of high performers are Challengers; about 7% are
+Relationship Builders — inverting the assumption that rapport wins complex sales.
+Teach, tailor, take control. The study also found roughly **53% of B2B customer
+loyalty is driven by the sales experience itself**, ahead of product, brand and
+price combined.
+
+**Drives:** `playbook/selling.md §2`.
+
+---
+
+## Marketing Science — Sharp / Ehrenberg-Bass
+
+> Sharp, Byron. *How Brands Grow: What Marketers Don't Know.* Oxford University
+> Press, 2010. Ehrenberg-Bass Institute for Marketing Science, University of
+> South Australia, building on Ehrenberg and Goodhardt.
+
+Empirical regularities rather than theory: **double jeopardy** (smaller brands
+have fewer buyers who are also slightly less loyal, as a function of size);
+growth comes from **penetration rather than loyalty**; and **mental and physical
+availability** do most of the work, ahead of differentiated appeals.
+
+**Drives:** `playbook/brand.md §§1–2`. Mental availability is the skill's
+explanation for answer-engine absence: it is an availability problem, not a
+ranking one.
+
+---
+
+## Brand and Activation — Binet & Field
+
+> Binet, Les, and Peter Field. *The Long and the Short of It: Balancing Short and
+> Long-Term Marketing Strategies.* IPA, 2013. Analysis of the IPA Databank: 996
+> campaigns, 700 brands, 83 sectors, 30 years.
+>
+> Binet, Les, and Peter Field, with the LinkedIn B2B Institute. *The 5 Principles
+> of Growth in B2B Marketing*, 2019 — the first B2B cut of the same dataset.
+
+The widely quoted **60/40 brand-to-activation** optimum is the **B2C** figure.
+The B2B analysis puts efficiency nearer **46% brand / 54% activation**, with
+share of voice above share of market predicting growth, and acquisition
+strategies outperforming loyalty strategies.
+
+**Drives:** `playbook/brand.md §3`. The skill must use the B2B figure for a B2B
+subject; quoting 60/40 at a B2B company is the borrowed-number error this skill
+exists to catch.
+
+---
+
+## Word of Mouth — Berger
+
+> Berger, Jonah. *Contagious: Why Things Catch On.* Simon & Schuster, 2013.
+> Berger is a professor at the Wharton School.
+
+STEPPS: social currency, triggers, emotion, public, practical value, stories.
+High-arousal emotion travels; low-arousal does not.
+
+**Drives:** `playbook/brand.md §5`.
+
+---
+
 # What is NOT academic
 
 Stated plainly so nobody mistakes the provenance. These parts of the skill are
@@ -384,6 +465,13 @@ practitioner synthesis, and they are the parts most likely to be wrong.
 - **The Change Spec's effort estimates and the portfolio view's pattern claims**
   are judgment. The spec's *falsification conditions* are the part with rigour;
   its day estimates are not.
+- **Brand-science transfer limits.** Sharp and Binet & Field study organisations
+  with media budgets, largely in consumer goods and advertising. The
+  *mechanisms* — penetration over loyalty, mental availability, distinctiveness,
+  share of voice — transfer to a pre-revenue company. The **spend ratios do
+  not**: a company with no media budget cannot split it 46/54, and applying the
+  ratio at that stage is following advice derived from a situation it is not in.
+  `playbook/brand.md §4` states this where a reader will hit it before spending.
 - **The uplift plan's point ceilings** (`scoring-rubric.md`) are estimates of how
   far an intervention could move a component score. They are judgment applied to
   a rubric that is itself judgment. Useful for prioritizing; not a forecast, and
@@ -404,6 +492,8 @@ peer-reviewed, and briefs must not present them as if they were.
 | **Brian Balfour**, four fits | `playbook/distribution.md §1` | Practitioner framework from operating experience. |
 | **Geoffrey Moore**, *Crossing the Chasm* (1991) | `playbook/distribution.md §3` | Practitioner treatment built on Rogers, who is the academic source. |
 | **Mark Roberge**, *The Sales Acceleration Formula* (2015) | `playbook/execution.md §6` | One company's scaling experience. The method transfers; the specific traits do not. |
+| **April Dunford**, *Obviously Awesome* (2019) | `playbook/positioning.md §1` | Practitioner framework from consulting practice. The most useful practical treatment of positioning; no study behind it. |
+| **Eugene Schwartz**, *Breakthrough Advertising* (1966) | `playbook/positioning.md §§2–3` | Direct-response practitioner, written from campaign experience. The awareness and sophistication models are widely used and never formally tested. |
 
 ## Citation discipline in briefs
 

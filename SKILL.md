@@ -82,7 +82,7 @@ Read what the phase calls for; do not load everything up front.
 | `references/archetypes-2026.md` | Phase 2 — precedents; Phase 3 — pivot options |
 | `references/scoring-rubric.md` | Phase 3 — computing the verdict |
 | `references/interview-bank.md` | Phase 4 — the 7-day plan (nascent) |
-| `references/playbook/index.md` | Phase 3.5 — routes each weak component to its intervention |
+| `references/playbook/index.md` | Phase 3.5 — the no-response diagnostic, and routing |
 | `references/change-spec.md` | The `spec` command — a written change specification |
 | `references/portfolio.md` | The `portfolio` command — patterns across all evaluations |
 | `references/playbook/*.md` | The `playbook` command — demand, pricing, distribution, moats, execution |
@@ -252,6 +252,12 @@ valuable thing the skill produces. An unstated override is a defect.
 
 The score says where the idea stands. This says what would move it.
 
+**First, if a channel was run at volume and produced silence, run the
+no-response diagnostic** in `references/playbook/index.md`. It separates *nobody
+wants this* from *nobody understood what you said* — identical symptoms,
+opposite interventions — and the result is one line in the uplift plan. Where no
+channel has been worked there is nothing to diagnose.
+
 Read `references/scoring-rubric.md` (Uplift Plan) and `references/playbook/index.md`.
 For every component below its path's benchmark, give the intervention, the
 ceiling if it succeeds, the cost, and whether it is testable inside 90 days.
@@ -314,9 +320,13 @@ PDF" / "just talk", or the turn is a follow-up on an evaluation already made.
 
 Three, all opt-in, all producing documents and nothing else.
 
-**`/business-idea-validator spec SLUG`** — a written change specification derived
-from the evaluation, in a form a coding agent or developer can act on. See
-`references/change-spec.md`. Gated to Strong and Promising, like the playbook.
+**`/business-idea-validator spec SLUG`** — a written specification derived from
+the evaluation. It branches on the binding constraint: a **change spec** when the
+constraint is engineering, a **marketing spec** when it is message, positioning
+or targeting. See `references/change-spec.md`. The change spec is gated to Strong
+and Promising. The marketing spec also unlocks at Weak and Flawed, **but only
+when the diagnostic has evidence** — a channel actually run at volume with a null
+result. Asserting "it's a marketing problem" is not evidence.
 Every item traces to the component score it moves and carries a falsification
 condition, and most of an early spec is instrumentation rather than features —
 without it nobody can tell whether the uplift landed. **The skill writes the
