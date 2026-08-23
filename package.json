@@ -1,6 +1,6 @@
 {
   "name": "business-idea-validator",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "A brutally honest business idea validator for Claude Code. Scores ideas against a computed rubric instead of a gut feel, using Harvard Business School frameworks plus a 13-point AI-era check, then says what would make the idea work.",
   "bin": {
     "business-idea-validator": "bin/install.js"

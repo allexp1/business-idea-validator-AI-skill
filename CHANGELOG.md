@@ -1,5 +1,34 @@
 # Changelog
 
+## v3.2.1 — 2026-08-24
+
+A packaging release. The skill's guidance is unchanged from v3.2.0; what
+changed is how a copy is installed and whether it can say what it is.
+
+### Added — the skill states its own version
+
+`SKILL.md` frontmatter now carries `version`. An installed skill has no
+`package.json` — the installer places SKILL.md, references/, scripts/, evals/
+and .living/ — so a copy under `~/.claude/skills` had no way to report which
+version it was. The only version-looking string left was `.living/CHANGELOG.md`'s
+"attached at skill v2.0.0", a stamp from when the sidecar was attached that has
+not moved since, and it reads as the current version to anyone who goes looking.
+
+`.living/ORIGINAL.sha256` is re-baselined to match. SKILL.md changed, so the
+sidecar's integrity check would otherwise report the skill as edited by a third
+party on its next run.
+
+### Added — install with npx
+
+`bin/install.js` and `package.json`, so the skill installs with
+`npx business-idea-validator`. These landed after the v3.2.0 tag was cut, which
+is why the tag and the published 3.2.0 package differ; 3.2.1 makes tag and
+package agree again.
+
+### Changed
+
+README leads with the artifact rather than the argument.
+
 ## v3.2.0 — 2026-08-23
 
 The marketing dimension. v3 could say distribution was broken; it could not say
