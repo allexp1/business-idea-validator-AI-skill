@@ -58,6 +58,15 @@ All figures carry verified dates in `market-data.md`. Re-verify before quoting.
 ## What changes in the evaluation
 
 ### Bootstrap / indie
+
+**The evidence base.** Amar Bhidé's study of Inc. 500 companies (*The Origin and
+Evolution of New Businesses*, Oxford University Press, 2000) found that only
+about 5% had venture capital, the typical firm started with under $30,000, 41%
+began with no business plan at all, and just 6% claimed a unique product or
+service. The bootstrap path is not the consolation prize; on the numbers it is
+the normal way substantial companies begin. Score it as its own thing, not as a
+venture plan with less money.
+
 - **TAM stops mattering; reachability starts.** Do not compute TAM/SAM/SOM.
   Compute: how many buyers exist, can one person reach them, at what price.
 - **Distribution is the whole game** and it must be a channel one person can run

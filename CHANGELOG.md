@@ -1,5 +1,28 @@
 # Changelog
 
+## v2.1.0 — 2026-08-23
+
+### Added
+
+- **Discovery-Driven Planning** (McGrath & MacMillan, HBR 1995) as
+  `frameworks.md §9`. The reverse income statement now runs inside the Unit
+  Economics Napkin whenever the founder built their numbers forwards from
+  optimistic inputs: start from the profit the business must earn, work back to
+  what has to be true. Its assumption checklist is also where kill criteria
+  properly come from.
+- **Founder and team research** (Wasserman, *The Founder's Dilemmas*, 2012,
+  n≈10,000 founders) as `frameworks.md §10`. Turns the Founder / Team Fit
+  component from an impression into something with evidence behind it: two or
+  three co-founders outperform solo and larger teams, equal splits correlate
+  with worse outcomes, rich versus king.
+- **Marketing Myopia** (Levitt, HBR 1960) as `frameworks.md §11`. Pairs with
+  Jobs to Be Done and sharpens check 12: a product defined by its own mechanism
+  rather than the need it serves is the classic bridge-tool tell.
+- **Bhidé's Inc. 500 evidence** in `capital-paths.md`: ~5% had venture capital,
+  the typical firm started under $30,000, 41% had no business plan. The
+  bootstrap path is the normal way substantial companies begin, and is scored as
+  its own thing rather than as a venture plan with less money.
+
 ## v2.0.0 — 2026-08-22
 
 A rebuild rather than a refresh. v1 was written in April 2026; four months on,
