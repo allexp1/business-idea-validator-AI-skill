@@ -83,7 +83,7 @@ rather than leaving empty placeholders.
 | Weak | `#7a2fd6` | `#f4eefe` |
 | Flawed | `#b23a1f` | `#fbece8` |
 
-**Depth targets:** 4 What's Working · 5–7 Hard Truths · all 12 AI-era checks ·
+**Depth targets:** 4 What's Working · 5–7 Hard Truths · all 13 AI-era checks ·
 3–5 competitors · 2–3 precedents · 2–3 options · 2–4 kill criteria · 5–7 plan steps.
 
 **Voice:** sharp, direct, evidence-cited. Named companies, real numbers, dates

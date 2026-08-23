@@ -1,7 +1,7 @@
 # Business Idea Validator — a Claude Skill
 
 A brutally honest business idea validator and startup advisor. It uses
-frameworks from Harvard Business School, a 12-point AI-era deep check, and a
+frameworks from Harvard Business School, a 13-point AI-era deep check, and a
 **computed scoring rubric** to evaluate a startup idea or an operating business —
 then produces a styled brief you can keep.
 
@@ -43,7 +43,7 @@ Same business scored on the venture path: 50.8 → Weak. At £15/month, venture
 scale needs ~19,000 customers against a reachable few thousand.
 ```
 
-...followed by a steelman, hard truths, the 12 AI-era checks, a competitor
+...followed by a steelman, hard truths, the 13 AI-era checks, a competitor
 teardown, a unit-economics napkin including cost-per-outcome, named precedents,
 a two-year pre-mortem, a pre-parade, concrete pivots, **falsifiable kill
 criteria**, what would change the verdict, and a dated plan.
@@ -215,7 +215,7 @@ along with an explicit list of what is **not** academic.
 
 The playbook also leans on practitioner sources — Ellis's 40% test, Helmer's
 7 Powers, Balfour's four fits, Moore, Roberge — each labelled as practitioner in
-the bibliography rather than dressed up as research. The 12 AI-era checks, the
+the bibliography rather than dressed up as research. The 13 AI-era checks, the
 scoring rubric and its weights, and the capital paths are practitioner synthesis
 too. The bibliography says so in as many
 words. A validator that overclaims its own provenance has no business auditing
@@ -272,7 +272,7 @@ references/
     execution.md              experimentation, intelligent failure, prioritization
   change-spec.md              the spec command: what to change, and how it is measured
   portfolio.md                the portfolio command: patterns across evaluations
-  ai-era-checks.md            the 12 checks
+  ai-era-checks.md            the 13 checks
   scoring-rubric.md           how the verdict is computed
   capital-paths.md            bootstrap / venture / service-as-software
   archetypes-2026.md          winning shapes, losing shapes, precedent library

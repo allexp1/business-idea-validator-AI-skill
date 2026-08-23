@@ -78,7 +78,7 @@ Read what the phase calls for; do not load everything up front.
 | `references/academic-sources.md` | Full citations for every published framework, and an honest list of what is *not* academic |
 | `references/capital-paths.md` | Phase 0 — choosing the yardstick |
 | `references/frameworks.md` | Phase 2 — JTBD, market validation, moats, tarpits, discovery-driven planning, founder research |
-| `references/ai-era-checks.md` | Phase 2 — the 12 checks |
+| `references/ai-era-checks.md` | Phase 2 — the 13 checks |
 | `references/archetypes-2026.md` | Phase 2 — precedents; Phase 3 — pivot options |
 | `references/scoring-rubric.md` | Phase 3 — computing the verdict |
 | `references/interview-bank.md` | Phase 4 — the 7-day plan (nascent) |

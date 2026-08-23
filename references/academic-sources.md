@@ -364,7 +364,7 @@ slot for that relationship; this framework does.
 Stated plainly so nobody mistakes the provenance. These parts of the skill are
 practitioner synthesis, and they are the parts most likely to be wrong.
 
-- **The 12 AI-era checks** (`ai-era-checks.md`) are an original synthesis from
+- **The 13 AI-era checks** (`ai-era-checks.md`) are an original synthesis from
   the market evidence in `market-data.md`. No peer review, and several rest on
   vendor and analyst reporting explicitly marked *[directional]*. They are the
   most perishable content in the repo, which is why the `.living` sidecar exists.
