@@ -13,14 +13,17 @@ This reference contains the detailed evaluation frameworks used by the Business 
    this file should be quoted as a current market number.
 
 ## Table of Contents
-1. Jobs to Be Done (JTBD) Framework
+1. Jobs to Be Done (JTBD) Framework — Christensen
 2. Market Validation (HBS 5-Step Method)
 3. Innovative Idea Generation Checklist
-4. Competitive Analysis Framework
+4. Competitive Analysis Framework — Porter
 5. Business Model Stress Test
 6. Founder-Idea Fit Assessment
 7. Common Startup Tarpits
 8. The 7-Day Validation Sprint
+9. Discovery-Driven Planning — McGrath & MacMillan
+10. Founder and Team Research — Wasserman
+11. Marketing Myopia — Levitt
 
 ---
 
@@ -357,3 +360,89 @@ Recommend this to founders whose ideas survive initial scrutiny:
 - What feedback did you receive?
 - Calculate rough unit economics based on what you've learned
 - Make a go/no-go/pivot decision based on data, not feelings
+
+---
+
+## 9. Discovery-Driven Planning (McGrath & MacMillan)
+
+Rita Gunther McGrath and Ian C. MacMillan, *Harvard Business Review*, 1995. The
+best available answer to "your projections are fiction, now what?"
+
+Conventional planning judges a plan by how close the outcome lands to the
+forecast. For a new venture that is the wrong test, because almost every number
+in the forecast is a guess. Discovery-driven planning treats the plan as a set
+of assumptions to be falsified in cheapness order.
+
+### The reverse income statement
+Do not build up from assumptions to a profit. **Start from the profit the
+business must earn to be worth doing, and work backwards** to what has to be
+true.
+
+1. Required profit → required revenue → required volume at a given price
+2. Allowable costs = required revenue minus required profit
+3. Ask of each: is that number achievable, and what would have to be true?
+
+This inverts the usual founder spreadsheet, where optimistic inputs produce a
+comfortable output. Here the output is fixed and the inputs have to justify it.
+
+**Use in this skill:** run it inside the Unit Economics Napkin whenever the
+founder's own numbers were built forwards. It usually surfaces the volume
+assumption they had not looked at directly.
+
+### The assumption checklist
+List every assumption the plan depends on, then rank by **(damage if wrong) ×
+(cheapness to test)**. Test the top of that list first. Fund the next step only
+when a milestone retires a real assumption.
+
+**Use in this skill:** this is where kill criteria come from. A kill criterion
+is an assumption test with a number and a deadline attached.
+
+---
+
+## 10. Founder and Team Research (Wasserman)
+
+Noam Wasserman, *The Founder's Dilemmas* (Princeton University Press, 2012),
+built on roughly 10,000 founders and 3,600 startups, and his earlier HBR article
+"The Founder's Dilemma" (2008).
+
+Findings worth holding against a real founding team:
+
+- **Teams of two or three co-founders outperform both solo founders and larger
+  teams.** A solo founder is not disqualifying, but it is a known headwind and
+  should be named rather than waved past.
+- **Equal splits correlate with worse outcomes**, and 73% of teams split equity
+  within the first month, usually before they know what each person will
+  actually contribute. A fast equal split is a signal that the hard conversation
+  was avoided.
+- **A founder who gives up more equity tends to build a more valuable company.**
+  Tight control and maximum wealth are usually different objectives.
+- **Rich versus king.** Ask which one this founder is optimizing for. Many
+  conflicts between founder and investor are this trade-off surfacing late.
+
+**Use in this skill:** the Founder / Team Fit component. Wasserman turns that
+score from an impression into something with evidence behind it.
+
+---
+
+## 11. Marketing Myopia (Levitt)
+
+Theodore Levitt, *Harvard Business Review*, 1960. Still the sharpest statement
+of a mistake founders make constantly.
+
+Levitt's argument: companies define themselves by the product they make rather
+than the need they serve, and then fail when the product is displaced while the
+need continues. The railroads did not decline because demand for transport fell.
+They defined themselves as being in the railroad business rather than the
+transportation business.
+
+Questions to put to any subject:
+
+- What business is this actually in, stated as a customer need rather than a product?
+- If the current technology disappeared tomorrow, would the need remain?
+- Is the founder defending a product or serving a job?
+
+**Use in this skill:** pairs directly with Jobs to Be Done, and it is the
+sharpest tool available for check 12 (category permanence). A product defined by
+its own mechanism is the classic bridge-tool tell.
+
+---

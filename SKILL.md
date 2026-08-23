@@ -59,8 +59,9 @@ Read what the phase calls for; do not load everything up front.
 | File | When |
 | --- | --- |
 | `references/market-data.md` | **Every evaluation.** All figures live here, with verified dates. |
+| `references/academic-sources.md` | Full citations for every published framework, and an honest list of what is *not* academic |
 | `references/capital-paths.md` | Phase 0 — choosing the yardstick |
-| `references/frameworks.md` | Phase 2 — JTBD, market validation, moats, tarpits |
+| `references/frameworks.md` | Phase 2 — JTBD, market validation, moats, tarpits, discovery-driven planning, founder research |
 | `references/ai-era-checks.md` | Phase 2 — the 12 checks |
 | `references/archetypes-2026.md` | Phase 2 — precedents; Phase 3 — pivot options |
 | `references/scoring-rubric.md` | Phase 3 — computing the verdict |
@@ -177,13 +178,13 @@ In order. Do not skip; do not soften.
 1. **Jobs to Be Done** — what job is being hired? Real, frequent, painful, worth paying to eliminate?
 2. **Market sizing** — *path-dependent.* Venture: TAM/SAM/SOM with sources. Bootstrap: reachable-buyer count and price, not TAM. Rollup: deal flow and fragmentation.
 3. **Competitive landscape** — build the **Competitor Teardown**: 3–5 named competitors, traction, pricing, weakness, threat 1–5. Include non-consumption and "they just use ChatGPT."
-4. **Business model stress test** — build the **Unit Economics Napkin**: CAC, LTV, payback, LTV:CAC, gross margin **after inference**, and **cost per successful outcome**. Every figure needs a named assumption.
-5. **Founder / leadership fit** — skills, network, and pattern-match to *this* shape. Watch the prior-success trap: experience pulls founders toward familiar shapes that may not fit.
+4. **Business model stress test** — build the **Unit Economics Napkin**: CAC, LTV, payback, LTV:CAC, gross margin **after inference**, and **cost per successful outcome**. Every figure needs a named assumption. When the founder built their numbers forwards from optimistic inputs, run the **reverse income statement** from `frameworks.md §9` instead: start from the profit the business must earn and work back to what has to be true.
+5. **Founder / leadership fit** — skills, network, and pattern-match to *this* shape. Watch the prior-success trap: experience pulls founders toward familiar shapes that may not fit. Hold the team against the findings in `frameworks.md §10` rather than forming an impression.
 6. **10× better test** — against the alternative that actually exists, including doing nothing. For bootstrap, 10× for a narrow group beats 2× for everyone.
 7. **AI-Era Deep Check** — all 12 checks in `references/ai-era-checks.md`, each PASS / RISKY / FAIL with a one-sentence evidenced rationale. Check 11 (regulatory) is a **hard gate**.
 8. **Precedent cases** — 2–3 structurally similar named companies from `archetypes-2026.md`, confirmed by search, each with year, outcome and lesson. Never invent one; "no close precedent found" is itself a finding.
 9. **Archetype match** — which winning shape from `archetypes-2026.md` does this most resemble, and what is it missing? If none, say so.
-10. **Pre-mortem** — it is two years from today and this has failed. Write the obituary in one tight paragraph, naming the *specific* cause of death. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
+10. **Pre-mortem** — it is two years from today and this has failed. Write the obituary in one tight paragraph, naming the *specific* cause of death. Keep the past tense: Klein's technique works because prospective hindsight measurably improves failure identification (`academic-sources.md`), and a risk list gives that up. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
 11. **Pre-parade** — one paragraph on what would have to be true for the 10× outcome. The counterweight that keeps the pre-mortem honest.
 
 ## Phase 3 — Compute the verdict
