@@ -1,22 +1,37 @@
 # Business Idea Validator — a Claude Skill
 
-A brutally honest business idea validator and startup advisor. It uses
-frameworks from Harvard Business School, a 13-point AI-era deep check, and a
-**computed scoring rubric** to evaluate a startup idea or an operating business —
-then produces a styled brief you can keep.
-
-It exists to fight AI sycophancy. Left to its own judgment, a language model
-drifts toward "Promising" — the label that offends nobody. Instructions about
-tone don't fix that. **A rubric does.** The verdict here is a function of six
-scored components, and the model gets exactly one band of override, which it has
-to print and justify.
+Tell it a business idea. It researches the market, scores the idea against a
+computed rubric, and hands you a brief that opens with the whole decision on one
+page:
 
 ```
-/business-idea-validator I want to build an AI assistant that helps small
-businesses write better marketing emails. $29/month per seat.
+Decision
+  VERDICT           Weak · 42.0/100
+  WHY NOW           Long-context inference crossed viability in 2025;
+                    the same product in 2022 cost 40x more per document.
+  REFERENCE CLASS   Vertical AI tools sold to regulated SMBs under $200/mo.
+                    Roughly 1 in 12 reach $1M ARR. Founder projects $4M by year two.
+  BIGGEST RISK      No one has been asked to pay; all 24 interviews ended
+                    in encouragement.
+  NEXT ACTION       Run 20 choice-based WTP interviews within two weeks.
+  STOP IF           Fewer than 8 of 30 name this a top-3 problem by 22 Sep.
 ```
 
----
+```bash
+npx business-idea-validator
+```
+
+Then describe an idea, or use `/business-idea-validator`.
+
+## Why the verdict is a number
+
+Ask any model what it thinks of your idea and it will tell you the idea is
+great. Asking it to be honest does not fix that — instructions about tone do not
+change where a judgment lands. A rubric does.
+
+Six weighted components produce a score, the score maps to a band, and the model
+gets exactly one band of override which it has to print and justify. It also
+says what would make the idea work, not only why it might not.
 
 ## What you get
 
@@ -115,33 +130,6 @@ unverified.
 It applies the same rule to itself. A skill that demands citations from you and
 quotes undated numbers back has not earned the word "honest".
 
-## The brief opens with one page
-
-It does a lot, so it stays readable by having a fixed spine and a conditional
-body. Page one is the whole decision:
-
-```
-Decision
-  VERDICT           Weak · 42.0/100
-  WHY NOW           Long-context inference crossed viability in 2025;
-                    the same product in 2022 cost 40x more per document.
-  REFERENCE CLASS   Vertical AI tools sold to regulated SMBs under $200/mo.
-                    Roughly 1 in 12 reach $1M ARR. Founder projects $4M by year two.
-  BIGGEST RISK      No one has been asked to pay; all 24 interviews ended
-                    in encouragement.
-  NEXT ACTION       Run 20 choice-based WTP interviews within two weeks.
-  STOP IF           Fewer than 8 of 30 name this a top-3 problem by 22 Sep.
-```
-
-Everything after it is for the reader who wants the reasoning. Sections appear
-only when they have something to say — no manipulation flag means the triggers
-did not fire, which is itself information — and every section has a length
-budget. When one wants more room, it belongs in the playbook or the spec.
-
-The reference class line is deliberately placed *before* any founder projection.
-Lovallo and Kahneman's finding is that an inside-view number anchors everything
-after it, so the outside view has to come first or it does not work.
-
 ## It also says how to make it work
 
 The verdict is only half of it. Because the score decomposes into six
@@ -217,6 +205,21 @@ Binet & Field.
 dozen companies make the same claim, a plain claim is structurally invisible, and
 no amount of subject-line testing fixes it.
 
+## Readability — a fixed spine, a conditional body
+
+It does a lot, so it stays readable by having a fixed spine and a conditional
+body. Page one is the Decision Page above.
+
+
+Everything after it is for the reader who wants the reasoning. Sections appear
+only when they have something to say — no manipulation flag means the triggers
+did not fire, which is itself information — and every section has a length
+budget. When one wants more room, it belongs in the playbook or the spec.
+
+The reference class line is deliberately placed *before* any founder projection.
+Lovallo and Kahneman's finding is that an inside-view number anchors everything
+after it, so the outside view has to come first or it does not work.
+
 ## Where the frameworks come from
 
 Full citations live in [`references/academic-sources.md`](references/academic-sources.md),
@@ -260,11 +263,17 @@ anyone else's.
 ## Install
 
 ```bash
-npx github:allexp1/business-idea-validator-AI-skill
+npx business-idea-validator
 ```
 
-Works today, needs no npm account. Restart Claude Code, then use
-`/business-idea-validator`, or just describe an idea and it triggers on its own.
+Restart Claude Code, then use `/business-idea-validator`, or just describe an
+idea and it triggers on its own.
+
+Straight from source, if you would rather not go through the registry:
+
+```bash
+npx github:allexp1/business-idea-validator-AI-skill
+```
 
 Add `--dry-run` to see exactly what it would write before it writes anything.
 
