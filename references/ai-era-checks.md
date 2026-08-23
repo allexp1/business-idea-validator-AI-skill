@@ -1,6 +1,6 @@
-# AI-Era Deep Check — 12 questions every business must survive
+# AI-Era Deep Check — 13 questions every business must survive
 
-**Version 2 (2026-08-22).** Replaces the v1 8-check list. Numbers referenced
+**Version 3 (2026-08-23).** Replaces the v1 8-check list; check 13 added in v3. Numbers referenced
 here live in `market-data.md` with their verified dates — quote them from there,
 not from this file.
 
@@ -18,8 +18,8 @@ does.
 ## Scoring
 
 Score each check **PASS (2) / RISKY (1) / FAIL (0)** with a one-sentence
-rationale naming specific evidence. Total is 0–24 and feeds the AI-era
-component of `scoring-rubric.md`.
+rationale naming specific evidence. Total is 0–26 across the 13 checks, and
+feeds the AI-era component of `scoring-rubric.md`.
 
 **N/A is a fourth status**, for checks that cannot meaningfully apply — most
 often 3, 4 and 7 for a product that never calls a model. An N/A check is
@@ -33,13 +33,13 @@ probably not an AI business, the AI-era component is thinner evidence than
 usual, and the other components should carry correspondingly more weight in
 your reading of the total.
 
-Bands below assume all 12 apply. With N/A checks, compare the *percentage* of
-the available maximum rather than the raw total.
+Bands are expressed as a **percentage of the available maximum**, because N/A
+checks change the denominator.
 
-- **21–24** (≥88%) — genuinely AI-era-durable. Rare. Interrogate whether you were too generous.
-- **16–20** (67–87%) — defensible, likely to compound. Press hard on every RISKY.
-- **10–15** (42–66%) — survives near-term, structurally exposed. Must be elevated into the verdict.
-- **0–9** (<42%) — mis-shaped or mis-timed. Caps the verdict at Weak absent an explicit, argued override.
+- **≥88%** — genuinely AI-era-durable. Rare. Interrogate whether you were too generous.
+- **67–87%** — defensible, likely to compound. Press hard on every RISKY.
+- **42–66%** — survives near-term, structurally exposed. Must be elevated into the verdict.
+- **<42%** — mis-shaped or mis-timed. Caps the verdict at Weak absent an explicit, argued override.
 
 **Any FAIL on check 11 (regulatory) is a hard gate**, not a scoring input — see
 that check.
@@ -261,6 +261,36 @@ bridge absorbed into general-purpose AI?
 - **RISKY** — The need persists but the format shifts.
 - **FAIL** — A bridge tool. **The tell is the pitch itself: "we'll be the layer
   that…"**
+
+## 13. Rights, data provenance and ownership
+
+*New in v3.*
+
+**Question:** Do you actually own what the business depends on, and can you prove
+where your data came from?
+
+Regulation (check 11) asks whether you are allowed to operate. This asks whether
+what you are operating is *yours*. For an AI business the two are genuinely
+distinct, and this one is routinely unexamined.
+
+- **PASS** — Training and reference data has documented provenance and licences
+  that permit commercial use. Customer data rights are explicit in the contract,
+  including whether you may train on it. Model terms permit your use case and
+  your output rights are clear. Any distinctive IP is actually held.
+- **RISKY** — Mostly clean, with one unexamined dependency: scraped data of
+  uncertain licence, an unclear clause about training on customer data, or model
+  terms nobody has re-read since signing.
+- **FAIL** — The core dataset was obtained in a way that would not survive
+  scrutiny, customer contracts are silent on training rights, or the output the
+  business sells may not be ownable.
+
+**Why it belongs at check level:** data provenance is now a diligence item and a
+litigation surface, and "we scraped it" has ended acquisitions. For a company
+whose moat claim rests on proprietary data (check 5), an unresolved provenance
+question means the moat may not be an asset at all.
+
+**Tell:** ask who owns the output the customer receives. Founders who have not
+thought about it pause.
 
 ---
 

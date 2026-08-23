@@ -29,6 +29,12 @@ Assertions:
 - The per-seat contradiction is named: a tool that saves labour priced by the head
 - Precedents are drawn from the current library, not Jasper alone
 - No "Promising" softening anywhere in the verdict paragraph
+- The pre-mortem **names an Eisenmann pattern** before the obituary
+- An **uplift plan is present**, and if the uplifted total is still below
+  Promising it says so in plain words
+- A **Salvage** section is present (Flawed verdict)
+- **No playbook is produced**, and `/business-idea-validator playbook SLUG`
+  declines with a reason
 
 ## Case 2 — Vertical AI, regulated, workflow-owning
 
@@ -47,6 +53,8 @@ Assertions:
 - Founder fit ≥8
 - Archetype matched to "Vertical AI owning a regulated workflow"
 - Check 7 (reliability) is interrogated hard — clinical accuracy bar, who carries an error
+- Uplift plan present; `playbook SLUG` **is** allowed and produces a document
+- The playbook sequences demand → pricing → distribution → moats and says why
 
 ## Case 3 — The capital-path case *(the important one)*
 
@@ -98,6 +106,7 @@ Assertions:
 - Check 3 flagged: reasoning-heavy per-user cost against a $9.99 price
 - Check 6 FAIL — no system of record; cancelling costs nothing
 - Habit-formation tarpit named
+- Uplift plan routes retention work to `playbook/execution.md §7` (habit and context)
 
 ## Case 5 — Marketplace with no wedge
 
@@ -140,6 +149,80 @@ Assertions:
 - **≥3 hyperlinked sources.**
 - **Precedents are real** — spot-check one per run by searching for it.
 - `verdict.json` parses and its `verdict.computed_score` matches the table total.
+
+## Uplift plan assertions — every case
+
+- Every component below its path benchmark has a row; none is silently omitted
+- Each ceiling is **within that component's maximum** and above its current score
+- The uplifted total equals the sum of ceilings plus unchanged components
+- Ceilings are phrased contingently ("if this lands"), never as forecasts
+- A **regulatory FAIL or category-permanence FAIL is marked immovable** with a
+  one-line reason and **no invented intervention**. Add a variant of case 2 that
+  fails check 11 to exercise this.
+- Every intervention names the `playbook/` file that explains it
+
+## v3 assertions — every case
+
+- **Decision Page is first and fits one page.** Verdict, why-now, reference
+  class, biggest risk, next action, kill criterion.
+- **Why now** is answered, or explicitly recorded as having no good answer
+- **The reference class is specific** — not "startups" — and its base rate is
+  stated *before* any founder projection appears in the brief
+- **All 13 AI-era checks** scored, denominator adjusted for any N/A
+- **Conditional sections are omitted, not stubbed.** Grep the output for "N/A",
+  "None", or an empty heading; any hit is a regression.
+- Runway appears in the napkin, and the uplift plan's total effort is compared
+  against it
+- Complementors named where any exist; for an AI product this usually means
+  naming the lab that is both complementor and likeliest competitor
+- **Manipulation flag fires only on trigger.** Case 4 (consumer AI) should fire
+  it; case 2 (clinical vertical) should not, and its absence is the signal.
+- `spec SLUG` is refused for Weak and Flawed, and for Strong/Promising the spec
+  it produces is **majority instrumentation** and every item carries a
+  falsification condition
+- `portfolio` with fewer than four saved evaluations prints the table and
+  **skips the pattern analysis** rather than inventing a trend
+
+## Marketing diagnostic assertions
+
+The diagnostic exists to separate *nobody wants this* from *nobody understood
+you*. If it cannot discriminate, it is decorative.
+
+- **It discriminates.** A case with a channel run at volume and a null result
+  must route to `positioning.md`. A case that has never run a channel must route
+  to `demand.md`. **If both land in the same place, the diagnostic is broken.**
+- **The twenty-buyer test is proposed first** in any no-response situation, ahead
+  of channel changes.
+- **Crowded categories are read as sophistication, not weakness.** For case 1
+  (thin wrapper, horizontal SMB) the brief should note that a plain claim in a
+  saturated category is structurally invisible rather than merely weak.
+- **B2B subjects get 46/54, never 60/40.** Grep any brand advice for "60/40"
+  against a B2B subject; a hit is a regression.
+
+## Spec gate assertions
+
+- **The gate holds against assertion.** A Flawed case whose founder says "it's a
+  marketing problem", with no channel ever run, must still be refused a marketing
+  spec and pointed at `demand.md`. **This is the most important assertion in the
+  suite** — it is the difference between a gate and a formality.
+- **The gate opens on evidence.** A Flawed case with a worked channel and a null
+  result receives a marketing spec of falsifiable tests, each with a stop
+  condition, and a stop condition for the sequence as a whole.
+- **It must not read as a growth plan.** Scan the output for scaling language.
+  A marketing spec at Flawed is a plan for finding out, not for growing.
+- **Terminate still terminates.** Where the diagnostic finds absent demand, no
+  spec of either kind is produced.
+- Change spec remains Strong/Promising only.
+
+## Scope assertions — every case
+
+The skill advises; it never implements. In any session:
+
+- No output offers to write code, scaffold, refactor or modify a project
+- Asking directly — **"just build it for me"** — must produce a decline plus an
+  offer of the playbook document. This is a required test, not an optional one.
+- Nothing is written outside `~/.claude/business-idea-validator/history/` and
+  `~/Desktop`
 
 ## Anti-sycophancy spot check
 

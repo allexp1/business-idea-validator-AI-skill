@@ -14,28 +14,36 @@ is a follow-up question about an evaluation already produced.
 Same order in every format. Names flex by mode (see the terminology map in
 SKILL.md).
 
-1. Cover — subject, mode, capital path, date
+0. **Decision Page** — one page, hard. The spine; see §9.
+1. Cover — subject, mode, capital path, why-now line, date
 2. Stat row — 4 tiles (required for OPERATING, optional for NASCENT)
-3. **Score table** — the six rubric components with raw / max / weight / weighted score, the total, the computed label, and any override line
+3. **Score table** — six components with raw / max / weight / weighted score, the total, the computed label, any override line, and the **reference-class line** beneath it
 4. Verdict — 2–3 sentences
 5. **Steelman** — the strongest honest case *for*
 6. What's Working / Current Moats — 4 cards
 7. Hard Truths / What's Eroding — 5–7 cards
-8. AI-Era Deep Check — all 12, PASS/RISKY/FAIL
-9. Competitor Teardown — 3–5 named, with threat level
-10. Unit Economics Napkin — including inference cost and cost-per-outcome
-11. Precedent Cases — 2–3, named, dated, with outcomes
-12. Tarpit callout — optional, only on 2+ hits
-13. **Pre-Mortem** — the two-year obituary
-14. **Pre-Parade** — what must be true for the 10× outcome
-15. What You'd Do Instead / Strategic Options — 2–3, each mapped to an archetype, plus "What NOT to do"
-16. **Kill Criteria** — 2–4 falsifiable, dated, numeric
-17. **What Would Change My Mind**
-18. 7-Day Validation Plan / 90-Day Strategic Plan
-19. Since Last Time — only when prior history exists
-20. One-Sentence Summary
-21. Verified Facts footer — 3–6 key facts with sources
-22. Sources — ≥3 hyperlinked
+8. AI-Era Deep Check — all 13, PASS / RISKY / FAIL / N/A
+9. *Rights & data provenance* — **conditional**, when check 13 is RISKY or FAIL
+10. Competitor Teardown — 3–5 named, with threat level; plus *Complementors* when any matter
+11. Unit Economics Napkin — including inference cost, cost per outcome, and runway
+12. Precedent Cases — **conditional**, when one was actually found
+13. *Tarpit callout* — **conditional**, 2+ hits
+14. *Manipulation flag* — **conditional**, when a trigger fires
+15. **Pre-Mortem** — the obituary, in the shape of its Eisenmann pattern
+16. **Pre-Parade** — what must be true for the 10× outcome
+17. What You'd Do Instead / Strategic Options — 2–3, mapped to archetypes, plus "What NOT to do"
+18. **Kill Criteria** — 2–4 falsifiable, dated, numeric
+19. **Uplift Plan** — every weak component: intervention, ceiling, cost, testable in 90d
+20. *Salvage* — **conditional**, Flawed verdicts only
+21. **What Would Change My Mind**
+22. 7-Day Validation Plan / 90-Day Strategic Plan
+23. *Since Last Time* — **conditional**, when prior history exists
+24. One-Sentence Summary
+25. Verified Facts footer — 3–6 key facts with sources
+26. Sources — ≥3 hyperlinked
+
+Sections marked *conditional* are **omitted entirely** when they do not apply.
+Never leave a placeholder or an "N/A" heading.
 
 ## 2. Deliverable ladder
 
@@ -75,7 +83,7 @@ rather than leaving empty placeholders.
 | Weak | `#7a2fd6` | `#f4eefe` |
 | Flawed | `#b23a1f` | `#fbece8` |
 
-**Depth targets:** 4 What's Working · 5–7 Hard Truths · all 12 AI-era checks ·
+**Depth targets:** 4 What's Working · 5–7 Hard Truths · all 13 AI-era checks ·
 3–5 competitors · 2–3 precedents · 2–3 options · 2–4 kill criteria · 5–7 plan steps.
 
 **Voice:** sharp, direct, evidence-cited. Named companies, real numbers, dates
@@ -140,6 +148,15 @@ comparable to its own past.
 It records which vintage of market facts produced the verdict — without it, a
 later comparison cannot tell a changed business from changed data.
 
+### The record is complete, never a diff
+
+**A re-evaluation writes the full schema, not only what changed.** It is
+tempting to record just the deltas on a re-run; do not. `portfolio` reads the
+latest record per subject, and a trimmed one silently loses the competitor
+teardown, the unit economics, the verified facts and the AI-era checks for that
+subject. Carry forward every field that did not change, update the ones that
+did, and add the compare fields on top.
+
 ## 6. Compare mode
 
 Triggered by `/business-idea-validator compare <slug>`, or automatically when
@@ -162,3 +179,112 @@ history exists for the subject.
 
 One or two lines. Where the brief is, the verdict label, and the single sharpest
 sentence. Everything else lives in the brief.
+
+## 8. The playbook document
+
+Produced only by `/business-idea-validator playbook SLUG`, and only when the
+saved verdict was Strong or Promising. For Weak or Flawed, decline with a
+sentence explaining that the uplift interventions come first.
+
+**It is a document.** It plans work; it does not perform any. No code, no file
+changes in the user's projects. See the Scope section of `SKILL.md`.
+
+Structure:
+
+1. **Where this stands** — verdict, score, date of the evaluation it builds on
+2. **The sequence** — which interventions, in the dependency order from
+   `playbook/index.md` (demand → pricing → distribution → moats, with execution
+   underneath). Say why this order for this subject.
+3. **One section per intervention** — drawn from the relevant `playbook/` file:
+   what to do, what "done" looks like, the falsification condition, the cost
+4. **The first two weeks** — day-level, concrete, one person's worth of work
+5. **What not to do yet** — the tempting work that is premature. Usually moat
+   building before traction, or a second channel before the first one works.
+6. **Review point** — when to re-run the evaluation, and which component scores
+   should have moved by then
+
+Filename `~/Desktop/{Slug}-Playbook.pdf`, and into history alongside the brief.
+Same deliverable ladder: Artifact, then PDF via the script, then HTML.
+
+---
+
+## 9. Readability — the spine, the conditional body, and the budgets
+
+The brief has grown. Keep it readable by holding to one rule: **a fixed spine
+and a conditional body.**
+
+### The spine — always present, in this order
+
+1. **Decision Page** — one page, hard limit. See below.
+2. Score table, with the reference-class line beneath it
+3. Verdict
+4. Uplift plan
+5. One-sentence summary
+
+A reader who stops after the Decision Page must still have everything they need
+to decide. Everything after it is there for the reader who wants the reasoning.
+
+### The Decision Page
+
+One page. If it runs to two, cut it rather than reflowing it.
+
+- **Verdict and score**, with the computed label and any override
+- **Why now** — one line, or "no clear answer", which is itself the finding
+- **Reference class and base rate** — one line (`frameworks.md §14`)
+- **The single biggest risk** — one sentence, drawn from the hard truths
+- **The single next action** — one sentence, drawn from the uplift plan
+- **The kill criterion that matters most** — one line, with its number and date
+
+Six lines and two numbers. This is the page that gets forwarded and the page
+the founder re-reads in three months.
+
+### The conditional body
+
+**Sections appear only when they have something to say.** Omit entirely —
+do not include with a placeholder or an "N/A":
+
+| Section | Appears when |
+| --- | --- |
+| Tarpit callout | 2+ tarpits hit |
+| Manipulation flag | a trigger from Phase 2 step 11 fires |
+| Rights & data provenance detail | check 13 is RISKY or FAIL |
+| Salvage | verdict is Flawed |
+| Since Last Time | prior history exists for the slug |
+| Precedent cases | a structurally similar case was actually found |
+| Complementors | at least one exists and matters |
+
+An empty section costs the reader attention and tells them nothing. Omission is
+information: a brief with no manipulation flag is saying the triggers did not fire.
+
+### Length budgets
+
+Hold these. The brief is long because it does a lot, not because sections sprawl.
+
+| Section | Budget |
+| --- | --- |
+| Decision Page | 1 page, hard |
+| Verdict | 2–3 sentences |
+| Steelman | 1 paragraph |
+| Each Hard Truth | ≤3 sentences, 5–7 of them |
+| Each AI-era rationale | 1 sentence |
+| Pre-mortem | 1 paragraph |
+| Pre-parade | 1 paragraph |
+| Uplift plan | table plus 2 lines |
+| Each playbook pointer | 1 line, naming the file |
+
+**When a section wants more room, that is usually a sign it belongs in the
+playbook or the spec, not the brief.** The brief diagnoses; the other documents
+elaborate.
+
+### The sections themselves
+
+Names flex by mode. The ones carrying the most signal:
+
+- **Steelman** — the strongest *honest* case for the idea, before the criticism. Not a compliment sandwich. A brief that cannot argue the other side has not understood the idea, and its negative verdict is worth less. Performed harshness is a bias too, and the one this skill is most likely to acquire.
+- **Hard Truths** — 5–7 specific named risks. Never "the market is competitive." Name the competitor, the structural force, the number.
+- **Pre-Mortem** — the obituary, in the shape of its Eisenmann pattern.
+- **What You'd Do Instead** — 2–3 options, each mapped to an archetype, each marked Recommended / Conditional / Opportunistic, plus **"What NOT to do"**.
+- **Kill criteria** — 2–4 falsifiable, dated, numeric stop conditions checkable by the founder alone inside 90 days.
+- **What would change my mind** — 2–3 pieces of evidence that move the verdict up a band, one that moves it down.
+- **The plan** — 7-Day Validation (nascent, with real questions from `interview-bank.md`) or 90-Day Strategic (operating).
+- **Sources** — ≥3 hyperlinked.

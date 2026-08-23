@@ -4,8 +4,15 @@ Used by the 7-Day Validation Plan (nascent). Give the founder **actual
 questions**, never "go talk to customers." Include the 5–8 most relevant in the
 brief.
 
-The governing rule: **ask about the past, not the future.** What someone did
-last month is evidence. What they say they would do is a wish.
+Two governing rules.
+
+**Ask about the past, not the future.** What someone did last month is evidence.
+What they say they would do is a wish.
+
+**Make them choose, not estimate.** Every question about money should present
+options and take an answer, rather than inviting a number out of the air.
+Choice-based elicitation reduces hypothetical bias; open-ended valuation
+maximizes it.
 
 ---
 
@@ -21,7 +28,11 @@ last month is evidence. What they say they would do is a wish.
 
 6. "What do you spend on tools or services in this area today?"
 7. "Who signs off on a $X/month purchase like this?"
-8. "If this existed exactly as described, what would you pay per month?" *(discount heavily — people over-commit in interviews by roughly 40%)*
+8. **Choice-based, not open-ended.** Do not ask "what would you pay?" Read a
+   ladder instead: "At $80 a month, would you buy? At $120? At $160?" and stop
+   where they stop. This is the Gabor-Granger form, and it matters — the
+   meta-analysis below found choice-based elicitation measurably reduces bias,
+   while an open question invites a number the person has not had to commit to.
 9. "Would you pay for it today, if I could deliver it today?" *(the strongest verbal signal there is)*
 10. "What budget line would this come out of?" *(no line = no purchase, regardless of enthusiasm)*
 
@@ -61,7 +72,16 @@ pay to have this outcome delivered, rather than a tool to do it yourself?"
 
 ## Red flags during interviews
 
-- **"I'd definitely pay for that."** Discount hard. Enthusiasm is free.
+- **"I'd definitely pay for that."** Discount it. **How much:** the best available
+  anchor is Murphy, Allen, Stevens and Weatherhead's meta-analysis of 83
+  observations across 28 stated-preference studies, which found a median
+  hypothetical-to-actual ratio of **1.35** — so stated willingness to pay runs
+  roughly a third above what people actually do. Two caveats to state whenever
+  you use it: that literature is mostly environmental valuation rather than
+  software pricing, so it anchors rather than settles; and the distribution is
+  severely right-skewed, meaning some respondents overstate by far more.
+  Earlier versions of this file asserted a ~40% discount with no source. 1.35 is
+  the sourced figure, and it is *less* pessimistic. See `academic-sources.md`.
 - **Vague on "the last time it happened."** The pain is not acute. This is the single most reliable negative signal.
 - **"This is exactly what I've been looking for" in the first two minutes.** They are being polite, or they are pitching you.
 - **Multiple approvers needed.** Committee complexity, long cycles — fine for venture, usually fatal for bootstrap.

@@ -131,12 +131,321 @@ hypothesis statement template.
 
 ---
 
+## Does the Method Work? — Camuffo, Cordova, Gambardella & Spina
+
+> Camuffo, Arnaldo, Alessandro Cordova, Alfonso Gambardella, and Chiara Spina.
+> "A Scientific Approach to Entrepreneurial Decision Making: Evidence from a
+> Randomized Control Trial." *Management Science* 66, no. 2 (2020).
+>
+> Camuffo, Arnaldo, Alfonso Gambardella, et al. "A Scientific Approach to
+> Entrepreneurial Decision-Making: Large-Scale Replication and Extension."
+> *Strategic Management Journal* 45, no. 6 (2024): 1209–1237. Four RCTs, 759 firms.
+
+The 2020 trial randomized 116 Italian startups; treated founders were taught to
+formulate a theory, derive hypotheses and test them. The replication found
+treated firms **terminate bad ideas more readily** and run **fewer but better
+pivots**.
+
+**Drives:** `frameworks.md §12`, kill criteria, and `playbook/execution.md §1`.
+This is the empirical basis for the skill's entire method, and the reason
+"terminate" is treated as a real recommendation rather than a failure of nerve.
+
+---
+
+## Failure Patterns — Eisenmann
+
+> Eisenmann, Tom. "Why Start-ups Fail." *Harvard Business Review* 99, no. 3
+> (May–June 2021): 76–85. Also *Why Startups Fail: A New Roadmap for
+> Entrepreneurial Success*, Currency, 2021. Survey of 470 founders plus case
+> research.
+
+Tom Eisenmann is a professor at Harvard Business School.
+
+**Drives:** `frameworks.md §13` and the Pre-Mortem, which now names which of the
+six patterns the subject resembles before writing the obituary.
+
+---
+
+## Hypothetical Bias — Murphy, Allen, Stevens & Weatherhead
+
+> Murphy, James J., P. Geoffrey Allen, Thomas H. Stevens, and Darryl
+> Weatherhead. "A Meta-Analysis of Hypothetical Bias in Stated Preference
+> Valuation." *Environmental and Resource Economics* 30, no. 3 (2005): 313–325.
+
+83 observations from 28 studies. **Median hypothetical-to-actual ratio 1.35**,
+with severe positive skew. Choice-based elicitation reduces the bias.
+
+**Drives:** `interview-bank.md` and `playbook/demand.md §4`. It replaced an
+unsourced "~40%" discount that earlier versions asserted — and it is *less*
+pessimistic than the invented figure.
+
+**Carry the caveat:** this literature is largely environmental valuation, not
+software pricing. It anchors the discount; it does not settle it.
+
+---
+
+## Customer Lifetime Value — Gupta, Lehmann & Stuart; Fader & Hardie
+
+> Gupta, Sunil, Donald R. Lehmann, and Jennifer Ames Stuart. "Valuing
+> Customers." *Journal of Marketing Research* 41, no. 1 (2004): 7–18.
+>
+> Fader, Peter S., Bruce G. S. Hardie, and Ka Lok Lee. "Counting Your Customers
+> the Easy Way: An Alternative to the Pareto/NBD Model." *Marketing Science* 24,
+> no. 2 (2005).
+
+Gupta and Lehmann showed that computing CLV from an expected customer lifetime
+generally **overestimates** it. Fader and Hardie's buy-till-you-die models exist
+because the naive approach fails in non-contractual settings, where customers
+are heterogeneous and the surviving cohort churns progressively more slowly.
+
+**Drives:** `frameworks.md §5`. LTV taken from `ARPU ÷ churn` is now treated as
+a ceiling and capped in scoring.
+
+---
+
+## Effectuation — Sarasvathy
+
+> Sarasvathy, Saras D. "Causation and Effectuation: Toward a Theoretical Shift
+> from Economic Inevitability to Entrepreneurial Contingency." *Academy of
+> Management Review* 26, no. 2 (2001): 243–263.
+
+Expert entrepreneurs frequently reason from means already in hand rather than
+from goals. Causation rests on a logic of prediction; effectuation on a logic of
+control. Principles include affordable loss and stakeholder pre-commitment.
+
+**Drives:** `playbook/execution.md §5`, deliberately, as a **counter-lens.** This
+skill is causal by construction — it predicts, scores and validates. Sarasvathy
+is the strongest published argument that expert practice often works the other
+way, and the skill carries its own opposition rather than hiding it.
+
+---
+
+## Entrepreneurship as Experimentation — Kerr, Nanda & Rhodes-Kropf
+
+> Kerr, William R., Ramana Nanda, and Matthew Rhodes-Kropf. "Entrepreneurship as
+> Experimentation." *Journal of Economic Perspectives* 28, no. 3 (2014): 25–48.
+
+Probabilities of success are low, extremely skewed, and unknowable until an
+investment is made. All three authors were at Harvard Business School.
+
+**Drives:** `playbook/execution.md §1`, and the framing that value comes from
+cheap experiments and willingness to stop rather than from choosing correctly.
+
+---
+
+## Online Experimentation — Kohavi, Tang & Xu
+
+> Kohavi, Ron, Diane Tang, and Ya Xu. *Trustworthy Online Controlled
+> Experiments: A Practical Guide to A/B Testing.* Cambridge University Press,
+> 2020. From experimentation leaders at Microsoft, Google and LinkedIn.
+
+Overall Evaluation Criterion, peeking, multiple comparisons, novelty and primacy
+effects, statistical power.
+
+**Drives:** `playbook/execution.md §2`, including the advice **not** to A/B test
+at low traffic, where an underpowered test produces confident noise.
+
+---
+
+## Feature Prioritization — Kano, Seraku, Takahashi & Tsuji
+
+> Kano, Noriaki, Nobuhiku Seraku, Fumio Takahashi, and Shinichi Tsuji.
+> "Attractive Quality and Must-Be Quality." *Journal of the Japanese Society for
+> Quality Control* 14, no. 2 (1984): 39–48.
+
+Must-be, one-dimensional and attractive quality. Attractive attributes decay
+into must-be as a category matures.
+
+**Drives:** `playbook/execution.md §3`.
+
+---
+
+## Intelligent Failure — Edmondson
+
+> Edmondson, Amy C. *Right Kind of Wrong: The Science of Failing Well.* Atria,
+> 2023. Financial Times / Schroders Business Book of the Year 2023.
+
+Amy Edmondson is the Novartis Professor of Leadership and Management at Harvard
+Business School and the originator of the psychological-safety literature. Basic,
+complex and intelligent failure; intelligent failure requires new territory, a
+real goal, informed design, and risk sized to survive.
+
+**Drives:** `playbook/execution.md §4`.
+
+---
+
+## Diffusion of Innovations — Rogers; Bass
+
+> Rogers, Everett M. *Diffusion of Innovations.* Free Press, 1962 (5th ed. 2003).
+>
+> Bass, Frank M. "A New Product Growth for Model Consumer Durables."
+> *Management Science* 15, no. 5 (1969): 215–227. Named one of the ten
+> most-cited papers in the journal's first fifty years.
+
+Adoption driven by innovators, who act on the product's merits, and imitators,
+who act on others' adoption.
+
+**Drives:** `playbook/distribution.md §3`, and the warning that early-adopter
+enthusiasm is exactly the signal that produces Eisenmann's False Positive.
+
+---
+
+## Habit and Retention — Wood
+
+> Wood, Wendy. *Good Habits, Bad Habits: The Science of Making Positive Changes
+> That Stick.* Farrar, Straus and Giroux, 2019, summarizing three decades of
+> research. Wood is Provost Professor Emerita of Psychology and Business at USC.
+
+Roughly **43% of daily behaviour is habitual** — repeated in the same context,
+often while attention is elsewhere. Habits are cued by context, built by
+repetition and reward. Willpower is not the mechanism.
+
+**Drives:** `playbook/execution.md §7`, for products whose retention depends on
+repeated voluntary use.
+
+---
+
+## Business Model Design — Amit & Zott
+
+> Amit, Raphael, and Christoph Zott. "Value Creation in E-Business."
+> *Strategic Management Journal* 22 (2001): 493–520; and "Business Model Design:
+> An Activity System Perspective," *Long Range Planning* 43 (2010).
+
+The NICE design themes: novelty, lock-in, complementarities, efficiency.
+
+**Drives:** `playbook/pricing.md §4`, for packaging decided by design rather than
+by copying a competitor's tier table.
+
+---
+
+## Inside View vs Outside View — Lovallo & Kahneman
+
+> Lovallo, Dan, and Daniel Kahneman. "Delusions of Success: How Optimism
+> Undermines Executives' Decisions." *Harvard Business Review* 81, no. 7
+> (July 2003).
+
+The inside view reasons from a project's specifics and is systematically
+optimistic; the outside view asks what happened to the class of comparable
+projects and is more accurate. People abandon the outside view as soon as they
+have detail about the specific case. The paper also names **competitor
+neglect** — forecasts that assume the market holds still while you execute.
+
+**Drives:** `frameworks.md §14`, a Phase 2 step, and the base-rate penalty in
+`scoring-rubric.md §6`. It is why the reference class and its base rate are
+stated **before** the founder's own projection, and why the line appears next to
+the score rather than in a footnote. This is the theoretical spine for base-rate
+discipline the skill previously applied as decoration.
+
+---
+
+## Added Value and Complementors — Brandenburger & Nalebuff
+
+> Brandenburger, Adam M., and Barry J. Nalebuff. *Co-opetition.* Currency
+> Doubleday, 1996. Nalebuff is at Yale; Brandenburger was then at Harvard
+> Business School.
+
+Two contributions this skill uses. **Added value** — the value of the game with
+you in it minus the value without you — is the ceiling on what any player can
+capture, and it is answerable before a company has traction, which most moat
+frameworks are not. **Complementors** are the player Porter's five forces omits:
+anyone whose presence makes your product more valuable.
+
+**Drives:** the Added Value step in Phase 2, the Complementors block in the
+Competitor Teardown, and the moat discussion in `playbook/moats.md`.
+
+**Why it matters now:** the model labs are simultaneously the largest
+complementor and the likeliest predator of most AI businesses. Porter has no
+slot for that relationship; this framework does.
+
+---
+
+## Sales Effectiveness — Rackham
+
+> Rackham, Neil. *SPIN Selling.* McGraw-Hill, 1988. Empirical: 35,000 sales
+> calls, 10,000 salespeople, 23 countries, 12 years, 40 researchers — the
+> largest study of sales effectiveness conducted.
+
+Situation, Problem, Implication, Need-payoff. The central finding is that
+closing technique predicts outcomes in small sales and **not** in large ones;
+what predicts large-sale outcomes is question sequence, and top performers ask
+markedly more **implication** questions — the ones that make the buyer articulate
+what the problem costs.
+
+**Drives:** `playbook/selling.md §1`.
+
+---
+
+## Complex B2B Selling — Dixon & Adamson
+
+> Dixon, Matthew, and Brent Adamson. *The Challenger Sale: Taking Control of the
+> Customer Conversation.* Portfolio, 2011. CEB research across 6,000 sales
+> representatives at 90 companies.
+
+Five rep profiles. Roughly 40% of high performers are Challengers; about 7% are
+Relationship Builders — inverting the assumption that rapport wins complex sales.
+Teach, tailor, take control. The study also found roughly **53% of B2B customer
+loyalty is driven by the sales experience itself**, ahead of product, brand and
+price combined.
+
+**Drives:** `playbook/selling.md §2`.
+
+---
+
+## Marketing Science — Sharp / Ehrenberg-Bass
+
+> Sharp, Byron. *How Brands Grow: What Marketers Don't Know.* Oxford University
+> Press, 2010. Ehrenberg-Bass Institute for Marketing Science, University of
+> South Australia, building on Ehrenberg and Goodhardt.
+
+Empirical regularities rather than theory: **double jeopardy** (smaller brands
+have fewer buyers who are also slightly less loyal, as a function of size);
+growth comes from **penetration rather than loyalty**; and **mental and physical
+availability** do most of the work, ahead of differentiated appeals.
+
+**Drives:** `playbook/brand.md §§1–2`. Mental availability is the skill's
+explanation for answer-engine absence: it is an availability problem, not a
+ranking one.
+
+---
+
+## Brand and Activation — Binet & Field
+
+> Binet, Les, and Peter Field. *The Long and the Short of It: Balancing Short and
+> Long-Term Marketing Strategies.* IPA, 2013. Analysis of the IPA Databank: 996
+> campaigns, 700 brands, 83 sectors, 30 years.
+>
+> Binet, Les, and Peter Field, with the LinkedIn B2B Institute. *The 5 Principles
+> of Growth in B2B Marketing*, 2019 — the first B2B cut of the same dataset.
+
+The widely quoted **60/40 brand-to-activation** optimum is the **B2C** figure.
+The B2B analysis puts efficiency nearer **46% brand / 54% activation**, with
+share of voice above share of market predicting growth, and acquisition
+strategies outperforming loyalty strategies.
+
+**Drives:** `playbook/brand.md §3`. The skill must use the B2B figure for a B2B
+subject; quoting 60/40 at a B2B company is the borrowed-number error this skill
+exists to catch.
+
+---
+
+## Word of Mouth — Berger
+
+> Berger, Jonah. *Contagious: Why Things Catch On.* Simon & Schuster, 2013.
+> Berger is a professor at the Wharton School.
+
+STEPPS: social currency, triggers, emotion, public, practical value, stories.
+High-arousal emotion travels; low-arousal does not.
+
+**Drives:** `playbook/brand.md §5`.
+
+---
+
 # What is NOT academic
 
 Stated plainly so nobody mistakes the provenance. These parts of the skill are
 practitioner synthesis, and they are the parts most likely to be wrong.
 
-- **The 12 AI-era checks** (`ai-era-checks.md`) are an original synthesis from
+- **The 13 AI-era checks** (`ai-era-checks.md`) are an original synthesis from
   the market evidence in `market-data.md`. No peer review, and several rest on
   vendor and analyst reporting explicitly marked *[directional]*. They are the
   most perishable content in the repo, which is why the `.living` sidecar exists.
@@ -153,6 +462,38 @@ practitioner synthesis, and they are the parts most likely to be wrong.
   from accelerator writing. Useful as a prior, not as evidence.
 - **The archetypes and precedents** (`archetypes-2026.md`) are journalism and
   company disclosures, re-verified on a schedule.
+- **The Change Spec's effort estimates and the portfolio view's pattern claims**
+  are judgment. The spec's *falsification conditions* are the part with rigour;
+  its day estimates are not.
+- **Brand-science transfer limits.** Sharp and Binet & Field study organisations
+  with media budgets, largely in consumer goods and advertising. The
+  *mechanisms* — penetration over loyalty, mental availability, distinctiveness,
+  share of voice — transfer to a pre-revenue company. The **spend ratios do
+  not**: a company with no media budget cannot split it 46/54, and applying the
+  ratio at that stage is following advice derived from a situation it is not in.
+  `playbook/brand.md §4` states this where a reader will hit it before spending.
+- **The uplift plan's point ceilings** (`scoring-rubric.md`) are estimates of how
+  far an intervention could move a component score. They are judgment applied to
+  a rubric that is itself judgment. Useful for prioritizing; not a forecast, and
+  the brief is required to label them contingent.
+
+## Practitioner sources in the playbook — named, and not research
+
+These earn their place by being what practitioners actually use. None is
+peer-reviewed, and briefs must not present them as if they were.
+
+| Source | Where | Status |
+| --- | --- | --- |
+| **Sean Ellis**, the 40% product-market-fit test (2009) | `playbook/demand.md §2` | Heuristic benchmarked across ~100 startups by its author. Real predictive history, no study. |
+| **Rahul Vohra / Superhuman**, the PMF engine | `playbook/demand.md §2` | A single company's worked example (22%→58%). The procedure is the value; the numbers are one case. |
+| **Ramanujam & Tacke**, *Monetizing Innovation* (2016) | `playbook/pricing.md` | Consultancy research. The "72% of new products miss financial targets" figure is Simon-Kucher's own survey, not independent. |
+| **Van Westendorp** (1976), **Gabor-Granger** | `playbook/pricing.md §2` | Established market-research instruments. Methods, not findings. |
+| **Hamilton Helmer**, *7 Powers* (2016) | `playbook/moats.md` | Practitioner-investor framework. Widely used, not empirically validated. |
+| **Brian Balfour**, four fits | `playbook/distribution.md §1` | Practitioner framework from operating experience. |
+| **Geoffrey Moore**, *Crossing the Chasm* (1991) | `playbook/distribution.md §3` | Practitioner treatment built on Rogers, who is the academic source. |
+| **Mark Roberge**, *The Sales Acceleration Formula* (2015) | `playbook/execution.md §6` | One company's scaling experience. The method transfers; the specific traits do not. |
+| **April Dunford**, *Obviously Awesome* (2019) | `playbook/positioning.md §1` | Practitioner framework from consulting practice. The most useful practical treatment of positioning; no study behind it. |
+| **Eugene Schwartz**, *Breakthrough Advertising* (1966) | `playbook/positioning.md §§2–3` | Direct-response practitioner, written from campaign experience. The awareness and sophistication models are widely used and never formally tested. |
 
 ## Citation discipline in briefs
 

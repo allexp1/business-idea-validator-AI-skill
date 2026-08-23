@@ -1,7 +1,7 @@
 # Business Idea Validator — a Claude Skill
 
 A brutally honest business idea validator and startup advisor. It uses
-frameworks from Harvard Business School, a 12-point AI-era deep check, and a
+frameworks from Harvard Business School, a 13-point AI-era deep check, and a
 **computed scoring rubric** to evaluate a startup idea or an operating business —
 then produces a styled brief you can keep.
 
@@ -43,14 +43,14 @@ Same business scored on the venture path: 50.8 → Weak. At £15/month, venture
 scale needs ~19,000 customers against a reachable few thousand.
 ```
 
-...followed by a steelman, hard truths, the 12 AI-era checks, a competitor
+...followed by a steelman, hard truths, the 13 AI-era checks, a competitor
 teardown, a unit-economics napkin including cost-per-outcome, named precedents,
 a two-year pre-mortem, a pre-parade, concrete pivots, **falsifiable kill
 criteria**, what would change the verdict, and a dated plan.
 
-## The 12 AI-era checks
+## The 13 AI-era checks
 
-Each scores PASS / RISKY / FAIL. Check 11 is a hard gate on the verdict.
+Each scores PASS / RISKY / FAIL / N-A. Check 11 is a hard gate on the verdict.
 
 | # | Check | Asks |
 | --- | --- | --- |
@@ -66,6 +66,7 @@ Each scores PASS / RISKY / FAIL. Check 11 is a hard gate on the verdict.
 | 10 | Distribution sovereignty & answer engines | Who can switch you off, and do you exist inside ChatGPT's answer? |
 | 11 | **Regulatory & liability clock** | What applies, when does it bite, who owns compliance? **Hard gate.** |
 | 12 | Category permanence | A durable category in 2030, or a bridge? |
+| 13 | Rights & data provenance | Do you own what the business depends on, and can you prove where the data came from? |
 
 ## Three capital paths
 
@@ -114,6 +115,108 @@ unverified.
 It applies the same rule to itself. A skill that demands citations from you and
 quotes undated numbers back has not earned the word "honest".
 
+## The brief opens with one page
+
+It does a lot, so it stays readable by having a fixed spine and a conditional
+body. Page one is the whole decision:
+
+```
+Decision
+  VERDICT           Weak · 42.0/100
+  WHY NOW           Long-context inference crossed viability in 2025;
+                    the same product in 2022 cost 40x more per document.
+  REFERENCE CLASS   Vertical AI tools sold to regulated SMBs under $200/mo.
+                    Roughly 1 in 12 reach $1M ARR. Founder projects $4M by year two.
+  BIGGEST RISK      No one has been asked to pay; all 24 interviews ended
+                    in encouragement.
+  NEXT ACTION       Run 20 choice-based WTP interviews within two weeks.
+  STOP IF           Fewer than 8 of 30 name this a top-3 problem by 22 Sep.
+```
+
+Everything after it is for the reader who wants the reasoning. Sections appear
+only when they have something to say — no manipulation flag means the triggers
+did not fire, which is itself information — and every section has a length
+budget. When one wants more room, it belongs in the playbook or the spec.
+
+The reference class line is deliberately placed *before* any founder projection.
+Lovallo and Kahneman's finding is that an inside-view number anchors everything
+after it, so the outside view has to come first or it does not work.
+
+## It also says how to make it work
+
+The verdict is only half of it. Because the score decomposes into six
+components, a weak component is a diagnosis with an address — so every brief
+ends with an **uplift plan**: what would move each weak score, by how much, what
+it costs, and whether it is testable inside 90 days.
+
+```
+Component          Now      Intervention                         Ceiling   Cost
+Demand evidence    6/20     20 choice-based WTP interviews        12–16    ~2 weeks
+Unit economics     4/15     Reverse income statement, reprice        10    ~3 days
+Moat               3/21     Counter-positioning (only power           8    1–2 quarters
+                            reachable at this stage)
+
+46 today. 68 if all three land. Roughly nine weeks.
+```
+
+Ceilings are contingent and labelled as such, immovable components are named
+rather than filled in, and if the uplifted total is still below Promising the
+brief says so.
+
+`/business-idea-validator spec SLUG` goes one step further: a **change spec** a
+coding agent can act on, where every item traces to the component score it moves
+and carries a falsification condition. Most of an early spec is instrumentation
+rather than features, because without it nobody can tell whether the uplift
+landed. The skill writes the spec; it does not run it.
+
+`/business-idea-validator portfolio` reports across every saved evaluation —
+shared failure modes, stale briefs, kill criteria nobody ever checked.
+
+`references/playbook/` holds the interventions themselves — demand, pricing,
+distribution, moats, execution — and `/business-idea-validator playbook SLUG`
+turns them into a sequenced plan. **That command is gated:** a Weak or Flawed
+verdict does not get one, because a growth plan for an idea that scored Flawed
+reads as permission. Flawed verdicts get **Salvage** instead: what is worth
+carrying to the next idea.
+
+## It advises. It does not build.
+
+The skill writes documents. It does not write code, modify projects, or touch
+files in your repositories. It will plan a rebuild in detail; performing one is
+a separate request you make explicitly. `allowed-tools` is research-only for
+exactly this reason.
+
+## It can tell a message problem from a demand problem
+
+The most common misreading in early-stage work is treating *nobody replied* as
+*nobody wants it*. Identical symptoms, opposite interventions — one says stop,
+the other says change six words and try again.
+
+When a channel has been run at volume and produced silence, the **no-response
+diagnostic** separates five causes, each with a test that isolates it:
+
+```
+Wrong list     → hand-pick 20 perfect-fit buyers, contact personally → demand.md
+Wrong message  → same list, change only the subject and first line   → positioning.md
+Wrong offer    → same list and message, different shape              → pricing.md
+Wrong channel  → find where they already gather                      → distribution.md
+No demand      → all of the above tried, all null                    → terminate
+```
+
+The twenty-buyer test comes first because it is the highest-information single
+test available: if twenty ideal buyers approached by a human still say nothing,
+five causes have become two for a week's work.
+
+`positioning.md`, `selling.md` and `brand.md` cover what you say, how you close a
+human being in a room, and why nobody can find you. Between them they carry
+Dunford's positioning components, Schwartz's awareness and market-sophistication
+models, Rackham's SPIN, the Challenger research, Sharp's availability laws and
+Binet & Field.
+
+**A crowded category is a sophistication problem, not a copy problem.** When a
+dozen companies make the same claim, a plain claim is structurally invisible, and
+no amount of subject-line testing fixes it.
+
 ## Where the frameworks come from
 
 Full citations live in [`references/academic-sources.md`](references/academic-sources.md),
@@ -128,9 +231,29 @@ along with an explicit list of what is **not** academic.
 | Marketing Myopia | Levitt, *Harvard Business Review*, July–August 1960 |
 | The pre-mortem | Klein, *HBR* 2007, on Mitchell, Russo & Pennington's prospective-hindsight finding (1989) |
 | Bootstrapping evidence | Bhidé, *The Origin and Evolution of New Businesses* (2000) |
+| Does the method work | Camuffo et al., *Management Science* 2020; replicated across 759 firms, *SMJ* 2024 |
+| Failure patterns | Eisenmann, *HBR* 2021 — six patterns from a 470-founder survey |
+| Discounting stated intent | Murphy et al. (2005) — median hypothetical:actual ratio 1.35 |
+| Customer lifetime value | Gupta, Lehmann & Stuart (2004); Fader & Hardie (2005) |
+| Effectuation, as counter-lens | Sarasvathy, *AMR* 2001 |
+| Online experimentation | Kohavi, Tang & Xu (2020) |
+| Feature prioritization | Kano et al. (1984) |
+| Intelligent failure | Edmondson, *Right Kind of Wrong* (2023) |
+| Diffusion | Rogers (1962); Bass, *Management Science* (1969) |
+| Habit and retention | Wood (2019) |
+| Sales effectiveness | Rackham, *SPIN Selling* — 35,000 calls, 10,000 reps, 12 years |
+| Complex B2B selling | Dixon & Adamson — CEB research, 6,000 reps, 90 companies |
+| Marketing science | Sharp / Ehrenberg-Bass, *How Brands Grow* |
+| Brand vs activation | Binet & Field, IPA Databank — 996 campaigns, and the B2B cut |
+| Word of mouth | Berger, *Contagious* (Wharton) |
+| Inside vs outside view | Lovallo & Kahneman, *HBR* 2003 — reference-class forecasting |
+| Added value, complementors | Brandenburger & Nalebuff, *Co-opetition* (1996) |
 
-The 12 AI-era checks, the scoring rubric and its weights, and the capital paths
-are practitioner synthesis, not research. The bibliography says so in as many
+The playbook also leans on practitioner sources — Ellis's 40% test, Helmer's
+7 Powers, Balfour's four fits, Moore, Roberge — each labelled as practitioner in
+the bibliography rather than dressed up as research. The 13 AI-era checks, the
+scoring rubric and its weights, and the capital paths are practitioner synthesis
+too. The bibliography says so in as many
 words. A validator that overclaims its own provenance has no business auditing
 anyone else's.
 
@@ -176,7 +299,19 @@ SKILL.md                      the skill — process and rubric
 references/
   market-data.md              every figure, sourced and dated
   academic-sources.md         full citations, and what is not academic
-  ai-era-checks.md            the 12 checks
+  playbook/                   how to make it work, indexed by weak component
+    index.md                  the router, the gate, and the dependency order
+    demand.md                 PMF measurement, WTP elicitation
+    pricing.md                price-before-product, instruments, packaging
+    distribution.md           four fits, growth loops, diffusion
+    moats.md                  7 Powers, and which are reachable at this stage
+    execution.md              experimentation, intelligent failure, prioritization
+    positioning.md            what you say and who to; market sophistication
+    selling.md                the face-to-face institutional sale
+    brand.md                  mental availability, and why nobody can find you
+  change-spec.md              the spec command: what to change, and how it is measured
+  portfolio.md                the portfolio command: patterns across evaluations
+  ai-era-checks.md            the 13 checks
   scoring-rubric.md           how the verdict is computed
   capital-paths.md            bootstrap / venture / service-as-software
   archetypes-2026.md          winning shapes, losing shapes, precedent library

@@ -24,6 +24,10 @@ This reference contains the detailed evaluation frameworks used by the Business 
 9. Discovery-Driven Planning — McGrath & MacMillan
 10. Founder and Team Research — Wasserman
 11. Marketing Myopia — Levitt
+12. Does This Discipline Work? — Camuffo et al.
+13. Failure Patterns — Eisenmann
+14. Inside View vs Outside View — Kahneman & Lovallo
+15. Added Value and Complementors — Brandenburger & Nalebuff
 
 ---
 
@@ -201,7 +205,18 @@ A score under 5/21 means the moat is dangerously shallow.
 
 Classic rows:
 - **Customer Acquisition Cost (CAC)** — cost to get one customer. Always name the basis.
-- **Lifetime Value (LTV)** — revenue from one customer over their life. Build it on a *measured* retention curve, not a hoped-for one.
+- **Lifetime Value (LTV)** — revenue from one customer over their life. Build it
+  on a *measured* retention curve, not a hoped-for one. **Do not accept
+  `ARPU ÷ churn`.** That formula assumes a constant churn rate across a
+  homogeneous population, and both assumptions fail in practice: customers are
+  heterogeneous, the weakest leave first, and the surviving cohort churns more
+  slowly every month. Gupta and Lehmann showed that using an expected customer
+  lifetime this way generally *overestimates* CLV, sometimes substantially, and
+  Fader and Hardie's work on non-contractual settings exists precisely because
+  the naive formula is wrong there. Practical rule for a brief: if LTV came from
+  `ARPU ÷ churn`, say so, treat it as a ceiling rather than an estimate, and
+  score the unit-economics component no higher than "assumptions unverified".
+  See `academic-sources.md`.
 - **LTV:CAC** — 3:1 is the floor, not the target. Below 2:1 is a red flag.
 - **Payback period** — path-dependent. Bootstrap has no runway to amortize; venture can wait.
 - **Gross margin** — under 50% for software is a concern. See the AI rows below before believing any margin figure.
@@ -222,6 +237,16 @@ AI businesses discover, late, that they are unprofitable:
 - **Cost trajectory** — does cost per outcome fall faster than price will? Token
   prices are collapsing while consumption per task climbs; the two do not cancel
   out in your favour by default.
+
+**Runway — the row that decides whether any of this is actionable.**
+
+- **Months of runway** at current burn, and whether that is personal savings, revenue, or raised capital.
+- **What the uplift work costs against it.** A nine-week intervention plan means
+  something very different at four months of runway than at eighteen. If the
+  recommended work consumes more than a third of remaining runway, say so in the
+  uplift plan and re-order to put the cheapest falsifying test first.
+- Bootstrap path: runway is usually *time*, not money — how many months the
+  founder can work on this before needing income from it. Ask in those terms.
 
 **"Not computed" is a legitimate finding and should be reported as one.** An AI
 business that has never measured its cost per outcome does not have unit
@@ -446,3 +471,140 @@ sharpest tool available for check 12 (category permanence). A product defined by
 its own mechanism is the classic bridge-tool tell.
 
 ---
+
+---
+
+## 12. Does This Discipline Actually Work? (Camuffo et al.)
+
+> Camuffo, Cordova, Gambardella & Spina, *Management Science*, 2020; replicated
+> and extended in *Strategic Management Journal*, 2024.
+
+Worth stating plainly, because this skill's entire premise rests on it: the
+claim that treating a business idea as a set of testable hypotheses produces
+better outcomes is **not just plausible, it has randomized-trial support.**
+
+The 2020 study randomized 116 Italian startups; the treated group was taught to
+formulate a theory, derive hypotheses, and test them. The 2024 replication
+extended to 759 firms across four RCTs and found treated firms **terminate bad
+ideas more readily** and run **fewer but better-considered pivots** than
+controls, which ran either none or repeated ones.
+
+Two consequences for how this skill behaves:
+
+- **Terminating is a success outcome, not a failure of nerve.** When the
+  evidence says stop, saying so is the intervention with the best empirical
+  support in this entire file. Do not soften it.
+- **Kill criteria are the mechanism, not a flourish.** They are how a founder
+  gets the "terminate sooner" benefit. A brief without falsifiable stop
+  conditions has withheld the most useful thing the research supports.
+
+## 13. Failure Patterns (Eisenmann)
+
+> Eisenmann, Tom. "Why Start-ups Fail." *Harvard Business Review* 99, no. 3
+> (May–June 2021). Also *Why Startups Fail*, Currency, 2021. Based on a survey
+> of 470 founders, two dozen case studies, and HBS research.
+
+The pre-mortem asks what killed this business. Eisenmann supplies the taxonomy,
+which turns an imaginative exercise into pattern-matching against six recurring
+shapes:
+
+| Pattern | The shape |
+| --- | --- |
+| **Bad Bedfellows** | The wrong co-founders, investors, or early hires. The venture is sound; the people around it are not. |
+| **False Start** | Building before validating. The team skipped customer discovery because they were sure, and shipped something nobody asked for. |
+| **False Positive** | Early adopters loved it and the mainstream did not. The founder read enthusiasm from an unrepresentative group as product-market fit. |
+| **Speed Trap** | Real growth, then growth outruns the economics. Scaling on acquisition channels that saturate or cost more over time. |
+| **Help Wanted** | The market was there but the team could not hire or fund the next stage. Talent or capital ran out before the opportunity did. |
+| **Cascading Miracles** | Success required several unlikely things to all come true in sequence. Each was plausible alone; the conjunction was not. |
+
+**How to use it in the pre-mortem:** name the pattern the subject most resembles,
+then write the obituary *in the shape of that pattern*. "This is a False
+Positive story" tells the founder more than a bespoke paragraph, because it
+tells them which of their current signals are the misleading ones.
+
+Two patterns deserve extra attention in this era. **False Positive** is the
+default failure of AI products, which demo brilliantly to enthusiasts and
+disappoint everyone else. **Cascading Miracles** is the tell for any plan whose
+pitch contains several sequential "and then" steps.
+
+---
+
+## 14. Inside View vs Outside View (Kahneman & Lovallo)
+
+> Lovallo, Dan, and Daniel Kahneman. "Delusions of Success: How Optimism
+> Undermines Executives' Decisions." *Harvard Business Review* 81, no. 7 (July
+> 2003).
+
+The theoretical spine for something this skill already does badly: quoting base
+rates as decoration rather than using them.
+
+**The inside view** reasons from the specifics of this project — our team, our
+insight, our plan. It is the natural way to think and it is systematically
+optimistic. **The outside view** ignores the specifics and asks what happened to
+the *class* of things like this. Lovallo and Kahneman's finding is that the
+outside view is more accurate, and that people abandon it the moment they have
+detail about the specific case.
+
+They also name **competitor neglect**: forecasts assume the market stands still
+while you execute. It does not.
+
+### The procedure — order matters
+
+1. **Define the reference class.** Not "startups". Specific: *vertical AI tools
+   sold to regulated SMBs at under $200/month*.
+2. **Get the class's distribution** from `market-data.md` or by search. What
+   share reach $1M ARR? What is the median outcome, not the memorable one?
+3. **Place this case in the distribution** and state the number *before*
+   discussing the founder's own projection.
+4. **Only then** hear the inside view, and treat the gap between the two as the
+   thing requiring explanation.
+
+**Step 3 before step 4 is the whole method.** Once an inside-view forecast is on
+the table it anchors everything after it, including yours. This is why the brief
+prints the reference class next to the score rather than in a footnote.
+
+When the founder's projection sits far above the class base rate, the question
+is not "are you sure?" but **"what specifically about you is different, and is
+that difference in the reference class already?"** Most claimed differences —
+better product, harder work, more focus — are true of everyone in the class.
+
+## 15. Added Value and Complementors (Brandenburger & Nalebuff)
+
+> Brandenburger, Adam M., and Barry J. Nalebuff. *Co-opetition.* Currency
+> Doubleday, 1996. Both authors are professors of business strategy — Nalebuff
+> at Yale, Brandenburger then at Harvard Business School.
+
+Two things Porter does not give you.
+
+### Added value — the sharpest pre-traction moat question
+
+**What disappears if you disappear?** Formally: the value of the game with you
+in it, minus the value of the game without you. That difference is the most you
+can ever capture, regardless of strategy.
+
+This is more useful than most of Helmer's powers at pre-traction, because it is
+answerable *before* you have volume. Ask it plainly: if this company vanished
+tomorrow, what would its customers be unable to do? If the honest answer is
+"use a slightly worse alternative", added value is thin, and no amount of
+execution changes that — the ceiling is structural.
+
+### Complementors — the player Porter's five forces omits
+
+A **complementor** is anyone whose presence makes your product more valuable to
+a customer. The five forces model has customers, suppliers, rivals, entrants and
+substitutes; it has no slot for this, which is a real gap.
+
+**This matters acutely now.** The model labs are simultaneously your largest
+complementor and your most likely predator. Their capability makes your product
+possible and their roadmap may end it. That relationship has no name in Porter
+and it is the central strategic fact for most AI businesses.
+
+Questions worth putting to any subject:
+
+- Who becomes more valuable when you succeed? Are they aware of you?
+- Which complementor could become a competitor, and what would trigger it?
+- Is there a partnership that grows the market rather than splitting it?
+- If your main complementor raised its prices or changed its terms, what happens?
+
+The last question is check 2 arriving from a different direction, and founders
+answer it more honestly in this framing than when asked about platform risk.

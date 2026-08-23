@@ -26,7 +26,7 @@ and subtractive, so the range is −10 to 100.
 
 | Component | Bootstrap | Venture | Services | Own scale | Source |
 | --- | --- | --- | --- | --- | --- |
-| AI-era score | 25 | **30** | 15 | 0–24 (fewer if N/A) | `ai-era-checks.md` |
+| AI-era score | 25 | **30** | 15 | 0–26 (fewer if N/A) | `ai-era-checks.md` |
 | Demand evidence | **30** | 25 | 20 | 0–20 | table below |
 | Moat score | 5 | 20 | 20 | 0–21 | `frameworks.md §4` |
 | Unit economics vs path | 20 | 15 | **30** | 0–15 | table below |
@@ -45,8 +45,9 @@ venture path, defensibility *is* the investment thesis, so AI-era and moat carry
 half. On the services path, the deal economics decide everything, so unit
 economics carries thirty.
 
-### 1. AI-era score (30)
-Sum the checks (PASS 2 / RISKY 1 / FAIL 0) → 0–24 → × 1.25 → 0–30.
+### 1. AI-era score
+Sum the 13 checks (PASS 2 / RISKY 1 / FAIL 0) → 0–26, then scale to the path's
+weight: `(raw / 26) × weight`.
 
 **Renormalize when checks are N/A.** A check that cannot meaningfully apply —
 typically the inference-specific ones for a product that never calls a model —
@@ -57,15 +58,15 @@ score = (raw / (2 × applicable_checks)) × 30
 ```
 
 So a non-AI SaaS scoring 14 across 9 applicable checks gets
-`(14 / 18) × 30 = 23.3`, not `14 × 1.25 = 17.5`. Without this, a perfectly good
+`(14 / 18) × 30 = 23.3`, not `(14 / 26) × 30 = 16.2`. Without this, a perfectly good
 business loses a third of the available points for the crime of not being an AI
 product — which is the same category of error as judging a bootstrap idea on a
 venture yardstick, and this rubric exists partly to stop that.
 
 State the denominator in the brief: *"AI-era: 14/18 applicable (3 N/A) → 23.3"*.
 
-**The gate scales too.** The "AI-era total ≤9 caps at Weak" gate becomes
-"below 42% of the applicable maximum".
+**The gate scales too.** The AI-era gate is "below 42% of the applicable
+maximum", which is ≤10/26 when all thirteen apply.
 
 ### 2. Demand evidence (20)
 Score the *evidence*, not the story. What the founder believes is worth zero.
@@ -107,11 +108,29 @@ experience is pulling the founder toward a familiar shape that does not fit this
 problem.
 
 ### 6. Base-rate & tarpit penalty (0 to −10)
+
+**Establish the outside view first.** Before scoring this component — and before
+discussing the founder's own projection — define the reference class, state its
+base rate, and place this case in the distribution. The procedure and why the
+order matters are in `frameworks.md §14`. One line goes in the brief next to the
+score:
+
+> *Reference class: vertical AI tools sold to regulated SMBs under $200/mo.
+> Base rate to $1M ARR: roughly 1 in 12. Founder projects $4M by year two.*
+
+Then:
+
 - −2 per tarpit hit from `frameworks.md §7` (max −6)
-- −2 if the category's base rate in `market-data.md §1` is materially worse than
-  the startup average and the plan does not address why they escape it
+- −2 if the class base rate is materially worse than the startup average and the
+  plan does not address why this case escapes it
+- −2 if the founder's projection exceeds the class base rate and the stated
+  difference is one that is **already true of everyone in the class** — better
+  product, harder work, more focus. That is not a differentiator; it is the
+  inside view.
 - −2 if the plan depends on a figure the founder asserted that public record
   contradicts (see the zero-trust step)
+
+Cap the total penalty at −10.
 
 ---
 
@@ -130,7 +149,7 @@ go/no-go.
 ## Hard gates — these override the score
 
 1. **Check 11 (regulatory) = FAIL** → caps at **Weak**. State why in the verdict paragraph.
-2. **AI-era below 42% of the applicable maximum** (≤9/24 when all apply) → caps at **Weak** absent an explicit argued override.
+2. **AI-era below 42% of the applicable maximum** (≤10/26 when all apply) → caps at **Weak** absent an explicit argued override.
 3. **Demand evidence = 0 and nascent** → caps at **Promising**. Nothing unvalidated is Strong, however elegant.
 
 Gates cap; they never promote.
@@ -182,6 +201,74 @@ and one that would move it down. This is what makes the brief useful three
 months later, and it is what a founder should go and collect.
 
 ---
+
+## The Uplift Plan
+
+The rubric says where the idea stands. The uplift plan says **what would move
+it, by how much, and what that costs** — and it falls straight out of having
+component scores, because a weak component is a diagnosis with an address.
+
+Produce one in **every brief, at every verdict.** For each component scoring
+below its path's benchmark:
+
+| Component | Now | Intervention | Ceiling | Cost | Testable in 90d |
+| --- | --- | --- | --- | --- | --- |
+| Demand evidence | 6 / 20 | 20 choice-based WTP interviews, Gabor-Granger ladder (`playbook/demand.md`) | 12–16 | ~2 weeks, no cash | yes |
+| Unit economics | 4 / 15 | Reverse income statement, then reprice per outcome (`playbook/pricing.md`) | 10 | ~3 days | partly |
+| Moat | 3 / 21 | Counter-positioning is the only power reachable at this stage (`playbook/moats.md`) | 8 | 1–2 quarters | no |
+
+Close with the arithmetic: **"46 today. 68 if all three land. Roughly nine weeks
+of work."**
+
+Each intervention must name the playbook file that explains it. The uplift plan
+is a router, not a substitute for the playbook.
+
+### Three rules, without which this becomes a fantasy generator
+
+**0. Run the no-response diagnostic before writing a demand row.** If a channel
+was worked at volume and produced silence, `playbook/index.md` distinguishes
+*wrong list*, *wrong message*, *wrong offer*, *wrong channel* and *no demand* —
+and they route to different files with very different costs. Print the result as
+one line in the uplift plan: *"Demand evidence is low, but the diagnostic finds
+message rather than absent demand — see positioning.md."* Where no channel has
+been run there is nothing to diagnose; the row points at `demand.md`.
+
+**1. The ceiling is contingent, and must be labelled so.** It is what the
+component scores *if the intervention succeeds*. It is not a forecast, and the
+brief must not present the uplifted total as a projection. Write "if all three
+land", never "will reach".
+
+**2. Immovable components are named, not filled in.** Some scores do not move:
+
+- a **regulatory FAIL** where the model requires what a regulator has ruled against
+- a **category-permanence FAIL** for a bridge product
+- **founder fit** where the gap is domain access rather than skill, which is
+  measured in years
+
+For these the row reads *immovable*, with one sentence saying why. Inventing an
+intervention to avoid an empty row is the single easiest way to make this
+section worthless.
+
+**3. If the uplifted total still lands below Promising, say so in plain words.**
+"Even if all of this works, it is still a Weak idea" is a legitimate and
+frequently correct output. The uplift plan exists to show the distance to
+viable, which sometimes means showing that the distance is too far.
+
+### What each verdict gets
+
+| Verdict | Uplift plan | Playbook | Salvage |
+| --- | --- | --- | --- |
+| **Strong / Promising** | yes | yes, on request via the `playbook` command | no |
+| **Weak** | yes | **no** — the interventions *are* the work | no |
+| **Flawed** | yes | **no** | **yes** |
+
+**Salvage**, for a Flawed verdict, is the honest constructive answer: the
+audience, dataset, distribution, relationship, skill or insight worth carrying
+into the next idea. Most failed ideas leave something behind, and naming it is
+more useful than a growth plan the founder should not follow.
+
+This gate is mechanical. A playbook attached to a Flawed verdict is sycophancy
+wearing a lab coat, and it is worse than silence because it reads as permission.
 
 ## Worked example
 
