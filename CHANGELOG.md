@@ -1,5 +1,74 @@
 # Changelog
 
+## v3.0.0 — 2026-08-23
+
+The prescriptive turn. v2 answered *should this be built?* and left the founder
+knowing what was wrong and not what to do on Monday. v3 adds the other half
+without becoming a cheerleader.
+
+### The constraint that shapes everything
+
+**This skill advises. It does not implement.** It writes no code, modifies no
+project, and creates no files inside a user's repository. It will plan a rebuild
+in prose; performing one is a separate request. A `Scope` section states this
+near the top of `SKILL.md`, `allowed-tools` stays research-only, and the word
+"build" is deliberately absent from the feature's naming — the output is a
+**Playbook**, the command is `playbook`, so it cannot be misread as "it will
+build it for me".
+
+### Added — the Uplift Plan
+
+Every brief, at every verdict, now ends with what would move the score. Because
+the rubric decomposes a verdict into six components, a weak component is a
+diagnosis with an address: intervention, ceiling if it succeeds, cost, and
+whether it is testable inside 90 days, each routed to the playbook file that
+explains it.
+
+Three rules keep it from becoming a fantasy generator. Ceilings are contingent
+and labelled so. Immovable components — a regulatory FAIL, a category-permanence
+FAIL, a founder-fit gap that is really domain access — are named as immovable
+rather than filled with an invented intervention. And if the uplifted total is
+still below Promising, the brief says so plainly.
+
+### Added — `references/playbook/`, gated by verdict
+
+`index.md` routes each weak component to one of five areas: `demand.md`,
+`pricing.md`, `distribution.md`, `moats.md`, `execution.md`. It also fixes the
+dependency order — demand before pricing before distribution before moats, with
+execution underneath — because choosing a channel before a price is choosing
+blind.
+
+`/business-idea-validator playbook SLUG` produces a sequenced plan, and
+**declines for Weak or Flawed verdicts.** A growth plan attached to a Flawed
+idea reads as permission. Flawed verdicts get **Salvage** instead: the audience,
+data, relationship or insight worth carrying to the next idea.
+
+### Added — fifteen sources, and the corrections they bring
+
+- **Camuffo et al.** (*Management Science* 2020; 759-firm replication, *SMJ*
+  2024) — randomized-trial support for the skill's whole method. Treated firms
+  terminate bad ideas sooner and pivot fewer but better times. "Terminate" is
+  now an explicitly supported recommendation rather than a failure of nerve.
+- **Eisenmann** (*HBR* 2021, 470 founders) — six failure patterns. The
+  pre-mortem now names which pattern the subject matches before writing the
+  obituary, which turns invention into recognition.
+- **Murphy et al.** (2005) — median hypothetical-to-actual ratio **1.35**,
+  replacing an unsourced "~40%" discount the skill had been asserting. The
+  sourced figure is *less* pessimistic than the invented one. The same paper is
+  why the interview bank now uses a choice-based price ladder.
+- **Gupta, Lehmann & Stuart; Fader & Hardie** — `ARPU ÷ churn` overestimates
+  LTV and is now treated as a ceiling, capped in scoring.
+- **Sarasvathy** — effectuation, carried deliberately as a *counter-lens*. This
+  skill is causal by construction, and the strongest published argument that
+  expert practice often runs the other way belongs inside it rather than outside.
+- Plus Kohavi/Tang/Xu, Kano et al., Edmondson, Rogers, Bass, Wood, Amit & Zott,
+  Kerr/Nanda/Rhodes-Kropf.
+
+Practitioner sources in the playbook — Ellis, Vohra, Helmer, Balfour, Moore,
+Roberge, Ramanujam & Tacke, Van Westendorp, Gabor-Granger — are listed in
+`academic-sources.md` in their own table, labelled as practitioner, so nothing
+in the playbook is dressed up as research.
+
 ## v2.1.0 — 2026-08-23
 
 ### Added

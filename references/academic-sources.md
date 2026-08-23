@@ -131,6 +131,193 @@ hypothesis statement template.
 
 ---
 
+## Does the Method Work? — Camuffo, Cordova, Gambardella & Spina
+
+> Camuffo, Arnaldo, Alessandro Cordova, Alfonso Gambardella, and Chiara Spina.
+> "A Scientific Approach to Entrepreneurial Decision Making: Evidence from a
+> Randomized Control Trial." *Management Science* 66, no. 2 (2020).
+>
+> Camuffo, Arnaldo, Alfonso Gambardella, et al. "A Scientific Approach to
+> Entrepreneurial Decision-Making: Large-Scale Replication and Extension."
+> *Strategic Management Journal* 45, no. 6 (2024): 1209–1237. Four RCTs, 759 firms.
+
+The 2020 trial randomized 116 Italian startups; treated founders were taught to
+formulate a theory, derive hypotheses and test them. The replication found
+treated firms **terminate bad ideas more readily** and run **fewer but better
+pivots**.
+
+**Drives:** `frameworks.md §12`, kill criteria, and `playbook/execution.md §1`.
+This is the empirical basis for the skill's entire method, and the reason
+"terminate" is treated as a real recommendation rather than a failure of nerve.
+
+---
+
+## Failure Patterns — Eisenmann
+
+> Eisenmann, Tom. "Why Start-ups Fail." *Harvard Business Review* 99, no. 3
+> (May–June 2021): 76–85. Also *Why Startups Fail: A New Roadmap for
+> Entrepreneurial Success*, Currency, 2021. Survey of 470 founders plus case
+> research.
+
+Tom Eisenmann is a professor at Harvard Business School.
+
+**Drives:** `frameworks.md §13` and the Pre-Mortem, which now names which of the
+six patterns the subject resembles before writing the obituary.
+
+---
+
+## Hypothetical Bias — Murphy, Allen, Stevens & Weatherhead
+
+> Murphy, James J., P. Geoffrey Allen, Thomas H. Stevens, and Darryl
+> Weatherhead. "A Meta-Analysis of Hypothetical Bias in Stated Preference
+> Valuation." *Environmental and Resource Economics* 30, no. 3 (2005): 313–325.
+
+83 observations from 28 studies. **Median hypothetical-to-actual ratio 1.35**,
+with severe positive skew. Choice-based elicitation reduces the bias.
+
+**Drives:** `interview-bank.md` and `playbook/demand.md §4`. It replaced an
+unsourced "~40%" discount that earlier versions asserted — and it is *less*
+pessimistic than the invented figure.
+
+**Carry the caveat:** this literature is largely environmental valuation, not
+software pricing. It anchors the discount; it does not settle it.
+
+---
+
+## Customer Lifetime Value — Gupta, Lehmann & Stuart; Fader & Hardie
+
+> Gupta, Sunil, Donald R. Lehmann, and Jennifer Ames Stuart. "Valuing
+> Customers." *Journal of Marketing Research* 41, no. 1 (2004): 7–18.
+>
+> Fader, Peter S., Bruce G. S. Hardie, and Ka Lok Lee. "Counting Your Customers
+> the Easy Way: An Alternative to the Pareto/NBD Model." *Marketing Science* 24,
+> no. 2 (2005).
+
+Gupta and Lehmann showed that computing CLV from an expected customer lifetime
+generally **overestimates** it. Fader and Hardie's buy-till-you-die models exist
+because the naive approach fails in non-contractual settings, where customers
+are heterogeneous and the surviving cohort churns progressively more slowly.
+
+**Drives:** `frameworks.md §5`. LTV taken from `ARPU ÷ churn` is now treated as
+a ceiling and capped in scoring.
+
+---
+
+## Effectuation — Sarasvathy
+
+> Sarasvathy, Saras D. "Causation and Effectuation: Toward a Theoretical Shift
+> from Economic Inevitability to Entrepreneurial Contingency." *Academy of
+> Management Review* 26, no. 2 (2001): 243–263.
+
+Expert entrepreneurs frequently reason from means already in hand rather than
+from goals. Causation rests on a logic of prediction; effectuation on a logic of
+control. Principles include affordable loss and stakeholder pre-commitment.
+
+**Drives:** `playbook/execution.md §5`, deliberately, as a **counter-lens.** This
+skill is causal by construction — it predicts, scores and validates. Sarasvathy
+is the strongest published argument that expert practice often works the other
+way, and the skill carries its own opposition rather than hiding it.
+
+---
+
+## Entrepreneurship as Experimentation — Kerr, Nanda & Rhodes-Kropf
+
+> Kerr, William R., Ramana Nanda, and Matthew Rhodes-Kropf. "Entrepreneurship as
+> Experimentation." *Journal of Economic Perspectives* 28, no. 3 (2014): 25–48.
+
+Probabilities of success are low, extremely skewed, and unknowable until an
+investment is made. All three authors were at Harvard Business School.
+
+**Drives:** `playbook/execution.md §1`, and the framing that value comes from
+cheap experiments and willingness to stop rather than from choosing correctly.
+
+---
+
+## Online Experimentation — Kohavi, Tang & Xu
+
+> Kohavi, Ron, Diane Tang, and Ya Xu. *Trustworthy Online Controlled
+> Experiments: A Practical Guide to A/B Testing.* Cambridge University Press,
+> 2020. From experimentation leaders at Microsoft, Google and LinkedIn.
+
+Overall Evaluation Criterion, peeking, multiple comparisons, novelty and primacy
+effects, statistical power.
+
+**Drives:** `playbook/execution.md §2`, including the advice **not** to A/B test
+at low traffic, where an underpowered test produces confident noise.
+
+---
+
+## Feature Prioritization — Kano, Seraku, Takahashi & Tsuji
+
+> Kano, Noriaki, Nobuhiku Seraku, Fumio Takahashi, and Shinichi Tsuji.
+> "Attractive Quality and Must-Be Quality." *Journal of the Japanese Society for
+> Quality Control* 14, no. 2 (1984): 39–48.
+
+Must-be, one-dimensional and attractive quality. Attractive attributes decay
+into must-be as a category matures.
+
+**Drives:** `playbook/execution.md §3`.
+
+---
+
+## Intelligent Failure — Edmondson
+
+> Edmondson, Amy C. *Right Kind of Wrong: The Science of Failing Well.* Atria,
+> 2023. Financial Times / Schroders Business Book of the Year 2023.
+
+Amy Edmondson is the Novartis Professor of Leadership and Management at Harvard
+Business School and the originator of the psychological-safety literature. Basic,
+complex and intelligent failure; intelligent failure requires new territory, a
+real goal, informed design, and risk sized to survive.
+
+**Drives:** `playbook/execution.md §4`.
+
+---
+
+## Diffusion of Innovations — Rogers; Bass
+
+> Rogers, Everett M. *Diffusion of Innovations.* Free Press, 1962 (5th ed. 2003).
+>
+> Bass, Frank M. "A New Product Growth for Model Consumer Durables."
+> *Management Science* 15, no. 5 (1969): 215–227. Named one of the ten
+> most-cited papers in the journal's first fifty years.
+
+Adoption driven by innovators, who act on the product's merits, and imitators,
+who act on others' adoption.
+
+**Drives:** `playbook/distribution.md §3`, and the warning that early-adopter
+enthusiasm is exactly the signal that produces Eisenmann's False Positive.
+
+---
+
+## Habit and Retention — Wood
+
+> Wood, Wendy. *Good Habits, Bad Habits: The Science of Making Positive Changes
+> That Stick.* Farrar, Straus and Giroux, 2019, summarizing three decades of
+> research. Wood is Provost Professor Emerita of Psychology and Business at USC.
+
+Roughly **43% of daily behaviour is habitual** — repeated in the same context,
+often while attention is elsewhere. Habits are cued by context, built by
+repetition and reward. Willpower is not the mechanism.
+
+**Drives:** `playbook/execution.md §7`, for products whose retention depends on
+repeated voluntary use.
+
+---
+
+## Business Model Design — Amit & Zott
+
+> Amit, Raphael, and Christoph Zott. "Value Creation in E-Business."
+> *Strategic Management Journal* 22 (2001): 493–520; and "Business Model Design:
+> An Activity System Perspective," *Long Range Planning* 43 (2010).
+
+The NICE design themes: novelty, lock-in, complementarities, efficiency.
+
+**Drives:** `playbook/pricing.md §4`, for packaging decided by design rather than
+by copying a competitor's tier table.
+
+---
+
 # What is NOT academic
 
 Stated plainly so nobody mistakes the provenance. These parts of the skill are
@@ -153,6 +340,26 @@ practitioner synthesis, and they are the parts most likely to be wrong.
   from accelerator writing. Useful as a prior, not as evidence.
 - **The archetypes and precedents** (`archetypes-2026.md`) are journalism and
   company disclosures, re-verified on a schedule.
+- **The uplift plan's point ceilings** (`scoring-rubric.md`) are estimates of how
+  far an intervention could move a component score. They are judgment applied to
+  a rubric that is itself judgment. Useful for prioritizing; not a forecast, and
+  the brief is required to label them contingent.
+
+## Practitioner sources in the playbook — named, and not research
+
+These earn their place by being what practitioners actually use. None is
+peer-reviewed, and briefs must not present them as if they were.
+
+| Source | Where | Status |
+| --- | --- | --- |
+| **Sean Ellis**, the 40% product-market-fit test (2009) | `playbook/demand.md §2` | Heuristic benchmarked across ~100 startups by its author. Real predictive history, no study. |
+| **Rahul Vohra / Superhuman**, the PMF engine | `playbook/demand.md §2` | A single company's worked example (22%→58%). The procedure is the value; the numbers are one case. |
+| **Ramanujam & Tacke**, *Monetizing Innovation* (2016) | `playbook/pricing.md` | Consultancy research. The "72% of new products miss financial targets" figure is Simon-Kucher's own survey, not independent. |
+| **Van Westendorp** (1976), **Gabor-Granger** | `playbook/pricing.md §2` | Established market-research instruments. Methods, not findings. |
+| **Hamilton Helmer**, *7 Powers* (2016) | `playbook/moats.md` | Practitioner-investor framework. Widely used, not empirically validated. |
+| **Brian Balfour**, four fits | `playbook/distribution.md §1` | Practitioner framework from operating experience. |
+| **Geoffrey Moore**, *Crossing the Chasm* (1991) | `playbook/distribution.md §3` | Practitioner treatment built on Rogers, who is the academic source. |
+| **Mark Roberge**, *The Sales Acceleration Formula* (2015) | `playbook/execution.md §6` | One company's scaling experience. The method transfers; the specific traits do not. |
 
 ## Citation discipline in briefs
 

@@ -49,7 +49,10 @@ Ordered by how much damage a stale value does to a verdict.
 7. **Base rates.** AI startup shutdown counts and cohort survival.
 8. **Distribution surfaces.** ChatGPT App Directory status and discovery
    mechanics; new assistant app stores; answer-engine share of software research.
-9. **Agentic commerce protocols.** Which of MCP / ACP / UCP / AP2 / x402 have
+9. **Playbook practitioner claims.** The 40% PMF threshold, the Simon-Kucher
+   72% figure, and the current pricing-instrument conventions. These are
+   practitioner numbers, not research, and they drift.
+10. **Agentic commerce protocols.** Which of MCP / ACP / UCP / AP2 / x402 have
    real merchant adoption, and whether any consolidated or died.
 
 ## Conflict notes

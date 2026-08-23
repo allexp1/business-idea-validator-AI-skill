@@ -52,6 +52,22 @@ Three lenses, simultaneously:
 
 A missing leg topples the stool. Say which leg is missing.
 
+## Scope — what this skill does and does not do
+
+It **evaluates** and it **advises**. It produces documents: a brief, a
+`verdict.json`, and on request a playbook. Nothing else.
+
+**It does not write code. It does not modify, refactor, scaffold or rebuild any
+project. It does not create or edit files inside the user's repositories.** It
+may describe a rebuild in prose, in detail, as advice. It may not perform one.
+
+Everything it writes goes to `~/.claude/business-idea-validator/history/` and
+`~/Desktop`, never into a codebase. If the user wants an idea implemented, that
+is a separate request they make explicitly, and it is a different task from this
+skill — say so and stop rather than reaching for the editor.
+
+This is why `allowed-tools` covers research only. Keep it that way.
+
 ## Reference map
 
 Read what the phase calls for; do not load everything up front.
@@ -66,6 +82,8 @@ Read what the phase calls for; do not load everything up front.
 | `references/archetypes-2026.md` | Phase 2 — precedents; Phase 3 — pivot options |
 | `references/scoring-rubric.md` | Phase 3 — computing the verdict |
 | `references/interview-bank.md` | Phase 4 — the 7-day plan (nascent) |
+| `references/playbook/index.md` | Phase 3.5 — routes each weak component to its intervention |
+| `references/playbook/*.md` | The `playbook` command — demand, pricing, distribution, moats, execution |
 | `references/brief-production.md` | Phase 5 — deliverables, `verdict.json`, compare mode |
 | `references/pdf-template.html` | Phase 5 — the visual blueprint |
 
@@ -184,7 +202,7 @@ In order. Do not skip; do not soften.
 7. **AI-Era Deep Check** — all 12 checks in `references/ai-era-checks.md`, each PASS / RISKY / FAIL with a one-sentence evidenced rationale. Check 11 (regulatory) is a **hard gate**.
 8. **Precedent cases** — 2–3 structurally similar named companies from `archetypes-2026.md`, confirmed by search, each with year, outcome and lesson. Never invent one; "no close precedent found" is itself a finding.
 9. **Archetype match** — which winning shape from `archetypes-2026.md` does this most resemble, and what is it missing? If none, say so.
-10. **Pre-mortem** — it is two years from today and this has failed. Write the obituary in one tight paragraph, naming the *specific* cause of death. Keep the past tense: Klein's technique works because prospective hindsight measurably improves failure identification (`academic-sources.md`), and a risk list gives that up. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
+10. **Pre-mortem** — it is two years from today and this has failed. First name which of Eisenmann's six failure patterns this most resembles (`frameworks.md §13`: Bad Bedfellows, False Start, False Positive, Speed Trap, Help Wanted, Cascading Miracles), then write the obituary *in the shape of that pattern*, in one tight paragraph, naming the *specific* cause of death. Keep the past tense: Klein's technique works because prospective hindsight measurably improves failure identification (`academic-sources.md`), and a risk list gives that up. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
 11. **Pre-parade** — one paragraph on what would have to be true for the 10× outcome. The counterweight that keeps the pre-mortem honest.
 
 ## Phase 3 — Compute the verdict
@@ -209,6 +227,35 @@ cite something structural the rubric cannot see — a timing window, an unfair
 distribution advantage, a named relationship. *"It feels better than the score"
 is not a reason.* Downward overrides are equally legitimate and often the most
 valuable thing the skill produces. An unstated override is a defect.
+
+## Phase 3.5 — The uplift plan
+
+The score says where the idea stands. This says what would move it.
+
+Read `references/scoring-rubric.md` (Uplift Plan) and `references/playbook/index.md`.
+For every component below its path's benchmark, give the intervention, the
+ceiling if it succeeds, the cost, and whether it is testable inside 90 days.
+Each intervention names the playbook file that explains it.
+
+Three rules that keep this honest:
+
+- **The ceiling is contingent.** Write "if all three land", never "will reach".
+- **Immovable components are named as immovable** — a regulatory FAIL, a
+  category-permanence FAIL, a founder-fit gap that is really domain access. One
+  sentence saying why, then stop. Do not invent an intervention to fill the row.
+- **If the uplifted total is still below Promising, say so plainly.** Showing
+  that the distance to viable is too far is a legitimate result.
+
+Then apply the gate:
+
+| Verdict | Uplift plan | Playbook | Salvage |
+| --- | --- | --- | --- |
+| Strong / Promising | yes | on request | no |
+| Weak | yes | no | no |
+| Flawed | yes | no | yes |
+
+**Salvage** names what is worth carrying into the next idea: the audience, the
+data, the relationship, the skill, the insight. Most dead ideas leave something.
 
 ## Phase 4 — Structure the output
 
@@ -240,6 +287,19 @@ Deliverable ladder — first available wins:
 Produce it automatically. Do not ask. The only exceptions: the user says "no
 PDF" / "just talk", or the turn is a follow-up on an evaluation already made.
 
+### The `playbook` command
+
+`/business-idea-validator playbook SLUG` reads the saved evaluation and produces
+a separate playbook document — sequenced interventions drawn from
+`references/playbook/`, in the order that file's dependency chain requires.
+
+**It is opt-in and gated.** If the saved verdict was Weak or Flawed, decline and
+explain why in a sentence: the interventions in the uplift plan are the work,
+and a growth plan would be premature. Offer to re-evaluate once the uplift work
+is done.
+
+It writes a document. It does not implement anything — see Scope above.
+
 Keep the chat closing to one or two lines — where the brief is, the label, and
 the single sharpest sentence. The brief is the artifact; the chat is ephemeral.
 
@@ -259,7 +319,9 @@ the single sharpest sentence. The brief is the artifact; the chat is ephemeral.
 - **Distribution over building.** Building stopped being the constraint; reaching people did not. Push hard on how.
 - **Respect the dreamer.** Acknowledge the courage it took to share it. Then tell the truth.
 - **Flag tarpits.** Marketplaces with no wedge, social with no wedge, consumer apps needing daily habit, thin wrappers in the labs' path, horizontal SMB SaaS, dev tools with no distribution, regulated plays without domain founders.
-- **Pre-mortem, pre-parade, kill criteria and steelman are all mandatory.**
+- **Pre-mortem, pre-parade, kill criteria, steelman and the uplift plan are all mandatory.**
+- **Terminating is a real recommendation, not a failure of nerve.** It is the outcome with the strongest empirical support here (`frameworks.md §12`). Do not soften it.
+- **Advise, never implement.** If asked to build the thing, decline and offer the playbook. See Scope.
 
 ## Tone
 

@@ -114,6 +114,41 @@ unverified.
 It applies the same rule to itself. A skill that demands citations from you and
 quotes undated numbers back has not earned the word "honest".
 
+## It also says how to make it work
+
+The verdict is only half of it. Because the score decomposes into six
+components, a weak component is a diagnosis with an address — so every brief
+ends with an **uplift plan**: what would move each weak score, by how much, what
+it costs, and whether it is testable inside 90 days.
+
+```
+Component          Now      Intervention                         Ceiling   Cost
+Demand evidence    6/20     20 choice-based WTP interviews        12–16    ~2 weeks
+Unit economics     4/15     Reverse income statement, reprice        10    ~3 days
+Moat               3/21     Counter-positioning (only power           8    1–2 quarters
+                            reachable at this stage)
+
+46 today. 68 if all three land. Roughly nine weeks.
+```
+
+Ceilings are contingent and labelled as such, immovable components are named
+rather than filled in, and if the uplifted total is still below Promising the
+brief says so.
+
+`references/playbook/` holds the interventions themselves — demand, pricing,
+distribution, moats, execution — and `/business-idea-validator playbook SLUG`
+turns them into a sequenced plan. **That command is gated:** a Weak or Flawed
+verdict does not get one, because a growth plan for an idea that scored Flawed
+reads as permission. Flawed verdicts get **Salvage** instead: what is worth
+carrying to the next idea.
+
+## It advises. It does not build.
+
+The skill writes documents. It does not write code, modify projects, or touch
+files in your repositories. It will plan a rebuild in detail; performing one is
+a separate request you make explicitly. `allowed-tools` is research-only for
+exactly this reason.
+
 ## Where the frameworks come from
 
 Full citations live in [`references/academic-sources.md`](references/academic-sources.md),
@@ -128,9 +163,22 @@ along with an explicit list of what is **not** academic.
 | Marketing Myopia | Levitt, *Harvard Business Review*, July–August 1960 |
 | The pre-mortem | Klein, *HBR* 2007, on Mitchell, Russo & Pennington's prospective-hindsight finding (1989) |
 | Bootstrapping evidence | Bhidé, *The Origin and Evolution of New Businesses* (2000) |
+| Does the method work | Camuffo et al., *Management Science* 2020; replicated across 759 firms, *SMJ* 2024 |
+| Failure patterns | Eisenmann, *HBR* 2021 — six patterns from a 470-founder survey |
+| Discounting stated intent | Murphy et al. (2005) — median hypothetical:actual ratio 1.35 |
+| Customer lifetime value | Gupta, Lehmann & Stuart (2004); Fader & Hardie (2005) |
+| Effectuation, as counter-lens | Sarasvathy, *AMR* 2001 |
+| Online experimentation | Kohavi, Tang & Xu (2020) |
+| Feature prioritization | Kano et al. (1984) |
+| Intelligent failure | Edmondson, *Right Kind of Wrong* (2023) |
+| Diffusion | Rogers (1962); Bass, *Management Science* (1969) |
+| Habit and retention | Wood (2019) |
 
-The 12 AI-era checks, the scoring rubric and its weights, and the capital paths
-are practitioner synthesis, not research. The bibliography says so in as many
+The playbook also leans on practitioner sources — Ellis's 40% test, Helmer's
+7 Powers, Balfour's four fits, Moore, Roberge — each labelled as practitioner in
+the bibliography rather than dressed up as research. The 12 AI-era checks, the
+scoring rubric and its weights, and the capital paths are practitioner synthesis
+too. The bibliography says so in as many
 words. A validator that overclaims its own provenance has no business auditing
 anyone else's.
 
@@ -176,6 +224,13 @@ SKILL.md                      the skill — process and rubric
 references/
   market-data.md              every figure, sourced and dated
   academic-sources.md         full citations, and what is not academic
+  playbook/                   how to make it work, indexed by weak component
+    index.md                  the router, the gate, and the dependency order
+    demand.md                 PMF measurement, WTP elicitation
+    pricing.md                price-before-product, instruments, packaging
+    distribution.md           four fits, growth loops, diffusion
+    moats.md                  7 Powers, and which are reachable at this stage
+    execution.md              experimentation, intelligent failure, prioritization
   ai-era-checks.md            the 12 checks
   scoring-rubric.md           how the verdict is computed
   capital-paths.md            bootstrap / venture / service-as-software

@@ -30,12 +30,14 @@ SKILL.md).
 14. **Pre-Parade** — what must be true for the 10× outcome
 15. What You'd Do Instead / Strategic Options — 2–3, each mapped to an archetype, plus "What NOT to do"
 16. **Kill Criteria** — 2–4 falsifiable, dated, numeric
-17. **What Would Change My Mind**
-18. 7-Day Validation Plan / 90-Day Strategic Plan
-19. Since Last Time — only when prior history exists
-20. One-Sentence Summary
-21. Verified Facts footer — 3–6 key facts with sources
-22. Sources — ≥3 hyperlinked
+17. **Uplift Plan** — every weak component: intervention, ceiling, cost, testable in 90d
+17b. **Salvage** — Flawed verdicts only. What to carry to the next idea.
+18. **What Would Change My Mind**
+19. 7-Day Validation Plan / 90-Day Strategic Plan
+20. Since Last Time — only when prior history exists
+21. One-Sentence Summary
+22. Verified Facts footer — 3–6 key facts with sources
+23. Sources — ≥3 hyperlinked
 
 ## 2. Deliverable ladder
 
@@ -162,3 +164,29 @@ history exists for the subject.
 
 One or two lines. Where the brief is, the verdict label, and the single sharpest
 sentence. Everything else lives in the brief.
+
+## 8. The playbook document
+
+Produced only by `/business-idea-validator playbook SLUG`, and only when the
+saved verdict was Strong or Promising. For Weak or Flawed, decline with a
+sentence explaining that the uplift interventions come first.
+
+**It is a document.** It plans work; it does not perform any. No code, no file
+changes in the user's projects. See the Scope section of `SKILL.md`.
+
+Structure:
+
+1. **Where this stands** — verdict, score, date of the evaluation it builds on
+2. **The sequence** — which interventions, in the dependency order from
+   `playbook/index.md` (demand → pricing → distribution → moats, with execution
+   underneath). Say why this order for this subject.
+3. **One section per intervention** — drawn from the relevant `playbook/` file:
+   what to do, what "done" looks like, the falsification condition, the cost
+4. **The first two weeks** — day-level, concrete, one person's worth of work
+5. **What not to do yet** — the tempting work that is premature. Usually moat
+   building before traction, or a second channel before the first one works.
+6. **Review point** — when to re-run the evaluation, and which component scores
+   should have moved by then
+
+Filename `~/Desktop/{Slug}-Playbook.pdf`, and into history alongside the brief.
+Same deliverable ladder: Artifact, then PDF via the script, then HTML.

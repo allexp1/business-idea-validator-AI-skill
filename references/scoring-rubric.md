@@ -183,6 +183,66 @@ months later, and it is what a founder should go and collect.
 
 ---
 
+## The Uplift Plan
+
+The rubric says where the idea stands. The uplift plan says **what would move
+it, by how much, and what that costs** — and it falls straight out of having
+component scores, because a weak component is a diagnosis with an address.
+
+Produce one in **every brief, at every verdict.** For each component scoring
+below its path's benchmark:
+
+| Component | Now | Intervention | Ceiling | Cost | Testable in 90d |
+| --- | --- | --- | --- | --- | --- |
+| Demand evidence | 6 / 20 | 20 choice-based WTP interviews, Gabor-Granger ladder (`playbook/demand.md`) | 12–16 | ~2 weeks, no cash | yes |
+| Unit economics | 4 / 15 | Reverse income statement, then reprice per outcome (`playbook/pricing.md`) | 10 | ~3 days | partly |
+| Moat | 3 / 21 | Counter-positioning is the only power reachable at this stage (`playbook/moats.md`) | 8 | 1–2 quarters | no |
+
+Close with the arithmetic: **"46 today. 68 if all three land. Roughly nine weeks
+of work."**
+
+Each intervention must name the playbook file that explains it. The uplift plan
+is a router, not a substitute for the playbook.
+
+### Three rules, without which this becomes a fantasy generator
+
+**1. The ceiling is contingent, and must be labelled so.** It is what the
+component scores *if the intervention succeeds*. It is not a forecast, and the
+brief must not present the uplifted total as a projection. Write "if all three
+land", never "will reach".
+
+**2. Immovable components are named, not filled in.** Some scores do not move:
+
+- a **regulatory FAIL** where the model requires what a regulator has ruled against
+- a **category-permanence FAIL** for a bridge product
+- **founder fit** where the gap is domain access rather than skill, which is
+  measured in years
+
+For these the row reads *immovable*, with one sentence saying why. Inventing an
+intervention to avoid an empty row is the single easiest way to make this
+section worthless.
+
+**3. If the uplifted total still lands below Promising, say so in plain words.**
+"Even if all of this works, it is still a Weak idea" is a legitimate and
+frequently correct output. The uplift plan exists to show the distance to
+viable, which sometimes means showing that the distance is too far.
+
+### What each verdict gets
+
+| Verdict | Uplift plan | Playbook | Salvage |
+| --- | --- | --- | --- |
+| **Strong / Promising** | yes | yes, on request via the `playbook` command | no |
+| **Weak** | yes | **no** — the interventions *are* the work | no |
+| **Flawed** | yes | **no** | **yes** |
+
+**Salvage**, for a Flawed verdict, is the honest constructive answer: the
+audience, dataset, distribution, relationship, skill or insight worth carrying
+into the next idea. Most failed ideas leave something behind, and naming it is
+more useful than a growth plan the founder should not follow.
+
+This gate is mechanical. A playbook attached to a Flawed verdict is sycophancy
+wearing a lab coat, and it is worse than silence because it reads as permission.
+
 ## Worked example
 
 Bootstrap-path scheduling and invoicing tool for independent music teachers.

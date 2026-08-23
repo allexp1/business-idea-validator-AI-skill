@@ -28,7 +28,9 @@
    14.  Pre-Parade         (accent callout — what must be true for the 10x)
    15.  What You'd Do      (2-3 pivot/bet blocks + "What NOT to do" callout)
    16.  Kill Criteria      (2-4 falsifiable, dated, numeric stop conditions)
-   17.  What Would Change My Mind (2 up / 1 down)
+   17.  Uplift Plan       (weak components: intervention, ceiling, cost)
+   17b. Salvage           (OPTIONAL — Flawed verdicts only)
+   18.  What Would Change My Mind (2 up / 1 down)
    18.  7-Day / 90-Day Plan (numbered list, embed interview questions for NASCENT)
    19.  Since Last Time    (OPTIONAL — only when prior history exists for the slug)
    20.  One-Sentence Sum.  (kicker)
@@ -246,6 +248,33 @@
   .since-last h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
   .since-last .delta-up { color: var(--ok); font-weight: 700; }
   .since-last .delta-down { color: var(--warn); font-weight: 700; }
+
+  /* Uplift plan — what would move the score */
+  table.uplift { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; font-size: 9pt; }
+  table.uplift thead th {
+    font-size: 7.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    text-align: left; padding: 2mm 2.5mm; background: #fafbfc; border-bottom: 1px solid var(--line);
+  }
+  table.uplift td { padding: 2.5mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.uplift td:first-child { font-weight: 600; }
+  table.uplift .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.uplift tr.immovable td { color: var(--muted); }
+  table.uplift tr.immovable td:first-child { font-weight: 600; color: var(--warn); }
+  .uplift-total {
+    background: var(--accent-soft); border-radius: 3px; padding: 3.5mm 4.5mm;
+    margin: 0 0 4mm; font-size: 10pt; break-inside: avoid;
+  }
+  .uplift-total strong { color: var(--accent); }
+  .uplift-caveat { font-size: 8.8pt; color: var(--muted); margin: 0 0 4mm; }
+
+  /* Salvage — Flawed verdicts only */
+  .salvage {
+    border: 1px solid var(--line); border-left: 3px solid var(--caution);
+    border-radius: 3px; padding: 4mm 5mm; margin: 3mm 0 4mm; break-inside: avoid;
+  }
+  .salvage h3 { margin: 0 0 2mm; font-size: 10pt; text-transform: uppercase; letter-spacing: .08em; color: var(--caution); }
+  .salvage ul { margin: 0; padding-left: 5mm; font-size: 9.5pt; }
+  .salvage li { margin-bottom: 1.5mm; }
 
   /* Verified facts footer — shows zero-trust audit of user-provided claims */
   .verified-facts {
@@ -608,6 +637,48 @@
     <li>{{KILL1}}</li>
     <li>{{KILL2}}</li>
     <li>{{KILL3}}</li>
+  </ul>
+</div>
+
+<!-- CONTENT: UPLIFT PLAN — every component below its path benchmark. The ceiling
+     is CONTINGENT ("if this lands"), never a forecast. Immovable components get
+     class="immovable", one reason, and no invented intervention. -->
+<h2>Uplift Plan — what would move the score</h2>
+<table class="uplift">
+  <thead>
+    <tr><th>Component</th><th class="num">Now</th><th>Intervention</th><th class="num">Ceiling</th><th>Cost</th><th class="num">90d?</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{UPLIFT1_COMPONENT}}</td><td class="num">{{UPLIFT1_NOW}}</td>
+      <td>{{UPLIFT1_INTERVENTION}}</td><td class="num">{{UPLIFT1_CEILING}}</td>
+      <td>{{UPLIFT1_COST}}</td><td class="num">{{UPLIFT1_TESTABLE}}</td>
+    </tr>
+    <tr>
+      <td>{{UPLIFT2_COMPONENT}}</td><td class="num">{{UPLIFT2_NOW}}</td>
+      <td>{{UPLIFT2_INTERVENTION}}</td><td class="num">{{UPLIFT2_CEILING}}</td>
+      <td>{{UPLIFT2_COST}}</td><td class="num">{{UPLIFT2_TESTABLE}}</td>
+    </tr>
+    <tr>
+      <td>{{UPLIFT3_COMPONENT}}</td><td class="num">{{UPLIFT3_NOW}}</td>
+      <td>{{UPLIFT3_INTERVENTION}}</td><td class="num">{{UPLIFT3_CEILING}}</td>
+      <td>{{UPLIFT3_COST}}</td><td class="num">{{UPLIFT3_TESTABLE}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="uplift-total">
+  <strong>{{TOTAL_SCORE}} today. {{UPLIFTED_TOTAL}} if all of it lands.</strong> {{UPLIFT_EFFORT_SUMMARY}}
+</div>
+<p class="uplift-caveat">{{UPLIFT_CAVEAT}}</p>
+
+<!-- CONTENT: SALVAGE — Flawed verdicts ONLY. Remove this block entirely
+     otherwise. What is worth carrying into the next idea. -->
+<div class="salvage">
+  <h3>Salvage — what to keep</h3>
+  <ul>
+    <li>{{SALVAGE1}}</li>
+    <li>{{SALVAGE2}}</li>
+    <li>{{SALVAGE3}}</li>
   </ul>
 </div>
 

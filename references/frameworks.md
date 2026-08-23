@@ -24,6 +24,8 @@ This reference contains the detailed evaluation frameworks used by the Business 
 9. Discovery-Driven Planning — McGrath & MacMillan
 10. Founder and Team Research — Wasserman
 11. Marketing Myopia — Levitt
+12. Does This Discipline Work? — Camuffo et al.
+13. Failure Patterns — Eisenmann
 
 ---
 
@@ -201,7 +203,18 @@ A score under 5/21 means the moat is dangerously shallow.
 
 Classic rows:
 - **Customer Acquisition Cost (CAC)** — cost to get one customer. Always name the basis.
-- **Lifetime Value (LTV)** — revenue from one customer over their life. Build it on a *measured* retention curve, not a hoped-for one.
+- **Lifetime Value (LTV)** — revenue from one customer over their life. Build it
+  on a *measured* retention curve, not a hoped-for one. **Do not accept
+  `ARPU ÷ churn`.** That formula assumes a constant churn rate across a
+  homogeneous population, and both assumptions fail in practice: customers are
+  heterogeneous, the weakest leave first, and the surviving cohort churns more
+  slowly every month. Gupta and Lehmann showed that using an expected customer
+  lifetime this way generally *overestimates* CLV, sometimes substantially, and
+  Fader and Hardie's work on non-contractual settings exists precisely because
+  the naive formula is wrong there. Practical rule for a brief: if LTV came from
+  `ARPU ÷ churn`, say so, treat it as a ceiling rather than an estimate, and
+  score the unit-economics component no higher than "assumptions unverified".
+  See `academic-sources.md`.
 - **LTV:CAC** — 3:1 is the floor, not the target. Below 2:1 is a red flag.
 - **Payback period** — path-dependent. Bootstrap has no runway to amortize; venture can wait.
 - **Gross margin** — under 50% for software is a concern. See the AI rows below before believing any margin figure.
@@ -446,3 +459,58 @@ sharpest tool available for check 12 (category permanence). A product defined by
 its own mechanism is the classic bridge-tool tell.
 
 ---
+
+---
+
+## 12. Does This Discipline Actually Work? (Camuffo et al.)
+
+> Camuffo, Cordova, Gambardella & Spina, *Management Science*, 2020; replicated
+> and extended in *Strategic Management Journal*, 2024.
+
+Worth stating plainly, because this skill's entire premise rests on it: the
+claim that treating a business idea as a set of testable hypotheses produces
+better outcomes is **not just plausible, it has randomized-trial support.**
+
+The 2020 study randomized 116 Italian startups; the treated group was taught to
+formulate a theory, derive hypotheses, and test them. The 2024 replication
+extended to 759 firms across four RCTs and found treated firms **terminate bad
+ideas more readily** and run **fewer but better-considered pivots** than
+controls, which ran either none or repeated ones.
+
+Two consequences for how this skill behaves:
+
+- **Terminating is a success outcome, not a failure of nerve.** When the
+  evidence says stop, saying so is the intervention with the best empirical
+  support in this entire file. Do not soften it.
+- **Kill criteria are the mechanism, not a flourish.** They are how a founder
+  gets the "terminate sooner" benefit. A brief without falsifiable stop
+  conditions has withheld the most useful thing the research supports.
+
+## 13. Failure Patterns (Eisenmann)
+
+> Eisenmann, Tom. "Why Start-ups Fail." *Harvard Business Review* 99, no. 3
+> (May–June 2021). Also *Why Startups Fail*, Currency, 2021. Based on a survey
+> of 470 founders, two dozen case studies, and HBS research.
+
+The pre-mortem asks what killed this business. Eisenmann supplies the taxonomy,
+which turns an imaginative exercise into pattern-matching against six recurring
+shapes:
+
+| Pattern | The shape |
+| --- | --- |
+| **Bad Bedfellows** | The wrong co-founders, investors, or early hires. The venture is sound; the people around it are not. |
+| **False Start** | Building before validating. The team skipped customer discovery because they were sure, and shipped something nobody asked for. |
+| **False Positive** | Early adopters loved it and the mainstream did not. The founder read enthusiasm from an unrepresentative group as product-market fit. |
+| **Speed Trap** | Real growth, then growth outruns the economics. Scaling on acquisition channels that saturate or cost more over time. |
+| **Help Wanted** | The market was there but the team could not hire or fund the next stage. Talent or capital ran out before the opportunity did. |
+| **Cascading Miracles** | Success required several unlikely things to all come true in sequence. Each was plausible alone; the conjunction was not. |
+
+**How to use it in the pre-mortem:** name the pattern the subject most resembles,
+then write the obituary *in the shape of that pattern*. "This is a False
+Positive story" tells the founder more than a bespoke paragraph, because it
+tells them which of their current signals are the misleading ones.
+
+Two patterns deserve extra attention in this era. **False Positive** is the
+default failure of AI products, which demo brilliantly to enthusiasts and
+disappoint everyone else. **Cascading Miracles** is the tell for any plan whose
+pitch contains several sequential "and then" steps.

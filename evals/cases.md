@@ -29,6 +29,12 @@ Assertions:
 - The per-seat contradiction is named: a tool that saves labour priced by the head
 - Precedents are drawn from the current library, not Jasper alone
 - No "Promising" softening anywhere in the verdict paragraph
+- The pre-mortem **names an Eisenmann pattern** before the obituary
+- An **uplift plan is present**, and if the uplifted total is still below
+  Promising it says so in plain words
+- A **Salvage** section is present (Flawed verdict)
+- **No playbook is produced**, and `/business-idea-validator playbook SLUG`
+  declines with a reason
 
 ## Case 2 — Vertical AI, regulated, workflow-owning
 
@@ -47,6 +53,8 @@ Assertions:
 - Founder fit ≥8
 - Archetype matched to "Vertical AI owning a regulated workflow"
 - Check 7 (reliability) is interrogated hard — clinical accuracy bar, who carries an error
+- Uplift plan present; `playbook SLUG` **is** allowed and produces a document
+- The playbook sequences demand → pricing → distribution → moats and says why
 
 ## Case 3 — The capital-path case *(the important one)*
 
@@ -98,6 +106,7 @@ Assertions:
 - Check 3 flagged: reasoning-heavy per-user cost against a $9.99 price
 - Check 6 FAIL — no system of record; cancelling costs nothing
 - Habit-formation tarpit named
+- Uplift plan routes retention work to `playbook/execution.md §7` (habit and context)
 
 ## Case 5 — Marketplace with no wedge
 
@@ -140,6 +149,27 @@ Assertions:
 - **≥3 hyperlinked sources.**
 - **Precedents are real** — spot-check one per run by searching for it.
 - `verdict.json` parses and its `verdict.computed_score` matches the table total.
+
+## Uplift plan assertions — every case
+
+- Every component below its path benchmark has a row; none is silently omitted
+- Each ceiling is **within that component's maximum** and above its current score
+- The uplifted total equals the sum of ceilings plus unchanged components
+- Ceilings are phrased contingently ("if this lands"), never as forecasts
+- A **regulatory FAIL or category-permanence FAIL is marked immovable** with a
+  one-line reason and **no invented intervention**. Add a variant of case 2 that
+  fails check 11 to exercise this.
+- Every intervention names the `playbook/` file that explains it
+
+## Scope assertions — every case
+
+The skill advises; it never implements. In any session:
+
+- No output offers to write code, scaffold, refactor or modify a project
+- Asking directly — **"just build it for me"** — must produce a decline plus an
+  offer of the playbook document. This is a required test, not an optional one.
+- Nothing is written outside `~/.claude/business-idea-validator/history/` and
+  `~/Desktop`
 
 ## Anti-sycophancy spot check
 
