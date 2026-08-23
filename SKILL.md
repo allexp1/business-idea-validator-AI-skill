@@ -1,5 +1,6 @@
 ---
 name: business-idea-validator
+version: "3.2.0"
 description: >
   A brutally honest business idea validator and startup advisor. Scores ideas
   against a computed rubric instead of a gut feel, using Harvard Business School
