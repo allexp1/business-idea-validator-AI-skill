@@ -114,6 +114,26 @@ unverified.
 It applies the same rule to itself. A skill that demands citations from you and
 quotes undated numbers back has not earned the word "honest".
 
+## Where the frameworks come from
+
+Full citations live in [`references/academic-sources.md`](references/academic-sources.md),
+along with an explicit list of what is **not** academic.
+
+| Framework | Source |
+| --- | --- |
+| Jobs to Be Done | Christensen, *The Innovator's Dilemma* (1997); *Competing Against Luck* (2016) |
+| Five Forces | Porter, *Harvard Business Review*, 1979; reaffirmed 2008 |
+| Discovery-Driven Planning | McGrath & MacMillan, *Harvard Business Review*, July–August 1995 |
+| Founder and team research | Wasserman, *The Founder's Dilemmas* (2012), n≈10,000 founders |
+| Marketing Myopia | Levitt, *Harvard Business Review*, July–August 1960 |
+| The pre-mortem | Klein, *HBR* 2007, on Mitchell, Russo & Pennington's prospective-hindsight finding (1989) |
+| Bootstrapping evidence | Bhidé, *The Origin and Evolution of New Businesses* (2000) |
+
+The 12 AI-era checks, the scoring rubric and its weights, and the capital paths
+are practitioner synthesis, not research. The bibliography says so in as many
+words. A validator that overclaims its own provenance has no business auditing
+anyone else's.
+
 ## Install
 
 ```bash
@@ -155,6 +175,7 @@ came from the business or from the market.
 SKILL.md                      the skill — process and rubric
 references/
   market-data.md              every figure, sourced and dated
+  academic-sources.md         full citations, and what is not academic
   ai-era-checks.md            the 12 checks
   scoring-rubric.md           how the verdict is computed
   capital-paths.md            bootstrap / venture / service-as-software

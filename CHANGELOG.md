@@ -18,6 +18,18 @@
 - **Marketing Myopia** (Levitt, HBR 1960) as `frameworks.md §11`. Pairs with
   Jobs to Be Done and sharpens check 12: a product defined by its own mechanism
   rather than the need it serves is the classic bridge-tool tell.
+- **`references/academic-sources.md`** — a full bibliography. Every published
+  framework the skill uses, with a proper citation and the component it drives,
+  plus citation discipline for briefs. It also states plainly **what is not
+  academic**: the 12 AI-era checks are practitioner synthesis, and the scoring
+  rubric's weights and bands are a calibrated judgment rather than an
+  empirically validated instrument. A validator that overclaims its own
+  provenance has no business auditing anyone else's.
+- **The pre-mortem now has its attribution.** Klein (*HBR*, 2007), resting on
+  Mitchell, Russo and Pennington's 1989 finding that prospective hindsight
+  improves failure identification by about 30%. `SKILL.md` now explains that the
+  past tense is the mechanism, not a stylistic choice, so it is not quietly
+  swapped for a risk list.
 - **Bhidé's Inc. 500 evidence** in `capital-paths.md`: ~5% had venture capital,
   the typical firm started under $30,000, 41% had no business plan. The
   bootstrap path is the normal way substantial companies begin, and is scored as

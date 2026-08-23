@@ -59,6 +59,7 @@ Read what the phase calls for; do not load everything up front.
 | File | When |
 | --- | --- |
 | `references/market-data.md` | **Every evaluation.** All figures live here, with verified dates. |
+| `references/academic-sources.md` | Full citations for every published framework, and an honest list of what is *not* academic |
 | `references/capital-paths.md` | Phase 0 — choosing the yardstick |
 | `references/frameworks.md` | Phase 2 — JTBD, market validation, moats, tarpits, discovery-driven planning, founder research |
 | `references/ai-era-checks.md` | Phase 2 — the 12 checks |
@@ -183,7 +184,7 @@ In order. Do not skip; do not soften.
 7. **AI-Era Deep Check** — all 12 checks in `references/ai-era-checks.md`, each PASS / RISKY / FAIL with a one-sentence evidenced rationale. Check 11 (regulatory) is a **hard gate**.
 8. **Precedent cases** — 2–3 structurally similar named companies from `archetypes-2026.md`, confirmed by search, each with year, outcome and lesson. Never invent one; "no close precedent found" is itself a finding.
 9. **Archetype match** — which winning shape from `archetypes-2026.md` does this most resemble, and what is it missing? If none, say so.
-10. **Pre-mortem** — it is two years from today and this has failed. Write the obituary in one tight paragraph, naming the *specific* cause of death. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
+10. **Pre-mortem** — it is two years from today and this has failed. Write the obituary in one tight paragraph, naming the *specific* cause of death. Keep the past tense: Klein's technique works because prospective hindsight measurably improves failure identification (`academic-sources.md`), and a risk list gives that up. Not "the market was tough" — "spent 18 months on horizontal breadth while the category went native; couldn't raise on mid-tier retention; ran out of cash."
 11. **Pre-parade** — one paragraph on what would have to be true for the 10× outcome. The counterweight that keeps the pre-mortem honest.
 
 ## Phase 3 — Compute the verdict
