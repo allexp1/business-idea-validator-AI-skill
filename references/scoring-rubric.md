@@ -38,6 +38,12 @@ and subtractive, so the range is −10 to 100.
 Show the raw score, the maximum and the weighted result in the brief, so the
 reader can recompute every line.
 
+**Round each component to one decimal, then add those — do not print an
+unrounded total.** A reader who adds the visible column must get the number at
+the bottom. A total that is 0.1 out because it was computed before rounding
+reads as an arithmetic error and undermines the one thing this table exists to
+do. This has gone wrong in produced briefs twice.
+
 **Why the weights move.** On the bootstrap path, evidence that someone will pay
 and evidence that this founder can reach them are almost the whole question —
 so demand and fit carry half the total, and moat carries five points. On the
