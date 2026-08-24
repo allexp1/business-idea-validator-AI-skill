@@ -141,7 +141,7 @@ Assertions:
 
 - **No figure appears without a verified date.** Scan the brief for `%`, `$`, `×`
   and ARR/MRR figures; each must carry a date or an explicit "assumption:" basis.
-- **The score table is present** and the six components sum to the printed total.
+- **The score table is present** and the six components, *as displayed*, sum to the printed total. Add the visible column; a 0.1 discrepancy from pre-rounding arithmetic is a regression and has occurred twice.
 - **The printed label matches the computed label**, or an `Override:` line
   explains the one-band move.
 - **Steelman, pre-mortem, pre-parade, kill criteria and what-would-change-my-mind
