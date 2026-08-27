@@ -1,6 +1,8 @@
 # Market Data — dated baseline
 
-**Baseline date: 2026-08-22.** Every figure below carries a `verified:` date and a source.
+**Baseline date: 2026-08-22; §5 and §11 extended 2026-08-27.** Every figure below
+carries its own `verified:` date and a source — read the per-figure date, not the
+header.
 
 ## How to use this file
 
@@ -104,6 +106,20 @@ now wrong in the direction that kills companies.
   years ago), **120%+ NRR** (top performers 140–170%), **60%+ gross margin**,
   **burn multiple <1.5×**. Median A round $13–15M, up from $8–10M. — verified
   2026-08-22 <https://valueaddvc.com/blog/what-series-a-investors-are-looking-for-in-ai-startups-in-2026>
+- **Seed bar for AI startups (new):** hot AI seed rounds cluster at **~$10M on
+  $40–45M post**, with investors expecting an MVP, early enterprise customers and
+  **$2M+ revenue at seed**; six-figure signed contracts are described as
+  table stakes. Market-wide median seed is **$4.5–5.5M**. A 2024 AI seed of $5M
+  on $25M post is now considered low. — verified 2026-08-27
+  <https://techcrunch.com/2026/03/31/its-not-your-imagination-ai-seed-startups-are-commanding-higher-valuations/>
+- **Seed→Series A graduation: 15.4%** for the 2022 seed cohort, against **30.6%**
+  for the 2018 cohort. **Use this as the reference class for any venture-path
+  idea** — the outside view on "we'll raise the A" is that five in six do not.
+  — verified 2026-08-27 <https://valueaddvc.com/blog/state-of-vc-funding-2026>
+  *Note: this source also reports a Series A revenue bar of $1.5M+ ARR, which is
+  lower than the ~$3.5M figure above. Both are 2026 and both are venture-adjacent
+  self-reports; treat $1.5M as the floor for getting a meeting and ~$3.5M as the
+  bar for a competitive round, and say which one you are using.*
 - **CAC payback:** ~20 months median for private SaaS; LTV:CAC ≥3:1 is the
   floor, not the target. — verified 2026-08-22
   <https://www.crv.com/content/key-performance-indicators>
@@ -192,3 +208,40 @@ Best understanding as of 2026-08-22:
 - **Trigger list.** If the subject touches hiring, credit, insurance, health,
   education, biometrics, minors, or synthetic media, regulation is a *gate* on
   the verdict, not a footnote.
+
+## 11. Service-as-software / rollup operating targets
+
+The services capital path had no numbers until now. All figures below are
+**[E] industry aggregates** from M&A advisories and managed-services benchmarks
+— directionally consistent across several independent sources, none audited.
+Quote them as estimates.
+
+- **Operating benchmarks:** average MSP EBITDA margin **18.4%** (up from 14.7%
+  in 2022); average gross margin **52%**; median ARR **$2.8M**; recurring revenue
+  mix **74%**. Best-in-class EBITDA is 25–35%; many operate at 8–12% or at a loss.
+  — verified 2026-08-27
+- **Retention:** average annual client churn **8.4%**; under 5% correlates with
+  co-managed IT and vCIO services. Acquirers expect **85–90%+** retention, and
+  >95% logo retention is a premium factor. — verified 2026-08-27
+- **Deal market:** **466 North American MSP deals in 2025, +20% YoY**, with
+  private equity involved in **~69–72%**. Roughly a third of owners plan an exit
+  within five years. — verified 2026-08-27
+- **Multiples are strongly size-gated:** under $2M ARR **4–6x** EBITDA; $5–15M
+  **7–9x**; $15–40M **8–11x**; platform-scale **11–15x**. Recurring revenue is
+  valued at 6–8x against project revenue at 3.5–5x. — verified 2026-08-27
+- **The most common deal-killer is client concentration above 50%** (−2 to −3x).
+  Founder dependence and time-and-materials revenue above 40% are the next two.
+  **Score these in check 7 and in founder fit** — they are the operational risks
+  that decide whether the book is sellable at all. — verified 2026-08-27
+- **What is growing vs squeezed:** growing — managed security, managed cloud,
+  OT/IoT, compliance services (fastest new category), fractional security
+  leadership, AI governance and deployment. Squeezed — basic helpdesk, patching,
+  hourly time-and-materials, hardware resale. Labour-heavy operators face
+  multiple compression. — verified 2026-08-27
+- **The barbell applies here too:** execution work is deflating (a Harvard/
+  Imperial study of ~2M freelance postings found writing −30.4%, software
+  development −20.6%, graphic design −17.0% post-ChatGPT) while accountability
+  work inflates (compliance consultants at $250–300/hr; non-retainer incident
+  response at $800–1,500/hr against $175–400 for retainer holders).
+  **Premium attaches to risk, deadline and accountability — not to build
+  effort.** — verified 2026-08-27

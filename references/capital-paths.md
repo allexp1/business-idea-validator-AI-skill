@@ -82,7 +82,12 @@ venture plan with less money.
 
 ### Venture
 - TAM/SAM/SOM as written in `frameworks.md §2`.
-- Score against the current Series A bar, not the bar the founder remembers.
+- Score against the current Series A **and seed** bars in `market-data.md §5`,
+  not the bar the founder remembers. The seed bar moved most: investors now
+  expect revenue at seed, not just a team and a demo.
+- **Use the seed→A graduation rate as the reference class** for the outside-view
+  step (`frameworks.md §14`). Five in six seed companies do not reach an A, and
+  a plan that assumes the A is a formality has already failed the base rate.
 - **Add a financing-risk paragraph.** Capital is abundant in aggregate and
   extremely concentrated in practice. If the plan needs a Series B in 2027–28,
   price the correction risk explicitly rather than assuming the window stays open.
@@ -99,6 +104,16 @@ venture plan with less money.
 - This is the fastest-growing 2026 category, which also means the most
   competition for deals. Ask what proprietary deal flow they have; "we'll find
   targets" is not an answer.
+- **Score against the operating targets in `market-data.md §11`** — EBITDA and
+  gross margin, churn, and the size-gated multiple the book would actually fetch.
+  A plan that assumes platform-scale multiples on a sub-$2M-ARR book is off by
+  roughly a factor of three, and that error usually carries the whole thesis.
+- **Client concentration above 50% is the single most common deal-killer.**
+  Check it early; it caps the exit regardless of how well the automation works.
+- **Judgment work inflates, execution work deflates** (`market-data.md §11`). A
+  rollup thesis that rests on doing the same work faster is betting on the
+  deflating side; one that rests on carrying risk, meeting deadlines or
+  satisfying auditors is not. Ask which one this is.
 
 ---
 
